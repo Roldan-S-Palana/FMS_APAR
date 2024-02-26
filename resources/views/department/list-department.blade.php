@@ -67,9 +67,10 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>HOD</th>
+                                    <th>Manager</th>
                                     <th>Started Year</th>
-                                    <th>No of Students</th>
+                                    <th>No of Employee</th>
+                                    <th>Submition</th>
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
@@ -143,8 +144,8 @@
                         name: 'department_start_date',
                     },
                     {
-                        data: 'no_of_students',
-                        name: 'no_of_students',
+                        data: 'no_of_employee',
+                        name: 'no_of_employee',
                     },
                     {
                         data: 'modify',

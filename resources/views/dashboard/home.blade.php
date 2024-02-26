@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-6">
                                 <ul class="chart-list-out">
-                                    <li><span class="circle-blue"></span>Teacher</li>
+                                    <li><span class="circle-blue"></span>Vendor</li>
                                     <li><span class="circle-green"></span>Client</li>
                                     <li class="star-menus"><a href="javascript:;"><i
                                                 class="fas fa-ellipsis-v"></i></a></li>
@@ -117,8 +117,8 @@
                             </div>
                             <div class="col-6">
                                 <ul class="chart-list-out">
-                                    <li><span class="circle-blue"></span>Girls</li>
-                                    <li><span class="circle-green"></span>Boys</li>
+                                    <li><span class="circle-blue"></span>Male</li>
+                                    <li><span class="circle-green"></span>Female</li>
                                     <li class="star-menus"><a href="javascript:;"><i
                                                 class="fas fa-ellipsis-v"></i></a></li>
                                 </ul>
@@ -137,7 +137,7 @@
 
                 <div class="card flex-fill student-space comman-shadow">
                     <div class="card-header d-flex align-items-center">
-                        <h5 class="card-title">Star Clients</h5>
+                        <h5 class="card-title">Top Clients</h5>
                         <ul class="chart-list-out student-ellips">
                             <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a>
                             </li>
@@ -163,7 +163,7 @@
                                         </td>
                                         <td class="text-nowrap">
                                             <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
+                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Top Client"> John Doe
                                             </a>
                                         </td>
                                         <td class="text-center">1185</td>
@@ -178,7 +178,7 @@
                                         </td>
                                         <td class="text-nowrap">
                                             <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
+                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Top Client"> John Doe
                                             </a>
                                         </td>
                                         <td class="text-center">1195</td>
@@ -193,7 +193,7 @@
                                         </td>
                                         <td class="text-nowrap">
                                             <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
+                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Top Client"> John Doe
                                             </a>
                                         </td>
                                         <td class="text-center">1196</td>
@@ -208,7 +208,7 @@
                                         </td>
                                         <td class="text-nowrap">
                                             <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
+                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Top Client"> John Doe
                                             </a>
                                         </td>
                                         <td class="text-center">1187</td>
@@ -223,7 +223,7 @@
                                         </td>
                                         <td class="text-nowrap">
                                             <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
+                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Top Client"> John Doe
                                             </a>
                                         </td>
                                         <td class="text-center">1185</td>
@@ -256,8 +256,8 @@
                                     <img src="assets/img/icons/award-icon-01.svg" alt="Award">
                                 </div>
                                 <div class="award-list-outs">
-                                    <h4>1st place in "Chess”</h4>
-                                    <h5>John Doe won 1st place in "Chess"</h5>
+                                    <h4>Top Spender</h4>
+                                    <h5>John Doe won Top Spender</h5>
                                 </div>
                                 <div class="award-time-list">
                                     <span>1 Day ago</span>

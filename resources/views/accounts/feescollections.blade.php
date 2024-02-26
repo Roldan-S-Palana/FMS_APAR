@@ -56,7 +56,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -74,7 +74,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -92,7 +92,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -110,7 +110,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -128,7 +128,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -146,7 +146,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -164,7 +164,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -182,7 +182,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -200,7 +200,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -218,7 +218,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>
@@ -236,7 +236,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a class="avatar avatar-sm me-2">
-                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.jpg') }}"alt="User Image">
+                                                        <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
                                                     <a>Soeng Souy</a>
                                                 </h2>

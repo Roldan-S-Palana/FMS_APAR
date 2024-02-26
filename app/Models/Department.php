@@ -13,7 +13,7 @@ class Department extends Model
         'department_name',
         'head_of_department',
         'department_start_date',
-        'no_of_students',
+        'no_of_employee',
     ];
 
     protected static function boot()

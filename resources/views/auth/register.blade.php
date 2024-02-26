@@ -18,7 +18,7 @@
                     <span class="profile-views"><i class="fas fa-envelope"></i></span>
                 </div>
                 {{-- insert defaults --}}
-                <input type="hidden" class="image" name="image" value="photo_defaults.jpg">
+                <input type="hidden" class="image" name="image" value="photo_defaults.png">
                 <div class="form-group local-forms">
                     <label>Role Name <span class="login-danger">*</span></label>
                     <select class="form-control select @error('role_name') is-invalid @enderror" name="role_name" id="role_name">
@@ -33,6 +33,7 @@
                     </span>
                 @enderror
                 </div>
+
                 
                 <div class="form-group">
                     <label>Password <span class="login-danger">*</span></label>

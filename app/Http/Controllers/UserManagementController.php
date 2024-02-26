@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use Session;
 use Log;
 use Carbon\Carbon;
 use App\Models\User;
+use Symfony\Component\HttpFoundation\Session\Session
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
@@ -51,7 +52,7 @@ class UserManagementController extends Controller
                 $image_name = $request->hidden_avatar;
                 $image = $request->file('avatar');
 
-                if($image_name =='photo_defaults.jpg') {
+                if($image_name =='photo_defaults.png') {
                     if ($image != '') {
                         $image_name = rand() . '.' . $image->getClientOriginalExtension();
                         $image->move(public_path('/images/'), $image_name);
@@ -100,7 +101,7 @@ class UserManagementController extends Controller
         try {
             if (Session::get('role_name') === 'Super Admin' || Session::get('role_name') === 'Admin')
             {
-                if ($request->avatar == 'photo_defaults.jpg')
+                if ($request->avatar == 'photo_defaults.png')
                 {
                     User::destroy($request->user_id);
                 } else {

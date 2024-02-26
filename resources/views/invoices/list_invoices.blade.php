@@ -356,7 +356,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html">
-                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.jpg') }}" alt=""> {{ $value->customer_name }}
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt=""> {{ $value->customer_name }}
                                                     </a>
                                                 </h2>
                                             </td>

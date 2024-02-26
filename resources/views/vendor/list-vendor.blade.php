@@ -100,7 +100,7 @@
                                                     @if (!empty($list->avatar))
                                                         <img class="avatar-img rounded-circle" src="{{ URL::to('images/'.$list->avatar) }}" alt="{{ $list->name }}">
                                                     @else
-                                                        <img class="avatar-img rounded-circle" src="{{ URL::to('images/photo_defaults.jpg') }}" alt="{{ $list->name }}">
+                                                        <img class="avatar-img rounded-circle" src="{{ URL::to('images/photo_defaults.png') }}" alt="{{ $list->name }}">
                                                     @endif
                                                 </a>
                                                 <a href="vendor-details.html">{{ $list->name }}</a>

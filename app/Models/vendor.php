@@ -9,19 +9,18 @@ class vendor extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'teacher_id',
         'full_name',
+        'company_name',
         'gender',
-        'date_of_birth',
-        'mobile',
-        'joining_date',
-        'qualification',
-        'experience',
-        'username',
+        'contact_no',
         'address',
         'city',
         'state',
         'zip_code',
         'country',
+        'contract_start',
+        'contract_due',
+        'payment_method',
+        'payment_term',
     ];
 }

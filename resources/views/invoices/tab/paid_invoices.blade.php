@@ -349,7 +349,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html">
-                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.jpg') }}" alt=""> Barbara Moore
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt=""> Barbara Moore
                                                     </a>
                                                 </h2>
                                             </td>
@@ -377,7 +377,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html">
-                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.jpg') }}" alt=""> Barbara Moore
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt=""> Barbara Moore
                                                     </a>
                                                 </h2>
                                             </td>

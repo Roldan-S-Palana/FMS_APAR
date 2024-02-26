@@ -7,9 +7,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-sub-header">
-                            <h3 class="page-title">vendors</h3>
+                            <h3 class="page-title">Vendors</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('student/list') }}">vendor</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('vendor/list/page') }}">Vendor</a></li>
                                 <li class="breadcrumb-item active">All vendors</li>
                             </ul>
                         </div>
@@ -24,7 +24,7 @@
                             <div class="page-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h3 class="page-title">vendors</h3>
+                                        <h3 class="page-title">Vendors</h3>
                                     </div>
                                     <div class="col-auto text-end float-end ms-auto download-grp">
                                         <a href="{{ route('vendor/list/page') }}" class="btn btn-outline-gray me-2"><i class="feather-list"></i></a>
@@ -42,12 +42,12 @@
                                                 <div class="student-box flex-fill">
                                                     <div class="student-img">
                                                         <a href="{{ url('vendor/profile/'.$list->id) }}">
-                                                            <img class="img-fluid" alt="vendors Info" src="{{ URL::to('images/photo_defaults.jpg') }}" width="20%" height="20%">
+                                                            <img class="img-fluid" alt="vendors Info" src="{{ URL::to('images/photo_defaults.png') }}" width="20%" height="20%">
                                                         </a>
                                                     </div>
                                                     <div class="student-content pb-0">
                                                         <h5><a href="{{ url('vendor/profile/'.$list->id) }}">{{ $list->full_name }}</a></h5>
-                                                        <h6>vendor</h6>
+                                                        <h6>Vendor</h6>
                                                     </div>
                                                 </div>
                                             </div>

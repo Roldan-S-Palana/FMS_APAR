@@ -340,16 +340,16 @@
                     'invoice/edit/page','invoice/view/page','invoice/settings/page',
                     'invoice/settings/tax/page','invoice/settings/bank/page'])}}">
                     <a href="#"><i class="bi bi-card-checklist"></i>
-                        <span> Invoices</span>
+                        <span> Accounts Receivables</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a class="{{set_active(['invoice/list/page','invoice/paid/page','invoice/overdue/page','invoice/draft/page','invoice/recurring/page','invoice/cancelled/page'])}}" href="{{ route('invoice/list/page') }}">Invoices List</a></li>
-                        <li><a class="{{set_active(['invoice/grid/page'])}}" href="{{ route('invoice/grid/page') }}">Invoices Grid</a></li>
-                        <li><a class="{{set_active(['invoice/add/page'])}}" href="{{ route('invoice/add/page') }}">Add Invoices</a></li>
-                        <li><a class="{{set_active(['invoice/edit/page'])}}" href="{{ route('invoice/edit/page') }}">Edit Invoices</a></li>
-                        <li><a class="{{set_active(['invoice/view/page'])}}" href="{{ route('invoice/view/page') }}">Invoices Details</a></li>
-                        <li><a class="{{set_active(['invoice/settings/page','invoice/settings/tax/page','invoice/settings/bank/page'])}}" href="{{ route('invoice/settings/page') }}">Invoices Settings</a></li>
+                        <li><a class="{{set_active(['invoice/list/page','invoice/paid/page','invoice/overdue/page','invoice/draft/page','invoice/recurring/page','invoice/cancelled/page'])}}" href="{{ route('invoice/list/page') }}">AR Invoices List</a></li>
+                        <li><a class="{{set_active(['invoice/grid/page'])}}" href="{{ route('invoice/grid/page') }}">AR Invoices Grid</a></li>
+                        <li><a class="{{set_active(['invoice/add/page'])}}" href="{{ route('invoice/add/page') }}">Add AR Invoices</a></li>
+                        <li><a class="{{set_active(['invoice/edit/page'])}}" href="{{ route('invoice/edit/page') }}">Edit AR Invoices</a></li>
+                        <li><a class="{{set_active(['invoice/view/page'])}}" href="{{ route('invoice/view/page') }}">AR Invoices Details</a></li>
+                        <li><a class="{{set_active(['invoice/settings/page','invoice/settings/tax/page','invoice/settings/bank/page'])}}" href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
                     </ul>
                 </li>
 
@@ -359,7 +359,7 @@
 
                 <li class="submenu {{set_active(['account/fees/collections/page'])}}">
                     <a href="#"><i class="bi bi-currency-exchange"></i>
-                        <span> Accounts</span>
+                        <span> Accounts Payables</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>

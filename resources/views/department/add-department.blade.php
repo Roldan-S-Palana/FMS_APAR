@@ -47,8 +47,8 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>No of Students <span class="login-danger">*</span></label>
-                                            <input type="text" class="form-control" name="no_of_students">
+                                            <label>No of Employee <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" name="no_of_employee">
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Admin Dashboard</title>
     <link rel="shortcut icon" href="{{ URL::to('assets/img/favicon.png') }}">
-    <link rel="stylesheet" href="{{ URL::to('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/icons/flags/flags.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-datetimepicker.min.cs') }}s">
@@ -206,8 +205,8 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                <img src="{{ URL::to('assets/img/logo copy.png') }}" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <img src="{{ URL::to('assets/img/logo.png') }}" alt="">
+                <span class="d-none d-lg-block"></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn custom-cursor-on-hover"></i>
         </div><!-- End Logo -->
@@ -372,19 +371,56 @@
 
                 </li><!-- End Messages Nav -->
 
+               <!-- <li class="nav-item dropdown has-arrow new-user-menus">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="/images/{{ Session::get('avatar') }}"
+                                width="31"alt="{{ Session::get('name') }}">
+                            <div class="user-text">
+                                <h6>{{ Session::get('name') }}</h6>
+                                <p class="text-muted mb-0">{{ Session::get('role_name') }}</p>
+                            </div>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="user-header">
+                            <div class="avatar avatar-sm">
+                                <img src="/images/{{ Session::get('avatar') }}" alt="{{ Session::get('name') }}"
+                                    class="avatar-img rounded-circle">
+                            </div>
+                            <div class="user-text">
+                                <h6>{{ Session::get('name') }}</h6>
+                                <p class="text-muted mb-0">{{ Session::get('role_name') }}</p>
+                            </div>
+                        </div>
+                        <a class="dropdown-item" href="{{ route('user/profile/page') }}">My Profile</a>
+                        <a class="dropdown-item" href="inbox.html">Inbox</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                    </div>
+                </li>-->
+
+
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0 " href="#"
                         data-bs-toggle="dropdown">
-                        <img src="{{ URL::to('assets/img/profile-img.jpg') }}" alt="Profile"
-                            class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                    </a><!-- End Profile Iamge Icon -->
+                        <img src="/images/{{ Session::get('avatar') }}" alt="Profile"
+                            class="rounded-circle" width="31"alt="{{ Session::get('name') }}">
+                        <!--<span class="">K. Anderson</span>-->
+                        <span class="user-img d-none d-md-block dropdown-toggle ps-2">
+                            
+                            <div class="user-text">
+                                <h6>{{ Session::get('name') }}</h6>
+                                <p class="text-muted mb-0">{{ Session::get('role_name') }}</p>
+                            </div>
+                        </span>
+                    </a>
+                    <!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6>{{ Session::get('name') }}</h6>
+                            <span class="text-muted mb-0">{{ Session::get('role_name') }}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -423,7 +459,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -448,7 +484,6 @@
     </div>
 
     <script src="{{ URL::to('assets/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ URL::to('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/feather.min.js') }}"></script>
     <script src="{{ URL::to('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ URL::to('assets/plugins/apexchart/apexcharts.min.js') }}"></script>
@@ -475,7 +510,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ URL::to('assets/js/main.js') }}"></script>
-  
+
 
 
     @yield('script')

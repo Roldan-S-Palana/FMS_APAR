@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Hash;
 use Carbon\Carbon;
 use App\Models\User;
@@ -15,61 +15,85 @@ class vendorController extends Controller
     /** add vendor page */
     public function vendorAdd()
     {
-        $users = User::where('role_name','vendors')->get();
-        return view('vendor.add-vendor',compact('users'));
+        $users = User::where('role_name', 'vendors')->get();
+        $payment_term = DB::table('paymentterm')->get();
+        $payment_method = DB::table('paymentmethod')->get();
+        return view('vendor.add-vendor', compact('users', 'payment_term', 'payment_method'));
+    }
+    public function payment_method()
+    {
+        
+        return view('vendor.add-vendor', compact('payment_method'));
+    }
+    public function payment_term()
+    {
+        
+        return view('vendor.add-vendor', compact('payment_term'));
     }
 
     /** vendor list */
     public function vendorList()
     {
-        $listvendor = vendor::join('users', 'vendors.user_id','users.user_id')
-                    ->select('users.date_of_birth','users.join_date','users.phone_number','vendors.*')->get();
-        return view('vendor.list-vendors',compact('listvendor'));
+        $listvendor = vendor::join('users', 'vendors.user_id', 'users.user_id')
+            ->select('users.date_of_birth', 'users.join_date', 'users.phone_number', 'vendors.*')->get();
+        return view('vendor.list-vendor', compact('listvendor'));
     }
 
     /** vendor Grid */
     public function vendorGrid()
     {
         $vendorGrid = vendor::all();
-        return view('vendor.vendors-grid',compact('vendorGrid'));
+
+        return view('vendor.vendor-grid', compact('vendorGrid'));
     }
 
     /** save record */
     public function saveRecord(Request $request)
     {
+
         $request->validate([
             'full_name'     => 'required|string',
+            'company_name'  => 'required|string',
             'gender'        => 'required|string',
-            'experience'    => 'required|string',
-            'qualification' => 'required|string',
+            'contact_no'    => 'required|string',
             'address'       => 'required|string',
             'city'          => 'required|string',
             'state'         => 'required|string',
             'zip_code'      => 'required|string',
             'country'       => 'required|string',
+            'contract_start' => 'required|string',
+            'contract_due' => 'required|string',
+            'payment_method' => 'required|string',
+            'payment_term' => 'required|string',
+
+            
         ]);
 
         try {
 
             $saveRecord = new vendor;
             $saveRecord->full_name     = $request->full_name;
-            $saveRecord->user_id       = $request->vendor_id;
+            $saveRecord->company_name     = $request->company_name;
+            $saveRecord->user_id       = $request->user_id;
             $saveRecord->gender        = $request->gender;
-            $saveRecord->experience    = $request->experience;
-            $saveRecord->qualification = $request->qualification;
+            $saveRecord->contact_no    = $request->contact_no;
+            $saveRecord->contract_start = $request->contract_start;
+            $saveRecord->contract_due = $request->contract_due;
+            $saveRecord->payment_method = $request->payment_method;
+            $saveRecord->payment_term = $request->payment_term;
             $saveRecord->address       = $request->address;
             $saveRecord->city          = $request->city;
             $saveRecord->state         = $request->state;
             $saveRecord->zip_code      = $request->zip_code;
             $saveRecord->country       = $request->country;
             $saveRecord->save();
-   
-            Toastr::success('Has been add successfully :)','Success');
+
+            Toastr::success('Has been add successfully :)', 'Success');
             return redirect()->back();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             \Log::info($e);
             DB::rollback();
-            Toastr::error('fail, Add new record  :)','Error');
+            Toastr::error('fail, Add new record  :)', 'Error');
             return redirect()->back();
         }
     }
@@ -77,10 +101,10 @@ class vendorController extends Controller
     /** edit record */
     public function editRecord($user_id)
     {
-        $vendor = vendor::join('users', 'vendors.user_id','users.user_id')
-                    ->select('users.date_of_birth','users.join_date','users.phone_number','vendors.*')
-                    ->where('users.user_id', $user_id)->first();
-        return view('vendor.edit-vendor',compact('vendor'));
+        $vendor = vendor::join('users', 'vendors.user_id', 'users.user_id')
+            ->select('users.date_of_birth', 'users.join_date', 'users.phone_number', 'vendors.*')
+            ->where('users.user_id', $user_id)->first();
+        return view('vendor.edit-vendor', compact('vendor'));
     }
 
     /** update record vendor */
@@ -90,29 +114,31 @@ class vendorController extends Controller
         try {
 
             $updateRecord = [
+               
                 'full_name'     => $request->full_name,
+                'company_name'   => $request->company_name,
                 'gender'        => $request->gender,
-                'date_of_birth' => $request->date_of_birth,
-                'mobile'        => $request->mobile,
-                'joining_date'  => $request->joining_date,
-                'qualification' => $request->qualification,
-                'experience'    => $request->experience,
-                'username'      => $request->username,
+                'contact_no'    => $request->contact_no,
                 'address'       => $request->address,
                 'city'          => $request->city,
                 'state'         => $request->state,
                 'zip_code'      => $request->zip_code,
-                'country'      => $request->country,
+                'country'       => $request->country,
+                'contract_start' => $request->contract_start,
+                'contract_due' => $request->contract_due,
+                'payment_method' => $request->payment_method,
+                'payment_term' => $request->payment_term,
+
+                
             ];
-            vendor::where('id',$request->id)->update($updateRecord);
-            
-            Toastr::success('Has been update successfully :)','Success');
+            vendor::where('user_id', $request->id)->update($updateRecord);
+
+            Toastr::success('Has been update successfully :)', 'Success');
             DB::commit();
             return redirect()->back();
-           
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
-            Toastr::error('fail, update record  :)','Error');
+            Toastr::error('fail, update record  :)', 'Error');
             return redirect()->back();
         }
     }
@@ -125,11 +151,11 @@ class vendorController extends Controller
 
             vendor::destroy($request->id);
             DB::commit();
-            Toastr::success('Deleted record successfully :)','Success');
+            Toastr::success('Deleted record successfully :)', 'Success');
             return redirect()->back();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
-            Toastr::error('Deleted record fail :)','Error');
+            Toastr::error('Deleted record fail :)', 'Error');
             return redirect()->back();
         }
     }

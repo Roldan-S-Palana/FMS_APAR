@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="row">
                                             <p class="col-sm-3 text-muted text-sm-end mb-0">Address</p>
-                                            <p class="col-sm-9 mb-0">Phnome Phenh</p>
+                                            <p class="col-sm-9 mb-0">Caloocan</p>
                                         </div>
                                     </div>
                                 </div>

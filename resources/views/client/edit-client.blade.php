@@ -99,9 +99,9 @@
                                             <label>Blood Group <span class="login-danger">*</span></label>
                                             <select class="form-control select @error('blood_group') is-invalid @enderror" name="blood_group">
                                                 <option selected disabled>Please Select Group </option>
-                                                <option value="A+" {{ $clientEdit->blood_group == 'A+' ? "selected" :""}}>A+</option>
-                                                <option value="B+" {{ $clientEdit->blood_group == 'B+' ? "selected" :""}}>B+</option>
-                                                <option value="O+" {{ $clientEdit->blood_group == 'O+' ? "selected" :""}}>O+</option>
+                                                <option value="Caloocan" {{ old('city') == 'Caloocan' ? "selected" :""}}>Caloocan</option>
+                                                <option value="Valenzuela" {{ old('city') == 'Valenzuela' ? "selected" :""}}>Valenzuela</option>
+                                                <option value="Quezon City" {{ old('city') == 'Quezon City' ? "selected" :""}}>Quezon City</option>
                                             </select>
                                             @error('blood_group')
                                                 <span class="invalid-feedback" role="alert">
@@ -115,9 +115,9 @@
                                             <label>Religion <span class="login-danger">*</span></label>
                                             <select class="form-control select @error('religion') is-invalid @enderror" name="religion">
                                                 <option selected disabled>Please Select Religion </option>
-                                                <option value="Hindu" {{ $clientEdit->religion == 'Hindu' ? "selected" :""}}>Hindu</option>
-                                                <option value="Christian" {{ $clientEdit->religion == 'Christian' ? "selected" :""}}>Christian</option>
-                                                <option value="Others" {{ $clientEdit->religion == 'Others' ? "selected" :""}}>Others</option>
+                                                <option value="NCR" {{ old('region') == 'NCR' ? "selected" :""}}>NCR</option>
+                                                <option value="CAR" {{ old('region') == 'CAR' ? "selected" :""}}>CAR</option>
+                                                <option value="Others" {{ old('region') == 'Others' ? "selected" :""}}>...</option>
                                             </select>
                                             @error('religion')
                                                 <span class="invalid-feedback" role="alert">

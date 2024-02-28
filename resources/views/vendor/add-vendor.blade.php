@@ -177,7 +177,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-4">
+                                    <!--<div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>State <span class="login-danger">*</span></label>
                                             <input type="text"
@@ -189,7 +189,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Zip Code <span class="login-danger">*</span></label>
@@ -205,11 +205,11 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>Country <span class="login-danger">*</span></label>
+                                            <label>Region <span class="login-danger">*</span></label>
                                             <input type="text"
-                                                class="form-control @error('country') is-invalid @enderror"
-                                                name="country" placeholder="Enter Country" value="{{ old('country') }}">
-                                            @error('country')
+                                                class="form-control @error('region') is-invalid @enderror"
+                                                name="region" placeholder="Enter region" value="{{ old('region') }}">
+                                            @error('region')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

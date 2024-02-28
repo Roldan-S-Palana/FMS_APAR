@@ -256,8 +256,8 @@
                                     <img src="assets/img/icons/award-icon-01.svg" alt="Award">
                                 </div>
                                 <div class="award-list-outs">
-                                    <h4>Top Spender</h4>
-                                    <h5>John Doe won Top Spender</h5>
+                                    <h4>Title</h4>
+                                    <h5>Description</h5>
                                 </div>
                                 <div class="award-time-list">
                                     <span>1 Day ago</span>
@@ -268,8 +268,8 @@
                                     <img src="assets/img/icons/award-icon-02.svg" alt="Award">
                                 </div>
                                 <div class="award-list-outs">
-                                    <h4>Participated in "Carrom"</h4>
-                                    <h5>Justin Lee participated in "Carrom"</h5>
+                                    <h4>Title</h4>
+                                    <h5>Description</h5>
                                 </div>
                                 <div class="award-time-list">
                                     <span>2 hours ago</span>
@@ -280,8 +280,8 @@
                                     <img src="assets/img/icons/award-icon-03.svg" alt="Award">
                                 </div>
                                 <div class="award-list-outs">
-                                    <h4>Internation conference in "St.John School"</h4>
-                                    <h5>Justin Leeattended internation conference in "St.John School"</h5>
+                                    <h4>Title</h4>
+                                    <h5>Description</h5>
                                 </div>
                                 <div class="award-time-list">
                                     <span>2 Week ago</span>
@@ -292,8 +292,8 @@
                                     <img src="assets/img/icons/award-icon-04.svg" alt="Award">
                                 </div>
                                 <div class="award-list-outs">
-                                    <h4>Won 1st place in "Chess"</h4>
-                                    <h5>John Doe won 1st place in "Chess"</h5>
+                                    <h4>Title</h4>
+                                    <h5>Description</h5>
                                 </div>
                                 <div class="award-time-list">
                                     <span>3 Day ago</span>
@@ -308,7 +308,7 @@
 
         <div class="row">
             <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card flex-fill fb sm-box">
+                <div class="card flex-fill fb sm-box" style= "background-color:#1877f2;">
                     <div class="social-likes">
                         <p>Like us on facebook</p>
                         <h6>50,095</h6>
@@ -319,7 +319,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card flex-fill twitter sm-box">
+                <div class="card flex-fill twitter sm-box" style= "background-color:#1d9bf0;">
                     <div class="social-likes">
                         <p>Follow us on twitter</p>
                         <h6>48,596</h6>
@@ -330,7 +330,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card flex-fill insta sm-box">
+                <div class="card flex-fill insta sm-box" style= "background-color: #fe643b;">
                     <div class="social-likes">
                         <p>Follow us on instagram</p>
                         <h6>52,085</h6>
@@ -341,7 +341,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card flex-fill linkedin sm-box">
+                <div class="card flex-fill linkedin sm-box" style="background-color: #0a66c2;">
                     <div class="social-likes">
                         <p>Follow us on linkedin</p>
                         <h6>69,050</h6>

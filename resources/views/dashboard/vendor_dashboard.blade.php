@@ -25,8 +25,8 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>Total Classes</h6>
-                                    <h3>04/06</h3>
+                                    <h6>Total Orders</h6>
+                                    <h3>06</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{ URL::to('assets/img/icons/teacher-icon-01.svg') }}" alt="Dashboard Icon">
@@ -41,7 +41,7 @@
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
                                     <h6>Total Clients</h6>
-                                    <h3>40/60</h3>
+                                    <h3>60</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{ URL::to('assets/img/icons/dash-icon-01.svg') }}" alt="Dashboard Icon">
@@ -55,8 +55,8 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>Total Lessons</h6>
-                                    <h3>30/50</h3>
+                                    <h6>Requirement</h6>
+                                    <h3>3/6</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{ URL::to('assets/img/icons/teacher-icon-02.svg') }}" alt="Dashboard Icon">
@@ -91,11 +91,11 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <h5 class="card-title">Upcoming Lesson</h5>
+                                            <h5 class="card-title">Upcoming Order</h5>
                                         </div>
                                         <div class="col-6">
                                             <span class="float-end view-link"><a href="#">View All
-                                                    Courses</a></span>
+                                                Order</a></span>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                                 <tr>
                                                     <td>
                                                         <div class="date">
-                                                            <b>Lessons 30</b>
-                                                            <p>3.1 Ipsuum dolor</p>
+                                                            <b>Financial Guardian</b>
+                                                            <p>Raw Material</p>
                                                             <ul class="teacher-date-list">
                                                                 <li><i class="fas fa-calendar-alt me-2"></i>Sep 5,
                                                                     2022</li>
@@ -128,8 +128,8 @@
                                                 <tr>
                                                     <td>
                                                         <div class="date">
-                                                            <b>Lessons 30</b>
-                                                            <p>3.1 Ipsuum dolor</p>
+                                                            <b>Financial Guardian</b>
+                                                            <p>Raw Materials</p>
                                                             <ul class="teacher-date-list">
                                                                 <li><i class="fas fa-calendar-alt me-2"></i>Sep 5,
                                                                     2022</li>
@@ -158,7 +158,7 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col-12">
-                                            <h5 class="card-title">Semester Progress</h5>
+                                            <h5 class="card-title">Account Progress</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -166,8 +166,8 @@
                                     <div class="circle-bar circle-bar1">
                                         <div class="circle-graph1" data-percent="50">
                                             <div class="progress-less">
-                                                <b>55/60</b>
-                                                <p>Lesson Progressed</p>
+                                                <b>3/6</b>
+                                                <p>Requirements<br>Submitted</p>
                                             </div>
                                         </div>
                                     </div>
@@ -181,12 +181,12 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <h5 class="card-title">Teaching Activity</h5>
+                                            <h5 class="card-title">Financial Guardian Activity</h5>
                                         </div>
                                         <div class="col-6">
                                             <ul class="chart-list-out">
-                                                <li><span class="circle-blue"></span>Vendor</li>
-                                                <li><span class="circle-green"></span>Clients</li>
+                                                <li><span class="circle-blue"></span>Orders</li>
+                                                <li><span class="circle-green"></span>Payments</li>
                                                 <li class="star-menus"><a href="javascript:;"><i
                                                             class="fas fa-ellipsis-v"></i></a></li>
                                             </ul>
@@ -201,7 +201,7 @@
                         <div class="col-12 col-lg-12 col-xl-12 d-flex">
                             <div class="card flex-fill comman-shadow">
                                 <div class="card-header d-flex align-items-center">
-                                    <h5 class="card-title">Teaching History</h5>
+                                    <h5 class="card-title">Transaction History</h5>
                                     <ul class="chart-list-out student-ellips">
                                         <li class="star-menus"><a href="javascript:;"><i
                                                     class="fas fa-ellipsis-v"></i></a></li>
@@ -210,16 +210,16 @@
                                 <div class="card-body">
                                     <div class="teaching-card">
                                         <ul class="steps-history">
-                                            <li>Sep22</li>
-                                            <li>Sep23</li>
-                                            <li>Sep24</li>
+                                            <li>Jul22</li>
+                                            <li>Aug23</li>
+                                            <li>Sep1</li>
                                         </ul>
                                         <ul class="activity-feed">
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Mathematics</a></span>
+                                                    <span class="feed-text1"><a>Raw Materials Shipment</a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>July 5,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -227,14 +227,14 @@
                                                     </ul>
                                                 </div>
                                                 <div class="activity-btns ms-auto">
-                                                    <button type="submit" class="btn btn-info">In Progress</button>
+                                                    <button type="submit" class="btn btn-info">Paid</button>
                                                 </div>
                                             </li>
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Geography </a></span>
+                                                    <span class="feed-text1"><a>Raw Materials Shipment </a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>August 23,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -247,9 +247,9 @@
                                             </li>
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Botony</a></span>
+                                                    <span class="feed-text1"><a>Raw Materials Shipment</a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 1,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -277,15 +277,15 @@
                                     <span><a href="javascript:;"><i class="feather-plus"></i></a></span>
                                 </div>
                                 <div class="upcome-event-date">
-                                    <h3>10 Jan</h3>
+                                    <h3>10 Sep</h3>
                                     <span><i class="fas fa-ellipsis-h"></i></span>
                                 </div>
                                 <div class="calendar-details">
                                     <p>08:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Vendor Meeting</h4>
+                                            <h5>Discuss new product offerings</h5>
                                         </div>
                                         <span>08:00 - 09:00 am</span>
                                     </div>
@@ -294,8 +294,8 @@
                                     <p>09:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Product Demonstration</h4>
+                                            <h5>Showcase latest features</h5>
                                         </div>
                                         <span>09:00 - 10:00 am</span>
                                     </div>
@@ -304,22 +304,22 @@
                                     <p>10:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Training Session</h4>
+                                            <h5>Train staff on new procedures</h5>
                                         </div>
                                         <span>10:00 - 11:00 am</span>
                                     </div>
                                 </div>
                                 <div class="upcome-event-date">
-                                    <h3>10 Jan</h3>
+                                    <h3>10 Sep</h3>
                                     <span><i class="fas fa-ellipsis-h"></i></span>
                                 </div>
                                 <div class="calendar-details">
                                     <p>08:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>English</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Break</h4>
+                                            <h5>Relax and recharge</h5>
                                         </div>
                                         <span>08:00 - 09:00 am</span>
                                     </div>
@@ -328,8 +328,8 @@
                                     <p>09:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Mathematics </h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Vendor Presentation </h4>
+                                            <h5>Present new products</h5>
                                         </div>
                                         <span>09:00 - 10:00 am</span>
                                     </div>
@@ -338,8 +338,8 @@
                                     <p>10:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>History</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Contract Negotiation</h4>
+                                            <h5>Discuss terms and conditions</h5>
                                         </div>
                                         <span>10:00 - 11:00 am</span>
                                     </div>
@@ -348,8 +348,8 @@
                                     <p>11:00 am</p>
                                     <div class="calendar-box break-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Break</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Product Feedback Session</h4>
+                                            <h5>Collect feedback from vendors</h5>
                                         </div>
                                         <span>11:00 - 12:00 am</span>
                                     </div>
@@ -358,8 +358,8 @@
                                     <p>11:30 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>History</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Vendor Training Workshop</h4>
+                                            <h5>Provide training on product usage</h5>
                                         </div>
                                         <span>11:30 - 12:00 am</span>
                                     </div>

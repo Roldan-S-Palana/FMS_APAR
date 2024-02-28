@@ -27,9 +27,9 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
-                                        <h5 class="form-title client-info">client Information
+                                        <h5 class="form-title client-info">Client Information
                                             <span>
-                                                <a href="javascript:;"><i class="feather-more-vertical"></i></a>
+                                                <a href="javascript:;"><i class="feather-moon"></i></a>
                                             </span>
                                         </h5>
                                     </div>
@@ -84,9 +84,9 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>Roll </label>
-                                            <input class="form-control @error('roll') is-invalid @enderror" type="text" name="roll" placeholder="Enter Roll Number" value="{{ old('roll') }}">
-                                            @error('roll')
+                                            <label>Zip Code </label>
+                                            <input class="form-control @error('zip_code') is-invalid @enderror" type="text" name="zip_code" placeholder="Enter zip code" value="{{ old('zip_code') }}">
+                                            @error('zip_code')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -95,14 +95,14 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>Blood Group <span class="login-danger">*</span></label>
-                                            <select class="form-control select @error('blood_group') is-invalid @enderror" name="blood_group">
+                                            <label>City <span class="login-danger">*</span></label>
+                                            <select class="form-control select @error('city') is-invalid @enderror" name="city">
                                                 <option selected disabled>Please Select Group </option>
-                                                <option value="A+" {{ old('blood_group') == 'A+' ? "selected" :""}}>A+</option>
-                                                <option value="B+" {{ old('blood_group') == 'B+' ? "selected" :""}}>B+</option>
-                                                <option value="O+" {{ old('blood_group') == 'O+' ? "selected" :""}}>O+</option>
+                                                <option value="Caloocan" {{ old('city') == 'Caloocan' ? "selected" :""}}>Caloocan</option>
+                                                <option value="Valenzuela" {{ old('city') == 'Valenzuela' ? "selected" :""}}>Valenzuela</option>
+                                                <option value="Quezon City" {{ old('city') == 'Quezon City' ? "selected" :""}}>Quezon City</option>
                                             </select>
-                                            @error('blood_group')
+                                            @error('city')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -111,14 +111,14 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>Religion <span class="login-danger">*</span></label>
-                                            <select class="form-control select @error('religion') is-invalid @enderror" name="religion">
-                                                <option selected disabled>Please Select Religion </option>
-                                                <option value="Hindu" {{ old('religion') == 'Hindu' ? "selected" :""}}>Hindu</option>
-                                                <option value="Christian" {{ old('religion') == 'Christian' ? "selected" :""}}>Christian</option>
-                                                <option value="Others" {{ old('religion') == 'Others' ? "selected" :""}}>Others</option>
+                                            <label>Region <span class="login-danger">*</span></label>
+                                            <select class="form-control select @error('region') is-invalid @enderror" name="region">
+                                                <option selected disabled>Please Select region </option>
+                                                <option value="NCR" {{ old('region') == 'NCR' ? "selected" :""}}>NCR</option>
+                                                <option value="CAR" {{ old('region') == 'CAR' ? "selected" :""}}>CAR</option>
+                                                <option value="Others" {{ old('region') == 'Others' ? "selected" :""}}>...</option>
                                             </select>
-                                            @error('religion')
+                                            @error('region')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -136,7 +136,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-4">
+                                    <!--<div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Class <span class="login-danger">*</span></label>
                                             <select class="form-control select @error('class') is-invalid @enderror" name="class">
@@ -178,7 +178,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Phone </label>
@@ -192,12 +192,26 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group clients-up-files">
-                                            <label>Upload client Photo (150px X 150px)</label>
+                                            <label>Upload Client Photo (150px X 150px)</label>
                                             <div class="uplod">
                                                 <label class="file-upload image-upbtn mb-0 @error('upload') is-invalid @enderror">
                                                     Choose File <input type="file" name="upload">
                                                 </label>
                                                 @error('upload')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                            </div>
+                                        </div>
+                                    </div><div class="col-12 col-sm-4">
+                                        <div class="form-group clients-up-files">
+                                            <label>Upload Signature (150px X 150px)</label>
+                                            <div class="uplod">
+                                                <label class="file-upload image-upbtn mb-0 @error('signature') is-invalid @enderror">
+                                                    Choose File <input type="file" name="signature">
+                                                </label>
+                                                @error('signature')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

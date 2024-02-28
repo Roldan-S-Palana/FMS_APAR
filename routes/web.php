@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\RegisterVendorController;
-
-
+use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\vendorController;
+use App\Http\Controllers\clientController;
 
 /*
 |--------------------------------------------------------------------------

@@ -58,11 +58,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Female</td>
-                                            <td>Mess Fees</td>
+                                            <td>Maintenance</td>
                                             <td>$120</td>
                                             <td>17 Aug 2020</td>
                                             <td class="text-end">
@@ -76,11 +76,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Female</td>
-                                            <td>Class Test</td>
+                                            <td>Procurement Fee</td>
                                             <td>$56</td>
                                             <td>05 Aug 2020</td>
                                             <td class="text-end">
@@ -94,11 +94,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$378</td>
                                             <td>04 Sept 2020</td>
                                             <td class="text-end">
@@ -112,11 +112,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Female</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$246</td>
                                             <td>17 Sept 2020</td>
                                             <td class="text-end">
@@ -130,11 +130,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$56</td>
                                             <td>02 Oct 2020</td>
                                             <td class="text-end">
@@ -148,11 +148,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$236</td>
                                             <td>28 Oct 2020</td>
                                             <td class="text-end">
@@ -166,7 +166,7 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Female</td>
@@ -184,11 +184,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Mess Fees</td>
+                                            <td>Maitenance</td>
                                             <td>$567</td>
                                             <td>05 Nov 2020</td>
                                             <td class="text-end">
@@ -202,11 +202,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Female</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$564</td>
                                             <td>12 Nov 2020</td>
                                             <td class="text-end">
@@ -220,11 +220,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Class Test</td>
+                                            <td>Procurement Fees</td>
                                             <td>$234</td>
                                             <td>15 Nov 2020</td>
                                             <td class="text-end">
@@ -238,11 +238,11 @@
                                                     <a class="avatar avatar-sm me-2">
                                                         <img class="avatar-img rounded-circle"src="{{ URL::to('images/photo_defaults.png') }}"alt="User Image">
                                                     </a>
-                                                    <a>Soeng Souy</a>
+                                                    <a>User</a>
                                                 </h2>
                                             </td>
                                             <td>Male</td>
-                                            <td>Exam Fees</td>
+                                            <td>Procurement Fee</td>
                                             <td>$278</td>
                                             <td>17 Nov 2020</td>
                                             <td class="text-end">

@@ -24,6 +24,7 @@ class HomeController extends Controller
     /** home dashboard */
     public function index()
     {
+        $this->middleware('CheckRole:Admin');
         return view('dashboard.home');
     }
 
@@ -36,12 +37,14 @@ class HomeController extends Controller
     /** vendor dashboard */
     public function vendorDashboardIndex()
     {
+        $this->middleware('CheckRole:Vendor');
         return view('dashboard.vendor_dashboard');
     }
 
     /** client dashboard */
     public function clientDashboardIndex()
     {
+        $this->middleware('CheckRole:Client');
         return view('dashboard.client_dashboard');
     }
 }

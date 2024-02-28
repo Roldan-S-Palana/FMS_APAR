@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class client extends Model
+class clients extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -13,14 +13,12 @@ class client extends Model
         'last_name',
         'gender',
         'date_of_birth',
-        'roll',
-        'blood_group',
-        'religion',
         'email',
-        'class',
-        'section',
-        'admission_id',
         'phone_number',
+        'zip_code',
+        'city',
+        'region',
         'upload',
+        'signature',
     ];
 }

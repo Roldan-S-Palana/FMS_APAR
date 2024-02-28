@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class vendor extends Model
+class vendors extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -15,12 +15,13 @@ class vendor extends Model
         'contact_no',
         'address',
         'city',
-        'state',
         'zip_code',
-        'country',
+        'region',
         'contract_start',
         'contract_due',
         'payment_method',
         'payment_term',
+        
     ];
+    
 }

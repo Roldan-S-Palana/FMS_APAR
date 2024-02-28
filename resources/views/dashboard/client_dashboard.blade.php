@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-sub-header">
-                            <h3 class="page-title">Welcome Bruklin!</h3>
+                            <h3 class="page-title">Welcome to Client Portal!</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item active">Client</li>
@@ -25,8 +25,8 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>All Courses</h6>
-                                    <h3>04/06</h3>
+                                    <h6>My Orders</h6>
+                                    <h3>06</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{ URL::to('assets/img/icons/teacher-icon-01.svg') }}" alt="Dashboard Icon">
@@ -40,8 +40,8 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>All Projects</h6>
-                                    <h3>40/60</h3>
+                                    <h6>My Wishlist</h6>
+                                    <h3>03</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{URL::to('assets/img/icons/teacher-icon-02.svg')}}" alt="Dashboard Icon">
@@ -55,8 +55,8 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>Test Attended</h6>
-                                    <h3>30/50</h3>
+                                    <h6>My Reviews</h6>
+                                    <h3>05</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{URL::to('assets/img/icons/student-icon-01.svg')}}" alt="Dashboard Icon">
@@ -70,12 +70,12 @@
                         <div class="card-body">
                             <div class="db-widgets d-flex justify-content-between align-items-center">
                                 <div class="db-info">
-                                    <h6>Test Passed</h6>
-                                    <h3>15/20</h3>
+                                    <h6>Upcoming Order</h6>
+                                    <h3>1</h3>
                                 </div>
                                 <div class="db-icon">
                                     <img src="{{URL::to('assets/img/icons/student-icon-02.svg')}}" alt="Dashboard Icon">
-                                </div>
+                                </div>  
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-6">
-                                    <h5 class="card-title">Today’s Lesson</h5>
+                                    <h5 class="card-title">Account Status</h5>
                                 </div>
                                 <div class="col-6">
                                     <ul class="chart-list-out">
@@ -119,8 +119,8 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-01.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Class</h5>
-                                                <h4>Electrical Engg</h4>
+                                                <h5>Complete</h5>
+                                                <h4>Email Verified</h4>
                                             </div>
                                         </div>
                                         <div class="lesson-activity">
@@ -128,8 +128,8 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-02.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Lessons</h5>
-                                                <h4>5 Lessons</h4>
+                                                <h5>Complete</h5>
+                                                <h4>Password</h4>
                                             </div>
                                         </div>
                                         <div class="lesson-activity">
@@ -137,8 +137,8 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-03.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Time</h5>
-                                                <h4>Lessons</h4>
+                                                <h5>Complete</h5>
+                                                <h4>Username</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -150,8 +150,8 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-04.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Asignment</h5>
-                                                <h4>5 Asignment</h4>
+                                                <h5>In-Progress</h5>
+                                                <h4>Valid Id</h4>
                                             </div>
                                         </div>
                                         <div class="lesson-activity">
@@ -159,7 +159,7 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-05.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Staff</h5>
+                                                <h5>Client</h5>
                                                 <h4>John Doe</h4>
                                             </div>
                                         </div>
@@ -168,16 +168,16 @@
                                                 <img src="{{URL::to('assets/img/icons/lesson-icon-06.svg')}}" alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Lesson Learned</h5>
-                                                <h4>10/50</h4>
+                                                <h5>In-Progress</h5>
+                                                <h4>Digital Signiture</h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 d-flex align-items-center justify-content-center">
                                     <div class="skip-group">
-                                        <button type="submit" class="btn btn-info skip-btn">skip</button>
-                                        <button type="submit" class="btn btn-info continue-btn">Continue</button>
+                                        <button type="submit" class="btn btn-info skip-btn">Hide</button>
+                                        <button type="submit" class="btn btn-info continue-btn">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -189,12 +189,12 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <h5 class="card-title">Learning Activity</h5>
+                                            <h5 class="card-title">My Activity</h5>
                                         </div>
                                         <div class="col-6">
                                             <ul class="chart-list-out">
-                                                <li><span class="circle-blue"></span>Vendor</li>
-                                                <li><span class="circle-green"></span>Client</li>
+                                                <li><span class="circle-blue"></span>Ordered</li>
+                                                <li><span class="circle-green"></span>Paid</li>
                                                 <li class="star-menus"><a href="javascript:;"><i
                                                             class="fas fa-ellipsis-v"></i></a></li>
                                             </ul>
@@ -209,7 +209,7 @@
                         <div class="col-12 col-lg-12 col-xl-12 d-flex">
                             <div class="card flex-fill comman-shadow">
                                 <div class="card-header d-flex align-items-center">
-                                    <h5 class="card-title">Teaching History</h5>
+                                    <h5 class="card-title">Purchase History</h5>
                                     <ul class="chart-list-out student-ellips">
                                         <li class="star-menus"><a href="javascript:;"><i
                                                     class="fas fa-ellipsis-v"></i></a></li>
@@ -218,16 +218,16 @@
                                 <div class="card-body">
                                     <div class="teaching-card">
                                         <ul class="steps-history">
-                                            <li>Sep22</li>
-                                            <li>Sep23</li>
-                                            <li>Sep24</li>
+                                            <li>Jul22</li>
+                                            <li>Aug23</li>
+                                            <li>Sep1</li>
                                         </ul>
                                         <ul class="activity-feed">
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Mathematics</a></span>
+                                                    <span class="feed-text1"><a>Replacement frame</a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>July 22,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -235,14 +235,14 @@
                                                     </ul>
                                                 </div>
                                                 <div class="activity-btns ms-auto">
-                                                    <button type="submit" class="btn btn-info">In Progress</button>
+                                                    <button type="submit" class="btn btn-info">Paid</button>
                                                 </div>
                                             </li>
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Geography </a></span>
+                                                    <span class="feed-text1"><a>Eye check-up </a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>August 23,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -255,9 +255,9 @@
                                             </li>
                                             <li class="feed-item d-flex align-items-center">
                                                 <div class="dolor-activity">
-                                                    <span class="feed-text1"><a>Botony</a></span>
+                                                    <span class="feed-text1"><a>Purchase eyeweare</a></span>
                                                     <ul class="teacher-date-list">
-                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 5,
+                                                        <li><i class="fas fa-calendar-alt me-2"></i>September 1,
                                                             2022</li>
                                                         <li>|</li>
                                                         <li><i class="fas fa-clock me-2"></i>09:00 am - 10:00 am (60
@@ -265,7 +265,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="activity-btns ms-auto">
-                                                    <button type="submit" class="btn btn-info">In Progress</button>
+                                                    <button type="submit" class="btn btn-info">Complete</button>
                                                 </div>
                                             </li>
                                         </ul>
@@ -292,8 +292,8 @@
                                     <p>08:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Eyewear Fitting Appointment</h4>
+                                            <h5>Try on and select new eyewear frames</h5>
                                         </div>
                                         <span>08:00 - 09:00 am</span>
                                     </div>
@@ -302,8 +302,8 @@
                                     <p>09:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Eyewear Prescription Consultation</h4>
+                                            <h5>Discuss vision needs and select appropriate lenses</h5>
                                         </div>
                                         <span>09:00 - 10:00 am</span>
                                     </div>
@@ -312,8 +312,8 @@
                                     <p>10:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Botony</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Coffee Break</h4>
+                                            <h5>Enjoy a complimentary beverage while waiting</h5>
                                         </div>
                                         <span>10:00 - 11:00 am</span>
                                     </div>
@@ -326,8 +326,8 @@
                                     <p>08:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>English</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Follow-up Appointment</h4>
+                                            <h5>Ensure satisfaction and address any concerns</h5>
                                         </div>
                                         <span>08:00 - 09:00 am</span>
                                     </div>
@@ -336,8 +336,8 @@
                                     <p>09:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Mathematics </h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Follow-up Appointment </h4>
+                                            <h5>Ensure satisfaction and address any concerns</h5>
                                         </div>
                                         <span>09:00 - 10:00 am</span>
                                     </div>
@@ -346,8 +346,8 @@
                                     <p>10:00 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>History</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Follow-up Appointment</h4>
+                                            <h5>Ensure satisfaction and address any concerns</h5>
                                         </div>
                                         <span>10:00 - 11:00 am</span>
                                     </div>
@@ -356,8 +356,8 @@
                                     <p>11:00 am</p>
                                     <div class="calendar-box break-bg">
                                         <div class="calandar-event-name">
-                                            <h4>Break</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Follow-up Appointment</h4>
+                                            <h5>Ensure satisfaction and address any concerns</h5>
                                         </div>
                                         <span>11:00 - 12:00 am</span>
                                     </div>
@@ -366,8 +366,8 @@
                                     <p>11:30 am</p>
                                     <div class="calendar-box normal-bg">
                                         <div class="calandar-event-name">
-                                            <h4>History</h4>
-                                            <h5>Lorem ipsum sit amet</h5>
+                                            <h4>Follow-up Appointment</h4>
+                                            <h5>Ensure satisfaction and address any concerns</h5>
                                         </div>
                                         <span>11:30 - 12:00 am</span>
                                     </div>

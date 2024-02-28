@@ -61,5 +61,30 @@ class DatabaseSeeder extends Seeder
         ];
         
         DB::table('vendor_user')->insert($data);dd($data);
+        $data = [
+            'first_name' => 'Cat',
+            'last_name' => 'Cat Cat',
+            'gender' => 'Male',
+            'date_of_birth' => '28-02-2024',
+            'email' => 'Caloocan',
+            'phone_number' => '9',
+            'zip_code' => 'Executive Finance',
+            'city' => 'Vendor',
+            'region' => '04-02-2024',
+            'upload' => '11-02-2024',
+            'payment_method' => 'Check',
+            'payment_term' => '7 days',
+            'password' => '1234', // Note: This should be hashed before insertion
+            'digisign' => 'cluster-logo-small.png',
+            'bir' => 'cluster-logo-small.png',
+            'bussper' => 'cluster-logo-small.png',
+            'dirreg' => 'cluster-logo-small.png',
+            'accdocu' => 'cluster-logo-small.png',
+            'othersdoc' => 'cluster-logo-small.png',
+        ];
+        
+        DB::table('vendor_user')->insert($data);dd($data);
     }
+    }
+
 }

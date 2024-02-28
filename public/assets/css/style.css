@@ -1701,7 +1701,8 @@ button.bg-danger:hover {
 }
 
 .card-body {
-    padding: 1.5rem
+    padding: 1.5rem;
+margin-top: 1.5rem
 }
 
 .card-body {
@@ -3090,9 +3091,9 @@ footer p {
 
 .login-wrapper .loginbox .login-left {
     align-items: center;
-    background: #18aefa;
+    background: #000000;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     width: 400px;
     display: flex;
     background-blend-mode: multiply;
@@ -3100,7 +3101,7 @@ footer p {
     position: relative
 }
 
-.login-wrapper .loginbox .login-left:before {
+/*.login-wrapper .loginbox .login-left:before {
     content: "";
     background-image: url(../img/login-icon-01.png);
     position: absolute;
@@ -3118,7 +3119,7 @@ footer p {
     right: 0;
     width: 144px;
     height: 144px
-}
+}*/
 
 .login-wrapper .loginbox .login-right {
     align-items: center;
@@ -3229,7 +3230,7 @@ footer p {
 }
 
 .social-login>span {
-    color: #a0a0a0;
+    color: #232222;
     margin-right: 8px
 }
 
@@ -3481,7 +3482,7 @@ footer p {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
+    -webkit-box-align: end;
     -ms-flex-align: center;
     align-items: center;
     justify-content: center;

@@ -9,7 +9,6 @@ use Session;
 use Log;
 use Carbon\Carbon;
 use App\Models\User;
-use Symfony\Component\HttpFoundation\Session\Session
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;

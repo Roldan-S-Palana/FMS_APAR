@@ -20,63 +20,63 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-                <div class="card bg-comman w-100">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card inovices-card">
                     <div class="card-body">
-                        <div class="db-widgets d-flex justify-content-between align-items-center">
-                            <div class="db-info">
-                                <h6>Clients</h6>
-                                <h3>50055</h3>
-                            </div>
-                            <div class="db-icon">
-                                <img src="{{ URL::to('assets/img/icons/dash-icon-01.svg') }}" alt="Dashboard Icon">
+                        <div class="inovices-widget-header">
+                            <span class="inovices-widget-icon">
+                                <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
+                            </span>
+                            <div class="inovices-dash-count">
+                                <div class="inovices-amount">$8,78,797</div>
                             </div>
                         </div>
+                        <p class="inovices-all">All Invoices <span>50</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-                <div class="card bg-comman w-100">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card inovices-card">
                     <div class="card-body">
-                        <div class="db-widgets d-flex justify-content-between align-items-center">
-                            <div class="db-info">
-                                <h6>Awards</h6>
-                                <h3>50+</h3>
-                            </div>
-                            <div class="db-icon">
-                                <img src="{{ URL::to('assets/img/icons/dash-icon-02.svg') }}" alt="Dashboard Icon">
+                        <div class="inovices-widget-header">
+                            <span class="inovices-widget-icon">
+                                <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
+                            </span>
+                            <div class="inovices-dash-count">
+                                <div class="inovices-amount">$4,5884</div>
                             </div>
                         </div>
+                        <p class="inovices-all">Paid Invoices <span>60</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-                <div class="card bg-comman w-100">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card inovices-card">
                     <div class="card-body">
-                        <div class="db-widgets d-flex justify-content-between align-items-center">
-                            <div class="db-info">
-                                <h6>Department</h6>
-                                <h3>30+</h3>
-                            </div>
-                            <div class="db-icon">
-                                <img src="{{ URL::to('assets/img/icons/dash-icon-03.svg') }}" alt="Dashboard Icon">
+                        <div class="inovices-widget-header">
+                            <span class="inovices-widget-icon">
+                                <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
+                            </span>
+                            <div class="inovices-dash-count">
+                                <div class="inovices-amount">$2,05,545</div>
                             </div>
                         </div>
+                        <p class="inovices-all">Unpaid Invoices <span>70</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-                <div class="card bg-comman w-100">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card inovices-card">
                     <div class="card-body">
-                        <div class="db-widgets d-flex justify-content-between align-items-center">
-                            <div class="db-info">
-                                <h6>Revenue</h6>
-                                <h3>$505</h3>
-                            </div>
-                            <div class="db-icon">
-                                <img src="{{ URL::to('assets/img/icons/dash-icon-04.svg') }}" alt="Dashboard Icon">
+                        <div class="inovices-widget-header">
+                            <span class="inovices-widget-icon">
+                                <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
+                            </span>
+                            <div class="inovices-dash-count">
+                                <div class="inovices-amount">$8,8,797</div>
                             </div>
                         </div>
+                        <p class="inovices-all">Cancelled Invoices <span>80</span></p>
                     </div>
                 </div>
             </div>

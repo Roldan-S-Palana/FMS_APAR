@@ -18,6 +18,8 @@ class RegisterController extends Controller
     public function register()
     {
         $role = DB::table('role_type_users')->get();
+       // $role = DB::table('fgms_g7_role_type_users')->get();
+
         return view('auth.register', compact('role'));
     }
     public function storeUser(Request $request)

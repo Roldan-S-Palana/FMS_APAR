@@ -18,9 +18,12 @@
                     </div>
                     <div class="col-auto">
                         <div class="invoices-create-btn">
-                            <a class="invoices-preview-link" href="#" data-bs-toggle="modal" data-bs-target="#invoices_preview"><i class="fe fe-eye"></i> Preview</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#delete_invoices_details" class="btn delete-invoice-btn">Delete Invoice</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#save_invocies_details" class="btn save-invoice-btn">Save Draft</a>
+                            <a class="invoices-preview-link" href="#" data-bs-toggle="modal"
+                                data-bs-target="#invoices_preview"><i class="fe fe-eye"></i> Preview</a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#delete_invoices_details"
+                                class="btn delete-invoice-btn">Delete Invoice</a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#save_invocies_details"
+                                class="btn save-invoice-btn">Save Draft</a>
                         </div>
                     </div>
                 </div>
@@ -30,26 +33,35 @@
                 <div class="col-md-12">
                     <div class="card invoices-add-card">
                         <div class="card-body">
-                            <form action="{{ route('invoice/add/save') }}" class="invoices-form" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('invoice/add/save') }}" class="invoices-form" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" class="form-control" name="id" value="{{ $invoiceEdit->id }}">
                                 <div class="invoices-main-form">
                                     <div class="row">
                                         <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label>Customer Name</label>
-                                                <select class="select select2s-hidden-accessible @error('full_name') is-invalid @enderror" style="width: 100%;" tabindex="-1" aria-hidden="true" id="customer_name" name="customer_name">
+                                                <select
+                                                    class="select select2s-hidden-accessible @error('full_name') is-invalid @enderror"
+                                                    style="width: 100%;" tabindex="-1" aria-hidden="true"
+                                                    id="customer_name" name="customer_name">
                                                     <option selected disabled>-- Select Customer --</option>
-                                                    {{-- @foreach($users as $key => $names)
-                                                        <option value="{{ $names->name }}"data-teacher_id={{ $names->user_id }} {{ old('full_name') == $names->name ? "selected" :""}}>{{ $names->name }}</option>
-                                                    @endforeach --}}
+                                                    @foreach ($customer_name as $name)
+                                                        <option
+                                                            value="{{ $invoiceEdit->customer_name }}"data-teacher_id={{ $name->customer_name }}
+                                                            {{ old('full_name') == $values->name ? 'selected' : '' }}>
+                                                            {{ $values->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Po Number</label>
-                                                <input class="form-control" type="text" id="po_number" name="po_number" placeholder="Enter Reference Number">
+                                                <input class="form-control" type="text" id="po_number" name="po_number"
+                                                    placeholder="Enter Reference Number">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-xl-5 col-md-6 col-sm-12 col-12">
                                             <h4 class="invoice-details-title">Invoice details</h4>
                                             <div class="invoice-details-box">
@@ -61,14 +73,17 @@
                                                         <div class="col-lg-6 col-md-6">
                                                             <div class="invoice-inner-date">
                                                                 <span>
-                                                                    Date <input class="form-control datetimepicker" type="text" name="date" value="{{ date('d-m-Y') }}">
+                                                                    Date <input class="form-control datetimepicker"
+                                                                        type="text" name="date"
+                                                                        value="{{ date('d-m-Y') }}">
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6">
                                                             <div class="invoice-inner-date invoice-inner-datepic">
                                                                 <span>
-                                                                    Due Date <input class="form-control datetimepicker" type="text" name="due_date" placeholder="Select">
+                                                                    Due Date <input class="form-control datetimepicker"
+                                                                        type="text" name="due_date" placeholder="Select">
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -76,16 +91,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-xl-3 col-md-12 col-sm-12 col-12">
                                             <div class="inovices-month-info">
                                                 <div class="form-group mb-0">
                                                     <label class="custom_check w-100">
-                                                        <input type="checkbox" id="enableTax" name="enable_tax" value="Enable tax">
+                                                        <input type="checkbox" id="enableTax" name="enable_tax"
+                                                            value="Enable tax">
                                                         <span class="checkmark"></span> Enable tax
                                                     </label>
                                                     <label class="custom_check w-100">
-                                                        <input type="checkbox" id="chkYes" name="recurring_incoice" value="Recurring Invoice">
+                                                        <input type="checkbox" id="chkYes" name="recurring_incoice"
+                                                            value="Recurring Invoice">
                                                         <span class="checkmark"></span> Recurring Invoice
                                                     </label>
                                                 </div>
@@ -105,7 +122,8 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input class="form-control" type="text" name="month" placeholder="Enter Months">
+                                                                <input class="form-control" type="text" name="month"
+                                                                    placeholder="Enter Months">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -120,21 +138,22 @@
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="invoice-info">
-                                                <strong class="customer-text">Invoice From 
-                                                    <a class="small" href="#">Edit Address</a>
+                                                <strong class="customer-text">Invoice From
+                                                    <a class="small" href="{{ route('user/profile/page') }}">Edit
+                                                        Address</a>
                                                 </strong>
                                                 <p class="invoice-details invoice-details-two">
-                                                    StarCode Kh
+                                                    Financial Guardian
                                                     <br>
-                                                    #61, Preah Monivong Blvd.,
+                                                    #87, Susano Road,
                                                     <br>
-                                                    Penh, Cambodia.
+                                                    Quezon City, Philippines.
                                                     <br>
                                                 </p>
                                                 <textarea hidden name="invoice_from">
-                                                    StarCode Kh
-                                                    #61, Preah Monivong Blvd.,
-                                                    Penh, Cambodia.
+                                                    Financial Guardian
+                                                    #87, Susano Road,
+                                                    Quezon City, Philippines.
                                                 </textarea>
                                             </div>
                                         </div>
@@ -142,17 +161,18 @@
                                             <div class="invoice-info">
                                                 <strong class="customer-text">Invoice To</strong>
                                                 <p class="invoice-details invoice-details-two">
-                                                    Soeng Souy
+                                                    <span id="invoice_to"></span>
+                                                    Cat Cat
                                                     <br>
-                                                    #28, Mao Tse Tung Blvd.,
+                                                    #56, Mahogany St. Kanto Blv.,
                                                     <br>
-                                                    Penh, Cambodia.
+                                                    Quezon City, Philippines.
                                                     <br>
                                                 </p>
                                                 <textarea hidden name="invoice_to">
-                                                    Soeng Souy
-                                                    #28, Mao Tse Tung Blvd.,
-                                                    Penh, Cambodia.
+                                                    Cat Cat
+                                                    #56, Mahogany St. Kanto Blv.,
+                                                    Quezon City, Philippines.
                                                 </textarea>
                                             </div>
                                         </div>
@@ -177,11 +197,21 @@
                                             <tbody>
                                                 <tr class="add-row">
                                                     <td><input type="text" class="form-control" name="items[]"></td>
-                                                    <td><input type="text" class="form-control" name="category[]"></td>
-                                                    <td><input type="text" class="form-control" name="quantity[]" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" ></td>
-                                                    <td><input type="text" class="form-control price" name="price[]" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" ></td>
-                                                    <td><input type="text" class="form-control amount" name="amount[]" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" ></td>
-                                                    <td><input type="text" class="form-control discount" name="discount[]" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" ></td>
+                                                    <td><input type="text" class="form-control" name="category[]">
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="quantity[]"
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                    </td>
+                                                    <td><input type="text" class="form-control price" name="price[]"
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                    </td>
+                                                    <td><input type="text" class="form-control amount" name="amount[]"
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                    </td>
+                                                    <td><input type="text" class="form-control discount"
+                                                            name="discount[]"
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                    </td>
                                                     <td class="add-remove text-end">
                                                         <a class="add-btn me-2"><i class="fas fa-plus-circle"></i></a>
                                                         <a class="copy-btn me-2"><i class="fe fe-copy"></i></a>
@@ -198,7 +228,8 @@
                                             <h4 class="field-title">More Fields</h4>
                                             <div id="btn-add-bank-details" class="field-box">
                                                 <p>Payment Details</p>
-                                                <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#bank_details">
+                                                <a class="btn btn-primary" href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#bank_details">
                                                     <i class="fas fa-plus-circle me-2"></i>Add Bank Details
                                                 </a>
                                             </div>
@@ -216,42 +247,54 @@
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="form-group">
                                                         <label>Account Holder Name</label>
-                                                        <input type="text" class="form-control" id="auto_account_holder_name" name="account_holder_name" placeholder="Add Name">
+                                                        <input type="text" class="form-control"
+                                                            id="auto_account_holder_name" name="account_holder_name"
+                                                            placeholder="Add Name">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="form-group">
                                                         <label>Bank name</label>
-                                                        <input type="text" class="form-control" id="auto_bank_name" name="bank_name" placeholder="Add Bank name">
+                                                        <input type="text" class="form-control" id="auto_bank_name"
+                                                            name="bank_name" placeholder="Add Bank name">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="form-group">
                                                         <label>IFSC Code</label>
-                                                        <input type="text" class="form-control" id="auto_ifsc_code" name="ifsc_code" placeholder="IFSC Code">
+                                                        <input type="text" class="form-control" id="auto_ifsc_code"
+                                                            name="ifsc_code" placeholder="IFSC Code">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="form-group">
                                                         <label>Account Number</label>
-                                                        <input type="text" class="form-control" id="auto_account_number" name="account_number" placeholder="Account Number">
+                                                        <input type="text" class="form-control"
+                                                            id="auto_account_number" name="account_number"
+                                                            placeholder="Account Number">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="invoice-faq">
-                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="panel-group" id="accordion" role="tablist"
+                                                aria-multiselectable="true">
                                                 <div class="faq-tab">
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading" role="tab" id="headingTwo">
                                                             <p class="panel-title">
-                                                                <a class="collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                    <i class="fas fa-plus-circle me-1"></i> Add Terms & Conditions
+                                                                <a class="collapsed" data-bs-toggle="collapse"
+                                                                    data-bs-parent="#accordion" href="#collapseTwo"
+                                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <i class="fas fa-plus-circle me-1"></i> Add Terms &
+                                                                    Conditions
                                                                 </a>
                                                             </p>
                                                         </div>
-                                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                                        <div id="collapseTwo" class="panel-collapse collapse"
+                                                            role="tabpanel" aria-labelledby="headingTwo"
+                                                            data-bs-parent="#accordion">
                                                             <div class="panel-body">
                                                                 <textarea class="form-control" name="add_terms_and_conditions"></textarea>
                                                             </div>
@@ -262,12 +305,16 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading" role="tab" id="headingThree">
                                                             <p class="panel-title">
-                                                                <a class="collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                <a class="collapsed" data-bs-toggle="collapse"
+                                                                    data-bs-parent="#accordion" href="#collapseThree"
+                                                                    aria-expanded="false" aria-controls="collapseThree">
                                                                     <i class="fas fa-plus-circle me-1"></i> Add Notes
                                                                 </a>
                                                             </p>
                                                         </div>
-                                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                                                        <div id="collapseThree" class="panel-collapse collapse"
+                                                            role="tabpanel" aria-labelledby="headingThree"
+                                                            data-bs-parent="#accordion">
                                                             <div class="panel-body">
                                                                 <textarea class="form-control" name="add_notes"></textarea>
                                                             </div>
@@ -283,10 +330,12 @@
                                             <h4 class="invoice-total-title">Summary</h4>
                                             <div class="invoice-total-box">
                                                 <div class="invoice-total-inner">
-                                                    <input type="hidden" name="taxable_amount" id="taxable_amount" value="21">
+                                                    <input type="hidden" name="taxable_amount" id="taxable_amount"
+                                                        value="21">
                                                     <p>Taxable Amount <span id="">$21</span></p>
                                                     <p>Round Off
-                                                        <input type="checkbox" name="round_off" id="status_1" class="check" value="54">
+                                                        <input type="checkbox" name="round_off" id="status_1"
+                                                            class="check" value="54">
                                                         <label for="status_1" class="checktoggle">checkbox</label>
                                                         <span id="">$54</span>
                                                     </p>
@@ -305,7 +354,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="invoice-total-footer">
-                                                    <h4>Total Amount <span id="total_amount">$<span class="total_amount" name="total_amount">00</span></span></h4>
+                                                    <h4>Total Amount <span id="total_amount">$<span class="total_amount"
+                                                                name="total_amount">00</span></span></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -315,7 +365,8 @@
                                                 <input type="file" name="upload_sign" multiple>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="name_of_the_signatuaory" placeholder="Name of the Signatuaory">
+                                                <input type="text" class="form-control" name="name_of_the_signatuaory"
+                                                    placeholder="Name of the Signatuaory">
                                             </div>
                                             <div class="form-group float-end mb-0">
                                                 <button class="btn btn-primary" type="submit">Save Invoice</button>
@@ -323,7 +374,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </form>
                         </div>
                     </div>
@@ -360,8 +411,10 @@
 
                                     <div class="invoice-item invoice-item-bg">
                                         <div class="invoice-circle-img">
-                                            <img src="{{ URL::to('assets/img/invoice-circle1.png') }}" alt="" class="invoice-circle1">
-                                            <img src="assets/img/invoice-circle2.png" alt=""class="invoice-circle2">
+                                            <img src="{{ URL::to('assets/img/invoice-circle1.png') }}" alt=""
+                                                class="invoice-circle1">
+                                            <img src="assets/img/invoice-circle2.png"
+                                                alt=""class="invoice-circle2">
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-4 col-md-12">
@@ -520,13 +573,15 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Account Holder Name</label>
-                                    <input type="text" class="form-control" id="account_holder_name" placeholder="Add Name">
+                                    <input type="text" class="form-control" id="account_holder_name"
+                                        placeholder="Add Name">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Bank name</label>
-                                    <input type="text" class="form-control" id="bank_name" placeholder="Add Bank name">
+                                    <input type="text" class="form-control" id="bank_name"
+                                        placeholder="Add Bank name">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -538,7 +593,8 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Account Number</label>
-                                    <input type="text" class="form-control" id="account_number" placeholder="Account Number">
+                                    <input type="text" class="form-control" id="account_number"
+                                        placeholder="Account Number">
                                 </div>
                             </div>
                         </div>
@@ -547,7 +603,8 @@
                 <div class="modal-footer">
                     <div class="bank-details-btn">
                         <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn bank-cancel-btn me-2">Cancel</a>
-                        <a id="save-item" class="btn bank-save-btn" class="close" data-bs-dismiss="modal" aria-label="Close">Save Item</a>
+                        <a id="save-item" class="btn bank-save-btn" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">Save Item</a>
                     </div>
                 </div>
             </div>
@@ -590,10 +647,12 @@
                     <div class="modal-btn delete-action">
                         <div class="row">
                             <div class="col-6">
-                                <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">Save</a>
+                                <a href="#" data-bs-dismiss="modal"
+                                    class="btn btn-primary paid-continue-btn">Save</a>
                             </div>
                             <div class="col-6">
-                                <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn">Cancel</a>
+                                <a href="#" data-bs-dismiss="modal"
+                                    class="btn btn-primary paid-cancel-btn">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -602,163 +661,157 @@
         </div>
     </div>
 
-    @section('script')
-
-        {{-- show hide [Bank Details]--}}
-        <script>
-            $('#bank-details').hide();
-            $('#btn-remove-bank-details').hide();
-            $(function() {
-                $("#save-item").click(function() {
-                    if (!isNaN($("#account_holder_name").val())) {
-                        $('#bank-details').hide();
-                    } else {
-                        $('#bank-details').show();
-                        $('#btn-add-bank-details').hide();
-                        $('#btn-remove-bank-details').show();
-                        var account_holder_name = $('#account_holder_name').val();
-                        var bank_name = $('#bank_name').val();
-                        var ifsc_code = $('#ifsc_code').val();
-                        var account_number = $('#account_number').val();
-
-                        $('#auto_account_holder_name').val(account_holder_name);
-                        $('#auto_bank_name').val(bank_name);
-                        $('#auto_ifsc_code').val(ifsc_code);
-                        $('#auto_account_number').val(account_number);
-                    }
-                });
-                $("#btn-remove-bank-details").click(function() {
+@section('script')
+    {{-- show hide [Bank Details] --}}
+    <script>
+        $('#bank-details').hide();
+        $('#btn-remove-bank-details').hide();
+        $(function() {
+            $("#save-item").click(function() {
+                if (!isNaN($("#account_holder_name").val())) {
                     $('#bank-details').hide();
-                    $('#btn-add-bank-details').show();
-                    $('#btn-remove-bank-details').hide();
-                });
-            });
-        </script>
+                } else {
+                    $('#bank-details').show();
+                    $('#btn-add-bank-details').hide();
+                    $('#btn-remove-bank-details').show();
+                    var account_holder_name = $('#account_holder_name').val();
+                    var bank_name = $('#bank_name').val();
+                    var ifsc_code = $('#ifsc_code').val();
+                    var account_number = $('#account_number').val();
 
-        {{-- show hide [Recurring Invoice]--}}
-        <script>
-            $(function() {
-                $("input[name='recurring_incoice']").click(function() {
-                    if ($("#chkYes").is(":checked")) {
-                        $("#show-invoices").show();
-                    } else {
-                        $("#show-invoices").hide();
-                    }
-                });
+                    $('#auto_account_holder_name').val(account_holder_name);
+                    $('#auto_bank_name').val(bank_name);
+                    $('#auto_ifsc_code').val(ifsc_code);
+                    $('#auto_account_number').val(account_number);
+                }
             });
-        </script>
+            $("#btn-remove-bank-details").click(function() {
+                $('#bank-details').hide();
+                $('#btn-add-bank-details').show();
+                $('#btn-remove-bank-details').hide();
+            });
+        });
+    </script>
 
-        {{-- add rows and remove [Item Details]--}}
-        <script>
-            $(".add-table-items").on('click', '.remove-btn', function() {
-                $(this).closest('.add-row').remove();
-                return false;
+    {{-- show hide [Recurring Invoice] --}}
+    <script>
+        $(function() {
+            $("input[name='recurring_incoice']").click(function() {
+                if ($("#chkYes").is(":checked")) {
+                    $("#show-invoices").show();
+                } else {
+                    $("#show-invoices").hide();
+                }
             });
-            
-            $(document).on("click", ".add-btn", function() {
-                var experiencecontent =
+        });
+    </script>
+
+    {{-- add rows and remove [Item Details] --}}
+    <script>
+        $(".add-table-items").on('click', '.remove-btn', function() {
+            $(this).closest('.add-row').remove();
+            return false;
+        });
+
+        $(document).on("click", ".add-btn", function() {
+            var experiencecontent =
                 '<tr class="add-row">' +
-                    '<td>' + '<input type="text" class="form-control" name="items[]">' + '</td>' +
-                    '<td>' + '<input type="text" class="form-control" name="category[]">' + '</td>' +
-                    '<td>' + '<input type="text" class="form-control" name="quantity[]">' + '</td>' +
-                    '<td>' + '<input type="text" class="form-control price" name="price[]">' + '</td>' +
-                    '<td>' + '<input type="text" class="form-control amount" name="amount[]">' + '</td>' +
-                    '<td>' + '<input type="text" class="form-control discount" name="discount[]">' + '</td>' +
-                    '<td class="add-remove text-end">' +
-                        '<a class="add-btn me-2"><i class="fas fa-plus-circle"></i></a> ' +
-                        '<a class="copy-btn me-2"><i class="fe fe-copy"></i></a>' +
-                        '<a class="remove-btn"><i class="fe fe-trash-2"></i></a>' +
-                    '</td>' +
+                '<td>' + '<input type="text" class="form-control" name="items[]">' + '</td>' +
+                '<td>' + '<input type="text" class="form-control" name="category[]">' + '</td>' +
+                '<td>' + '<input type="text" class="form-control" name="quantity[]">' + '</td>' +
+                '<td>' + '<input type="text" class="form-control price" name="price[]">' + '</td>' +
+                '<td>' + '<input type="text" class="form-control amount" name="amount[]">' + '</td>' +
+                '<td>' + '<input type="text" class="form-control discount" name="discount[]">' + '</td>' +
+                '<td class="add-remove text-end">' +
+                '<a class="add-btn me-2"><i class="fas fa-plus-circle"></i></a> ' +
+                '<a class="copy-btn me-2"><i class="fe fe-copy"></i></a>' +
+                '<a class="remove-btn"><i class="fe fe-trash-2"></i></a>' +
+                '</td>' +
                 '</tr>';
-                $(".add-table-items").append(experiencecontent);
-                return false;
+            $(".add-table-items").append(experiencecontent);
+            return false;
+        });
+    </script>
+
+    <script>
+        $('#invoice-add-table tbody').on("keyup", ".price", function() {
+            var parent = $(this).closest('tr');
+            var price = parseFloat($(parent).find('.price').val());
+            $(parent).find('.price').val(price);
+            GrandTotal();
+        });
+
+        function GrandTotal() {
+            var sum = 0;
+            $('.price').each(function() {
+                sum += Number($(this).val());
             });
-        </script>
-
-        <script>
-
-            $('#invoice-add-table tbody').on("keyup",".price",function()
-            {
-                var parent = $(this).closest('tr');
-                var price  = parseFloat($(parent).find('.price').val());
-                $(parent).find('.price').val(price);
-                GrandTotal();
+            $(document).on("change keyup blur", ".discount", function() {
+                var discount = parseFloat($('.discount').val());
+                var calculatedDiscount = (sum * discount) / 100;
+                var totalAmount = sum - calculatedDiscount;
+                if (!isNaN(totalAmount)) {
+                    document.querySelector('.total_amount').innerText = totalAmount;
+                }
             });
+        };
+    </script>
 
-            function GrandTotal() {
-                var sum = 0;
-                $('.price').each(function() {
-                    sum += Number($(this).val());
-                });
-                $(document).on("change keyup blur", ".discount", function() 
-                {
-                    var discount = parseFloat($('.discount').val());
-                    var calculatedDiscount = (sum * discount) / 100;
-                    var totalAmount = sum - calculatedDiscount;
-                    if (!isNaN(totalAmount)) {
-                        document.querySelector('.total_amount').innerText = totalAmount;
-                    }
-                }); 
-            };
-        </script>
-
-        {{-- Summary --}}
-        <script>
-            $(document).on("click", ".add-links", function() {
-                var experiencecontent = 
+    {{-- Summary --}}
+    <script>
+        $(document).on("click", ".add-links", function() {
+            var experiencecontent =
                 '<div class="links-cont">' +
-                    '<div class="service-amount">' +
-                        '<a href="#" class="service-trash">' +
-                            '<i class="fe fe-minus-circle me-1"></i>' +
-                            'Service Charge ' +
-                        '</a> ' +
-                        '<span>$ 4</span><input name="service_charge[]" value="4" hidden>' +
-                    
-                    '</div>' +
+                '<div class="service-amount">' +
+                '<a href="#" class="service-trash">' +
+                '<i class="fe fe-minus-circle me-1"></i>' +
+                'Service Charge ' +
+                '</a> ' +
+                '<span>$ 4</span><input name="service_charge[]" value="4" hidden>' +
+
+                '</div>' +
                 '</div>';
-                $(".links-info-one").append(experiencecontent);
-                return false;
-            });
+            $(".links-info-one").append(experiencecontent);
+            return false;
+        });
 
-            $(".links-info-discount").on('click', '.service-trash-one', function() {
-                $(this).closest('.links-cont-discount').remove();
-                return false;
-            });
+        $(".links-info-discount").on('click', '.service-trash-one', function() {
+            $(this).closest('.links-cont-discount').remove();
+            return false;
+        });
 
-            $(document).on("click", ".add-links-one", function() {
-                var experiencecontent =
+        $(document).on("click", ".add-links-one", function() {
+            var experiencecontent =
                 '<div class="links-cont-discount">' +
-                    '<div class="service-amount">' +
-                        '<a href="#" class="service-trash-one">' +
-                            '<i class="fe fe-minus-circle me-1"></i> Offer new' +
-                        '</a>' +
-                        '<span>$ 4 %</span><input name="offer_new[]" value="4"hidden>' +
-                    '</div>' +
+                '<div class="service-amount">' +
+                '<a href="#" class="service-trash-one">' +
+                '<i class="fe fe-minus-circle me-1"></i> Offer new' +
+                '</a>' +
+                '<span>$ 4 %</span><input name="offer_new[]" value="4"hidden>' +
+                '</div>' +
                 '</div>';
-                $(".links-info-discount").append(experiencecontent);
-                return false;
-            });
+            $(".links-info-discount").append(experiencecontent);
+            return false;
+        });
 
-            $(document).on("click", ".add-links", function() {
-                var experiencecontent = 
+        $(document).on("click", ".add-links", function() {
+            var experiencecontent =
                 '<div class="row form-row links-cont">' +
-                    '<div class="form-group d-flex">' +
-                        '<button class="btn social-icon">' +
-                            '<i class="feather-github"></i>' +
-                        '</button>' +
-                        '<input type="text" class="form-control" placeholder="Social Link">' +
-                        '<div>' +
-                            '<a href="#" class="btn trash">' +
-                                '<i class="feather-trash-2"></i>' +
-                            '</a>' +
-                        '</div>' +
-                    '</div>' +
+                '<div class="form-group d-flex">' +
+                '<button class="btn social-icon">' +
+                '<i class="feather-github"></i>' +
+                '</button>' +
+                '<input type="text" class="form-control" placeholder="Social Link">' +
+                '<div>' +
+                '<a href="#" class="btn trash">' +
+                '<i class="feather-trash-2"></i>' +
+                '</a>' +
+                '</div>' +
+                '</div>' +
                 '</div>';
-                $(".settings-form").append(experiencecontent);
-                return false;
-            });
-
-        </script>
-
-    @endsection
+            $(".settings-form").append(experiencecontent);
+            return false;
+        });
+    </script>
+@endsection
 @endsection

@@ -9,6 +9,8 @@ use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\clientController;
+use App\Http\Controllers\AccountsController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +24,14 @@ use App\Http\Controllers\clientController;
 */
 
 /** for side bar menu active */
-function set_active($route)
+/*function set_active($route)
 {
+    $request = Request::instance();
     if (is_array($route)) {
-        return in_array(Request::path(), $route) ? 'active' : '';
+        return in_array($request::path(), $route) ? 'active' : '';
     }
-    return Request::path() == $route ? 'active' : '';
-}
+    return $request::path() == $route ? 'active' : '';
+}*/
 
 Route::get('/', function () {
     return view('auth.login');
@@ -65,6 +68,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // -------------------------- main dashboard ----------------------//
     Route::controller(HomeController::class)->group(function () {
         Route::get('/home', 'index')->middleware('auth')->name('home');
+        Route::get('ar/dashboard', 'arDashboardIndex')->middleware('auth')->name('ar/dashboard');
+        Route::get('ap/dashboard', 'apDashboardIndex')->middleware('auth')->name('ap/dashboard');
+
         Route::get('user/profile/page', 'userProfile')->middleware('auth')->name('user/profile/page');
         Route::get('vendor/dashboard', 'vendorDashboardIndex')->middleware('auth')->name('vendor/dashboard');
         Route::get('client/dashboard', 'clientDashboardIndex')->middleware('auth')->name('client/dashboard');
@@ -104,7 +110,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('vendor/list/page', 'vendorList')->middleware('auth')->name('vendor/list/page'); // page vendor
         Route::get('vendor/grid/page', 'vendorGrid')->middleware('auth')->name('vendor/grid/page'); // page grid vendor
         Route::post('vendor/save', 'saveRecord')->middleware('auth')->name('vendor/save'); // save record
-        Route::get('vendor/edit/{user_id}', 'editRecord'); // view vendor record
+        Route::get('vendor/edit/{id}', 'editRecord'); // view vendor record
         Route::post('vendor/update', 'updateRecordvendor')->middleware('auth')->name('vendor/update'); // update record
         Route::post('vendor/delete', 'vendorDelete')->name('vendor/delete'); // delete record vendor
     });
@@ -151,6 +157,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // ----------------------- accounts ----------------------------//
     Route::controller(AccountsController::class)->group(function () {
-        Route::get('account/fees/collections/page', 'index')->middleware('auth')->name('account/fees/collections/page'); // account/fees/collections/page
+        Route::get('account/fees/collections/page', 'feeCollectionView')->middleware('auth')->name('account/fees/collections/page'); // account/fees/collections/page
+        Route::get('account/fees/add/page', 'showInvoices')->middleware('auth')->name('account/fees/add/page'); // account/fees/collections/page
+        Route::post('account/fees/add/save', 'feeSave')->name('account/fees/add/save'); // account/fees/collections/page
+        Route::get('account/workflow/approval/page', 'showInvoices')->middleware('auth')->name('account/workflow/approval/page'); // account/fees/collections/page
+
     });
 });

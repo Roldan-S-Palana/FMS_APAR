@@ -200,6 +200,7 @@ table.table td h2 {
 
 table.table td h2.table-avatar {
     align-items: center;
+    
     display: inline-flex;
     font-size: inherit;
     font-weight: 400;
@@ -234,7 +235,8 @@ table.table td h2 span {
 
 .table.table-center td,
 .table.table-center th {
-    vertical-align: middle
+    vertical-align: middle;
+    text-align: middle
 }
 
 .table-hover tbody tr:hover {

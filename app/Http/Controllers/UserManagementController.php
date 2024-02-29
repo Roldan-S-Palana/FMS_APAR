@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use Session;
+use Illuminate\Support\Facades\Session; 
 use Log;
 use Carbon\Carbon;
 use App\Models\User;

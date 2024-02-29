@@ -121,20 +121,20 @@
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="invoice-info">
                                                 <strong class="customer-text">Invoice From 
-                                                    <a class="small" href="#">Edit Address</a>
+                                                    <a class="small" href="{{ route('user/profile/page') }}">Edit Address</a>
                                                 </strong>
                                                 <p class="invoice-details invoice-details-two">
-                                                    StarCode Kh
+                                                    Financial Guardian
                                                     <br>
-                                                    #61, Preah Monivong Blvd.,
+                                                    #87, Susano Road,
                                                     <br>
-                                                    Penh, Cambodia.
+                                                    Quezon City, Philippines.
                                                     <br>
                                                 </p>
                                                 <textarea hidden name="invoice_from">
-                                                    StarCode Kh
-                                                    #61, Preah Monivong Blvd.,
-                                                    Penh, Cambodia.
+                                                    Financial Guardian
+                                                    #87, Susano Road,
+                                                    Quezon City, Philippines.
                                                 </textarea>
                                             </div>
                                         </div>
@@ -143,16 +143,17 @@
                                                 <strong class="customer-text">Invoice To</strong>
                                                 <p class="invoice-details invoice-details-two">
                                                     <span id="invoice_to"></span>
+                                                    Cat Cat
                                                     <br>
-                                                    #28, Mao Tse Tung Blvd.,
+                                                    #56, Mahogany St. Kanto Blv.,
                                                     <br>
-                                                    Penh, Cambodia.
+                                                    Quezon City, Philippines.
                                                     <br>
                                                 </p>
-                                                <textarea hidden name="invoice_to">
-                                                    Soeng Souy
-                                                    #28, Mao Tse Tung Blvd.,
-                                                    Penh, Cambodia.
+                                                <textarea hidden  name="invoice_to">
+                                                    Cat Cat
+                                                    #56, Mahogany St. Kanto Blv.,
+                                                    Quezon City, Philippines.
                                                 </textarea>
                                             </div>
                                         </div>

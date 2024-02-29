@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_term', function (Blueprint $table) {
+        //Schema::create('fgms_g7_payment_term', function (Blueprint $table) {
+
+        Schema::create('fgms_g7_payment_term', function (Blueprint $table) {
             $table->id('payment_term_id');
             $table->string('payment_term')->nullable();
             $table->timestamps();
@@ -23,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_term');
+        //Schema::dropIfExists('fgms_g7_payment_term');
+
+        Schema::dropIfExists('fgms_g7_payment_term');
     }
 };

@@ -210,7 +210,7 @@
                                                     </label>
                                                 </div>
                                                 <button type="submit" class="btn w-100 btn-primary">Apply</button>
-                                                <button type="reset" class="btn w-100 btn-grey">Reset</button>
+                                                <button type="reset" class="btn w   -100 btn-grey">Reset</button>
                                             </form>
                                         </div>
                                     </div>
@@ -342,7 +342,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($invoiceList as $key => $value)
+                                        @foreach($invoiceList as  $value)
                                         <tr>
                                             <td>
                                                 <label class="custom_check">
@@ -370,11 +370,20 @@
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="edit-invoice.html">
+                                                        <a class="dropdown-item" href="{{ url('invoice/edit/page'.$value->invoice_id) }}">
                                                             <i class="far fa-edit me-2"></i>Edit
                                                         </a>
                                                         <a class="dropdown-item" href="view-invoice.html">
                                                             <i class="far fa-eye me-2"></i>View
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-window-maximize"></i>Approval
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-paper-plane"></i> Send Notice
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-window-restore"></i> Reconcile
                                                         </a>
                                                         <a class="dropdown-item" href="javascript:void(0);">
                                                             <i class="far fa-trash-alt me-2"></i>Delete

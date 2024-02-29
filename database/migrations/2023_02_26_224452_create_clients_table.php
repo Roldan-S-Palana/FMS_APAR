@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        //Schema::create('fgms_g7_clients', function (Blueprint $table) {
+
+        Schema::create('fgms_g7_clients', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('first_name')->nullable();
@@ -39,6 +41,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        //Schema::dropIfExists('fgms_g7_students');
+
+        Schema::dropIfExists('fgms_g7_students');
     }
 };

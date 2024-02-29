@@ -17,10 +17,10 @@ class HomeController extends Controller
     }
 
     /**
-    * Show the application dashboard.
-    *
-    * @return \Illuminate\Contracts\Support\Renderable
-    */
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     /** home dashboard */
     public function index()
     {
@@ -46,5 +46,16 @@ class HomeController extends Controller
     {
         $this->middleware('CheckRole:Client');
         return view('dashboard.client_dashboard');
+    }
+
+    public function arDashboardIndex()
+    {
+        $this->middleware('CheckRole:Staff');
+        return view('dashboard.ar');
+    }
+    public function apDashboardIndex()
+    {
+        $this->middleware('CheckRole:Staff');
+        return view('dashboard.ap');
     }
 }

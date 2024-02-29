@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class clients extends Model
 {
     use HasFactory;
+
+    //protected $table = 'fgms_g7_clients';
+
     protected $fillable = [
         'first_name',
         'last_name',

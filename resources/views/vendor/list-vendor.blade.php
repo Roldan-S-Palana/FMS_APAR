@@ -72,13 +72,15 @@
                                             </div>
                                         </th>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Class</th>
+                                        <th>Full name</th>
+                                        <th>Company name</th>
+
                                         <th>Gender</th>
-                                        <th>Subject</th>
-                                        <th>Section</th>
-                                        <th>Mobile Number</th>
+                                        <th>Contact No.</th>
                                         <th>Address</th>
+                                        <th>Contract</th>
+                                        <th>Payment</th>
+                                        
                                         <th class="text-end">Action</th>
                                     </tr>
                                 </thead>
@@ -91,30 +93,32 @@
                                                     value="something">
                                             </div>
                                         </td>
-                                        <td hidden class="user_id
-                                        ">{{ $list->user_id }}</td>
-                                        <td>{{ $list->user_id }}</td>
+                                        <td  class="user_id">{{ $list->id }}</td>
+                                        
+                                        <td>{{ $list->full_name }}</td>
+                                        
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="vendor-details.html" class="avatar avatar-sm me-2">
                                                     @if (!empty($list->avatar))
                                                         <img class="avatar-img rounded-circle" src="{{ URL::to('images/'.$list->avatar) }}" alt="{{ $list->name }}">
                                                     @else
-                                                        <img class="avatar-img rounded-circle" src="{{ URL::to('images/photo_defaults.png') }}" alt="{{ $list->name }}">
+                                                        <img class="avatar-img rounded-circle" src="{{ URL::to('images/photo_defaults.jpg') }}" alt="{{ $list->name }}">
                                                     @endif
                                                 </a>
-                                                <a href="vendor-details.html">{{ $list->name }}</a>
+                                                <a href="vendor-details.html">{{ $list->company_name }}</a>
                                             </h2>
                                         </td>
-                                        <td>10</td>
+                                        
                                         <td>{{ $list->gender }}</td>
-                                        <td>Mathematics</td>
-                                        <td>A</td>
-                                        <td>{{ $list->mobile }}</td>
-                                        <td>{{ $list->address }}</td>
+                                        <td>{{ $list->contact_no }}</td>
+                                        <td>{{ $list->city }} <br> {{ $list->region }}</td>
+                                        <td>{{ $list->contract_start }} <br> {{ $list->contract_due }} </td>
+                                        <td>{{ $list->payment_method }} <br> {{ $list->payment_term }}</td>
+                                        
                                         <td class="text-end">
                                             <div class="actions">
-                                                <a href="{{ url('vendor/edit/'.$list->user_id) }}" class="btn btn-sm bg-danger-light">
+                                                <a href="{{ url('vendor/edit/'.$list->id) }}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>
                                                 <a class="btn btn-sm bg-danger-light vendor_delete" data-bs-toggle="modal" data-bs-target="#vendorDelete">

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class InvoicePaymentDetails extends Model
 {
     use HasFactory;
+
+    //protected $table = 'fgms_g7_invoice_payment_details';
+
     protected $fillable = [
         'invoice_id',
         'account_holder_name',

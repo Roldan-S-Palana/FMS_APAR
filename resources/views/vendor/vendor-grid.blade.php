@@ -42,8 +42,10 @@
                                                 <div class="student-box flex-fill">
                                                     <div class="student-img">
                                                         <a href="{{ url('vendor/profile/'.$list->id) }}">
-                                                            <img class="img-fluid" alt="vendors Info" src="{{ URL::to('images/photo_defaults.png') }}" width="20%" height="20%">
+                                                            <img class="img-fluid" alt="vendors Info" src="{{ URL::to('images/photo_defaults.jpg') }}" width="20%" height="20%">
                                                         </a>
+                                                        
+                                                        <a href="vendor-details.html">{{ $list->company_name }}</a>
                                                     </div>
                                                     <div class="student-content pb-0">
                                                         <h5><a href="{{ url('vendor/profile/'.$list->id) }}">{{ $list->full_name }}</a></h5>

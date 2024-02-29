@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invoice_details', function (Blueprint $table) {
+        //Schema::create('fgms_g7_invoice_details', function (Blueprint $table) {
+
+        Schema::create('fgms_g7_invoice_details', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_id')->nullable();
             $table->string('items')->nullable();
@@ -29,6 +31,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('invoice_details');
+        //Schema::dropIfExists('fgms_g7_invoice_details');
+
+        Schema::dropIfExists('fgms_g7_invoice_details');
     }
 };

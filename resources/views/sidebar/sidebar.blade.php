@@ -136,7 +136,7 @@
           </li>
         </ul>
       </li>
-      //End Tables Nav 
+      //End Tables Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
@@ -160,7 +160,7 @@
           </li>
         </ul>
       </li>
-      //End Charts Nav 
+      //End Charts Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
@@ -184,7 +184,7 @@
           </li>
         </ul>
       </li>
-      //End Icons Nav 
+      //End Icons Nav
 
       <li class="nav-heading">Pages</li>
 
@@ -194,7 +194,7 @@
           <span>Profile</span>
         </a>
       </li>
-      // End Profile Page Nav 
+      // End Profile Page Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-faq.html">
@@ -210,183 +210,223 @@
           <span>Contact</span>
         </a>
       </li>
-      // End Contact Page Nav 
+      // End Contact Page Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-register.html">
           <i class="bi bi-card-list"></i>
           <span>Register</span>
         </a>
-      </li><!-- End Register Page Nav 
+      </li><!-- End Register Page Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
-      </li><!-- End Login Page Nav 
+      </li><!-- End Login Page Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
         </a>
-      </li><!-- End Error 404 Page Nav 
+      </li><!-- End Error 404 Page Nav
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>
-      </li><!-- End Blank Page Nav 
+      </li><!-- End Blank Page Nav
 
     </ul>
 
   </aside> -->
-<!-- End Sidebar-->
+ <!-- End Sidebar-->
 
 
-<aside id="sidebar" class="sidebar">
-        <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
-                <li class="menu-title">
-                    <span>Main Menu</span>
-                </li>
-                <li class="{{set_active(['setting/page'])}}">
-                    <a href="{{ route('setting/page') }}">
-                        <i class="bi bi-gear"></i> 
-                        <span>Settings</span>
-                    </a>
-                </li>
-                <li class="submenu {{set_active(['home','vendor/dashboard','client/dashboard'])}}">
-                    <a>
-                        <i class="bi bi-grid"></i>
-                        <span> Dashboard</span> 
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('home') }}" class="{{set_active(['home'])}}">Admin Dashboard</a></li>
-                        <li><a href="{{ route('vendor/dashboard') }}" class="{{set_active(['vendor/dashboard'])}}">Vendor Dashboard</a></li>
-                        <li><a href="{{ route('client/dashboard') }}" class="{{set_active(['client/dashboard'])}}">Client Dashboard</a></li>
-                    </ul>
-                </li>
-                @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
-                <li class="submenu {{set_active(['list/users'])}} {{ (request()->is('view/user/edit/*')) ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="bi bi-shield-check"></i>
-                        <span>User Management</span> 
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('list/users') }}" class="{{set_active(['list/users'])}} {{ (request()->is('view/user/edit/*')) ? 'active' : '' }}">List Users</a></li>
-                    </ul>
-                </li>
-                @endif
+ <aside id="sidebar" class="sidebar">
+     <div id="sidebar-menu" class="sidebar-menu">
+         <ul>
+             <li class="menu-title">
+                 <span>Main Menu</span>
+             </li>
+             <li class="{{ 'setting/page' }}">
+                 <a href="{{ route('setting/page') }}">
+                     <i class="bi bi-gear"></i>
+                     <span>Settings</span>
+                 </a>
+             </li>
+             <li class="submenu {{ 'home', 'ar/dashboard', 'ap/dashboard', 'vendor/dashboard', 'client/dashboard' }}">
+                 <a>
+                     <i class="bi bi-grid"></i>
+                     <span> Dashboard</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a href="{{ route('home') }}" class="{{ 'home' }}">Admin Dashboard</a></li>
+                     <li><a href="{{ route('ar/dashboard') }}" class="{{ 'ar/dashboard' }}">Accounts Receivable <br>
+                             Dashboard</a></li>
+                     <li><a href="{{ route('ap/dashboard') }}" class="{{ 'ap/dashboard' }}">Accounts Payable <br>
+                             Dashboard</a></li>
+                     <li><a href="{{ route('vendor/dashboard') }}" class="{{ 'vendor/dashboard' }}">Vendor
+                             Dashboard</a></li>
+                     <li><a href="{{ route('client/dashboard') }}" class="{{ 'client/dashboard' }}">Client
+                             Dashboard</a></li>
+                 </ul>
+             </li>
+             @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                 <li class="submenu {{ 'list/users' }} {{ request()->is('view/user/edit/*') ? 'active' : '' }}">
+                     <a href="#">
+                         <i class="bi bi-shield-check"></i>
+                         <span>User Management</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a href="{{ route('list/users') }}"
+                                 class="{{ 'list/users' }} {{ request()->is('view/user/edit/*') ? 'active' : '' }}">List
+                                 Users</a></li>
+                     </ul>
+                 </li>
+             @endif
 
-                <li class="submenu {{set_active(['client/list','client/grid','client/add/page'])}} {{ (request()->is('client/edit/*')) ? 'active' : '' }} {{ (request()->is('client/profile/*')) ? 'active' : '' }}">
-                    <a href="#"><i class="bi bi-person-check"></i>
-                        <span> Client</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('client/list') }}"  class="{{set_active(['client/list','client/grid'])}}">Client List</a></li>
-                        <li><a href="{{ route('client/add/page') }}" class="{{set_active(['client/add/page'])}}">Client Add</a></li>
-                        <li><a class="{{ (request()->is('client/edit/*')) ? 'active' : '' }}">Client Edit</a></li>
-                        <li><a href=""  class="{{ (request()->is('client/profile/*')) ? 'active' : '' }}">Client View</a></li>
-                    </ul>
-                </li>
+             <li
+                 class="submenu {{ 'client/list', 'client/grid', 'client/add/page' }} {{ request()->is('client/edit/*') ? 'active' : '' }} {{ request()->is('client/profile/*') ? 'active' : '' }}">
+                 <a href="#"><i class="bi bi-person-check"></i>
+                     <span> Client</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a href="{{ route('client/list') }}" class="{{ 'client/list', 'client/grid' }}">Client
+                             List</a></li>
+                     <li><a href="{{ route('client/add/page') }}" class="{{ 'client/add/page' }}">Client Add</a>
+                     </li>
+                     <li><a class="{{ request()->is('client/edit/*') ? 'active' : '' }}">Client Edit</a></li>
+                     <li><a href="" class="{{ request()->is('client/profile/*') ? 'active' : '' }}">Client
+                             View</a></li>
+                 </ul>
+             </li>
 
-                <li class="submenu  {{set_active(['vendor/add/page','vendor/list/page','vendor/grid/page','vendor/edit'])}} {{ (request()->is('vendor/edit/*')) ? 'active' : '' }}">
-                    <a href="#"><i class="bi bi-person-badge"></i>
-                        <span> Vendors</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('vendor/list/page') }}" class="{{set_active(['vendor/list/page','vendor/grid/page'])}}">Vendor List</a></li>
-                        <li><a href="vendor-details.html">Vendor View</a></li>
-                        <li><a href="{{ route('vendor/add/page') }}" class="{{set_active(['vendor/add/page'])}}">Vendor Add</a></li>
-                        <li><a class="{{ (request()->is('vendor/edit/*')) ? 'active' : '' }}">Vendor Edit</a></li>
-                    </ul>
-                </li>
-                
-                <li class="submenu {{set_active(['department/add/page','department/edit/page'])}} {{ request()->is('department/edit/*') ? 'active' : '' }}">
-                    <a href="#"><i class="bi bi-building"></i>
-                        <span> Departments</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('department/list/page') }}" class="{{set_active(['department/list/page'])}} {{ request()->is('department/edit/*') ? 'active' : '' }}">Department List</a></li>
-                        <li><a href="{{ route('department/add/page') }}" class="{{set_active(['department/add/page'])}}">Department Add</a></li>
-                        <li><a>Department Edit</a></li>
-                    </ul>
-                </li>
+             <li
+                 class="submenu  {{ 'vendor/add/page', 'vendor/list/page', 'vendor/grid/page', 'vendor/edit' }} {{ request()->is('vendor/edit/*') ? 'active' : '' }}">
+                 <a href="#"><i class="bi bi-person-badge"></i>
+                     <span> Vendors</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a href="{{ route('vendor/list/page') }}"
+                             class="{{ 'vendor/list/page', 'vendor/grid/page' }}">Vendor List</a></li>
+                     <li><a href="vendor-details.html">Vendor View</a></li>
+                     <li><a href="{{ route('vendor/add/page') }}" class="{{ 'vendor/add/page' }}">Vendor Add</a>
+                     </li>
+                     <li><a class="{{ request()->is('vendor/edit/*') ? 'active' : '' }}">Vendor Edit</a></li>
+                 </ul>
+             </li>
 
-               <!-- <li class="submenu {{set_active(['subject/list/page','subject/add/page'])}} {{ request()->is('subject/edit/*') ? 'active' : '' }}">
+             <li
+                 class="submenu {{ 'department/add/page', 'department/edit/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">
+                 <a href="#"><i class="bi bi-building"></i>
+                     <span> Departments</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a href="{{ route('department/list/page') }}"
+                             class="{{ 'department/list/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">Department
+                             List</a></li>
+                     <li><a href="{{ route('department/add/page') }}" class="{{ 'department/add/page' }}">Department
+                             Add</a></li>
+                     <li><a>Department Edit</a></li>
+                 </ul>
+             </li>
+
+             <!-- <li class="submenu {{ 'subject/list/page', 'subject/add/page' }} {{ request()->is('subject/edit/*') ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-book-reader"></i>
                         <span> Subjects</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a class="{{set_active(['subject/list/page'])}} {{ request()->is('subject/edit/*') ? 'active' : '' }}" href="{{ route('subject/list/page') }}">Subject List</a></li>
-                        <li><a class="{{set_active(['subject/add/page'])}}" href="{{ route('subject/add/page') }}">Subject Add</a></li>
+                        <li><a class="{{ 'subject/list/page' }} {{ request()->is('subject/edit/*') ? 'active' : '' }}" href="{{ route('subject/list/page') }}">Subject List</a></li>
+                        <li><a class="{{ 'subject/add/page' }}" href="{{ route('subject/add/page') }}">Subject Add</a></li>
                         <li><a>Subject Edit</a></li>
                     </ul>
                 </li>
               -->
 
-                <li class="submenu {{set_active(['invoice/list/page','invoice/paid/page',
-                    'invoice/overdue/page','invoice/draft/page','invoice/recurring/page',
-                    'invoice/cancelled/page','invoice/grid/page','invoice/add/page',
-                    'invoice/edit/page','invoice/view/page','invoice/settings/page',
-                    'invoice/settings/tax/page','invoice/settings/bank/page'])}}">
-                    <a href="#"><i class="bi bi-card-checklist"></i>
-                        <span> Accounts Receivables</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a class="{{set_active(['invoice/list/page','invoice/paid/page','invoice/overdue/page','invoice/draft/page','invoice/recurring/page','invoice/cancelled/page'])}}" href="{{ route('invoice/list/page') }}">AR Invoices List</a></li>
-                        <li><a class="{{set_active(['invoice/grid/page'])}}" href="{{ route('invoice/grid/page') }}">AR Invoices Grid</a></li>
-                        <li><a class="{{set_active(['invoice/add/page'])}}" href="{{ route('invoice/add/page') }}">Add AR Invoices</a></li>
-                        <li><a class="{{set_active(['invoice/edit/page'])}}" href="{{ route('invoice/edit/page') }}">Edit AR Invoices</a></li>
-                        <li><a class="{{set_active(['invoice/view/page'])}}" href="{{ route('invoice/view/page') }}">AR Invoices Details</a></li>
-                        <li><a class="{{set_active(['invoice/settings/page','invoice/settings/tax/page','invoice/settings/bank/page'])}}" href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
-                    </ul>
-                </li>
+             <li
+                 class="submenu {{ 'invoice/list/page',
+                     'invoice/paid/page',
+                     'invoice/overdue/page',
+                     'invoice/draft/page',
+                     'invoice/recurring/page',
+                     'invoice/cancelled/page',
+                     'invoice/grid/page',
+                     'invoice/add/page',
+                     'invoice/edit/page',
+                     'invoice/view/page',
+                     'invoice/settings/page',
+                     'invoice/settings/tax/page',
+                     'invoice/settings/bank/page' }}">
+                 <a href="#"><i class="bi bi-card-checklist"></i>
+                     <span> Accounts Receivables</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a class="{{ 'invoice/list/page', 'invoice/paid/page', 'invoice/overdue/page', 'invoice/draft/page', 'invoice/recurring/page', 'invoice/cancelled/page' }}"
+                             href="{{ route('invoice/list/page') }}">Receivable Posting</a></li>
+                     <li><a class="{{ 'invoice/grid/page' }}" href="{{ route('invoice/grid/page') }}">AR Invoices
+                             Grid</a></li>
+                     <li><a class="{{ 'invoice/add/page' }}" href="{{ route('invoice/add/page') }}">Add AR
+                             Invoices</a></li>
+                     <li><a class="{{ 'invoice/edit/page' }}" href="{{ route('invoice/edit/page') }}">Edit AR
+                             Invoices</a></li>
+                     <li><a class="{{ 'invoice/view/page' }}" href="{{ route('invoice/view/page') }}">AR Invoices
+                             Details</a></li>
+                     <li><a class="{{ 'invoice/settings/page', 'invoice/settings/tax/page', 'invoice/settings/bank/page' }}"
+                             href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
+                     <li><a class="#" href="#">AR Credit Management</a></li>
+                     <li><a class="#" href="#">AR Bank Reconcile</a></li>
+                     <li><a class="#" href="#">AR Reports</a></li>
+                 </ul>
+             </li>
 
-                <li class="menu-title">
-                    <span>Management</span>
-                </li>
 
-                <li class="submenu {{set_active(['account/fees/collections/page'])}}">
-                    <a href="#"><i class="bi bi-currency-exchange"></i>
-                        <span> Accounts Payables</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a class="{{set_active(['account/fees/collections/page'])}}" href="{{ route('account/fees/collections/page') }}">Fees Collection</a></li>
-                        <li><a href="expenses.html">Expenses</a></li>
-                        <li><a href="salary.html">Salary</a></li>
-                        <li><a href="add-fees-collection.html">Add Fees</a></li>
-                        <li><a href="add-expenses.html">Add Expenses</a></li>
-                        <li><a href="add-salary.html">Add Salary</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="holiday.html"><i class="bi bi-calendar3-event"></i> <span>Holiday</span></a>
-                </li>
-                <li>
-                    <a href="fees.html"><i class="bi bi-upc-scan"></i> <span>Fees</span></a>
-                </li>
-                <!--<li>
+             <li class="submenu {{ 'account/fees/collections/page' }}">
+                 <a href="#"><i class="bi bi-currency-exchange"></i>
+                     <span> Accounts Payables</span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <ul>
+                     <li><a class="{{ 'account/fees/collections/page' }}"
+                             href="{{ route('account/fees/collections/page') }}">Payable Posting</a></li>
+                     <li><a class="#" href="#">AP Credit Management</a></li>
+                     <li><a class="#" href="#">AP Bank Reconcile</a></li>
+                     <li><a class="#" href="#">AP Reports</a></li>
+                     <li><a class="{{ 'account/fees/collections/page' }}"
+                             href="{{ route('account/fees/add/page', 'account/fees/save') }}">Payable Entries</a></li>
+
+                 </ul>
+             </li>
+
+             <li class="menu-title">
+                 <span>Management</span>
+             </li>
+             <li>
+                 <a href="holiday.html"><i class="bi bi-calendar3-event"></i> <span>Holiday</span></a>
+             </li>
+             <li>
+                 <a href="fees.html"><i class="bi bi-upc-scan"></i> <span>Fees</span></a>
+             </li>
+             <!--<li>
                     <a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
                 --></li>
-                <li>
-                    <a href="event.html"><i class="bi bi-calendar-range"></i> <span>Events</span></a>
-                </li>
-                <!--<li>
+             <li>
+                 <a href="event.html"><i class="bi bi-calendar-range"></i> <span>Events</span></a>
+             </li>
+             <!--<li>
                     <a href="library.html"><i class="fas fa-book"></i> <span>Library</span></a>
                 --></li>
-            </ul>
-        </div>
-    
-</aside>
+         </ul>
+     </div>
+
+ </aside>

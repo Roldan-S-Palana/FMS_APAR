@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Admin Dashboard</title>
-    <link rel="shortcut icon" href="{{ URL::to('assets/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ URL::to('assets/img/fms_small_icon.png') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/icons/flags/flags.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-datetimepicker.min.cs') }}s">
@@ -205,7 +205,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                <img src="{{ URL::to('assets/img/cluster-logo-small_enlarged.png') }}" alt="">
+                <img src="{{ URL::to('assets/img/fms_small_icon.png') }}" alt="">
                 <span class="d-none d-lg-block"></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn custom-cursor-on-hover"></i>

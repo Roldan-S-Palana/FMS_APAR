@@ -8,10 +8,10 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Payable Posting</h3>
+                        <h3 class="page-title">Approval List</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Payable Posting</li>
+                            <li class="breadcrumb-item active">Approval List</li>
                         </ul>
                     </div>
                 </div>

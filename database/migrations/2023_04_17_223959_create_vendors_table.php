@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        //Schema::create('fgms_g7_vendors', function (Blueprint $table) {
+        Schema::create('vendors', function (Blueprint $table) {
 
-        Schema::create('fgms_g7_vendors', function (Blueprint $table) {
+        //Schema::create('fgms_g7_vendors', function (Blueprint $table) {
             $table->id();
             $table->string('full_name')->nullable();
             $table->string('company_name')->nullable();
@@ -41,8 +41,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('fgms_g7_teachers');
+        Schema::dropIfExists('vendors');
 
-        Schema::dropIfExists('fgms_g7_teachers');
+        //Schema::dropIfExists('fgms_g7_vendors');
     }
 };

@@ -4,14 +4,13 @@
     {!! Toastr::message() !!}
     <div class="page-wrapper">
         <div class="content container-fluid">
-
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Payable Posting</h3>
+                        <h3 class="page-title">Invoices</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Payable Posting</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Invoices</li>
                         </ul>
                     </div>
                 </div>
@@ -328,88 +327,80 @@
                 <div class="col-sm-12">
                     <div class="card card-table">
                         <div class="card-body">
-
-                            <div class="page-header">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h3 class="page-title">Payable Posting</h3>
-                                    </div>
-                                    <div class="col-auto text-end float-end ms-auto download-grp">
-                                        <a href="#" class="btn btn-outline-primary me-2"><i
-                                                class="fas fa-download"></i> Download</a>
-                                        <a href="add-fees-collection.html" class="btn btn-primary"><i
-                                                class="fas fa-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="table-responsive">
-                                <table
-                                    class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
-                                    <thead class="student-thread">
+                                <table class="table table-stripped table-hover datatable">
+                                    <thead class="thead-light">
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Gender</th>
-                                            <th>Fees Type</th>
+                                            <th>Invoice ID</th>
+                                            <th>Category</th>
+                                            <th>Created on</th>
+                                            <th>Invoice to</th>
                                             <th>Amount</th>
-                                            <th>Paid Date</th>
+                                            <th>Due date</th>
                                             <th>Status</th>
-                                            <th class="text-end">Actions</th>
+                                            <th class="text-end">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($feesList as $key => $list)
-                                            <tr>
-
-                                                <td class="id">{{ $list->id }}</td>
-                                                <td>
-                                                    <a href="#">{{ $list->first_name }} {{ $list->last_name }}</a>
-                                                </td>
-                                                <td> {{ $list->gender }}</td>
-                                                <td>{{ $list->fee_type }}</td>
-                                                <td>{{ $list->amount }}</td>
-                                                <td>{{ $list->paid_date }}</td>
-                                                <td>{{ $list->status }} </td>
-                                                <td class="text-end">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                        @foreach($invoiceList as  $value)
+                                        <tr>
+                                            <td>
+                                                <label class="custom_check">
+                                                    <input type="checkbox" name="invoice">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <a href="view-invoice.html" class="invoice-link">{{ $value->invoice_id }}</a>
+                                            </td>
+                                            <td>{{ $value->category }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->created_at)->format('d M Y') }}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html">
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt=""> {{ $value->customer_name }}
+                                                    </a>
+                                                </h2>
+                                            </td>
+                                            <td class="text-primary">$ {{ $value->total_amount }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->due_date)->format('d M Y') }}</td>
+                                            <td><span class="badge bg-success-light">Paid</span></td>
+                                            <td class="text-end">
+                                                <div class="dropdown dropdown-action">
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="{{ url('invoice/edit/page'.$value->invoice_id) }}">
+                                                            <i class="far fa-edit me-2"></i>Edit
                                                         </a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item"
-                                                                href="{{ url('invoice/edit/page' . $list->invoice_id) }}">
-                                                                <i class="far fa-edit me-2"></i>Edit
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="far fa-eye me-2"></i>View
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="fa fa-window-maximize"></i>Approval
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="bi bi-cash-coin"></i> Send Payment
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="fa fa-window-restore"></i> Reconcile
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-trash-alt me-2"></i>Delete
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-check-circle me-2"></i>Mark as sent
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-paper-plane me-2"></i>Send Invoice
-                                                            </a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="far fa-copy me-2"></i>Clone Invoice
-                                                            </a>
-                                                        </div>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="far fa-eye me-2"></i>View
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-window-maximize"></i>Approval
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-paper-plane"></i> Send Notice
+                                                        </a>
+                                                        <a class="dropdown-item" href="view-invoice.html">
+                                                            <i class="fa fa-window-restore"></i> Reconcile
+                                                        </a>
+                                                        <a class="dropdown-item" href="javascript:void(0);">
+                                                            <i class="far fa-trash-alt me-2"></i>Delete
+                                                        </a>
+                                                        <a class="dropdown-item" href="javascript:void(0);">
+                                                            <i class="far fa-check-circle me-2"></i>Mark as sent
+                                                        </a>
+                                                        <a class="dropdown-item" href="javascript:void(0);">
+                                                            <i class="far fa-paper-plane me-2"></i>Send Invoice
+                                                        </a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="far fa-copy me-2"></i>Clone Invoice
+                                                        </a>
                                                     </div>
-                                                </td>
-                                            </tr>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -418,6 +409,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+@section('script')
+@endsection
 @endsection

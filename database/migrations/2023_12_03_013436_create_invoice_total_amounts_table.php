@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Schema::create('fgms_g7_invoice_total_amounts', function (Blueprint $table) {
+        Schema::create('invoice_total_amounts', function (Blueprint $table) {
 
-        Schema::create('fgms_g7_invoice_total_amounts', function (Blueprint $table) {
+        //Schema::create('fgms_g7_invoice_total_amounts', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_id')->nullable();
             $table->string('taxable_amount')->nullable();
@@ -30,8 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Schema::dropIfExists('fgms_g7_invoice_total_amounts');
+        Schema::dropIfExists('invoice_total_amounts');
 
-        Schema::dropIfExists('fgms_g7_invoice_total_amounts');
+        //Schema::dropIfExists('fgms_g7_invoice_total_amounts');
     }
 };

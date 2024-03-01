@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        //Schema::create('fgms_g7_users', function (Blueprint $table)
+        //Schema::create('fgms_g7_users', function (Blueprint $table){
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
@@ -42,8 +42,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('fgms_g7_users');
+       //Schema::dropIfExists('fgms_g7_users');
 
-        Schema::dropIfExists('users');
+         Schema::dropIfExists('users');
     }
 }

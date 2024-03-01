@@ -29,8 +29,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Schema::dropIfExists('fgms_g7_departments');
+        Schema::dropIfExists('departments');
 
-        Schema::dropIfExists('fgms_g7_departments');
+        //Schema::dropIfExists('fgms_g7_departments');
     }
 };

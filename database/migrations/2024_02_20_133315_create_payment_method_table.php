@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Schema::create('fgms_g7_payment_method', function (Blueprint $table) {
+        Schema::create('payment_method', function (Blueprint $table) {
 
-        Schema::create('fgms_g7_payment_method', function (Blueprint $table) {
+        //Schema::create('fgms_g7_payment_method', function (Blueprint $table) {
             $table->id('payment_method_id');
             $table->string('payment_method')->nullable();
             $table->timestamps();
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Schema::dropIfExists('fgms_g7_payment_method');
+        Schema::dropIfExists('payment_method');
 
-        Schema::dropIfExists('fgms_g7_payment_method');
+        //Schema::dropIfExists('fgms_g7_payment_method');
     }
 };

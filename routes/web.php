@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\approvalinvoiceController;
 use Illuminate\Http\Request;
 
 /*
@@ -61,7 +62,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
         Route::get('/register', 'register')->name('register');
         Route::post('/register', 'storeUser')->name('register');
     });
-    
 });
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
@@ -160,7 +160,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('account/fees/collections/page', 'feeCollectionView')->middleware('auth')->name('account/fees/collections/page'); // account/fees/collections/page
         Route::get('account/fees/add/page', 'showInvoices')->middleware('auth')->name('account/fees/add/page'); // account/fees/collections/page
         Route::post('account/fees/add/save', 'feeSave')->name('account/fees/add/save'); // account/fees/collections/page
-        Route::get('account/workflow/approval/page', 'showInvoices')->middleware('auth')->name('account/workflow/approval/page'); // account/fees/collections/page
 
     });
+        // ----------------------- approval invoice ----------------------------//
+    Route::controller(approvalinvoiceController::class)->group(function () {
+        Route::get('account/workflow/approval/page', 'approvalView')->middleware('auth')->name('account/workflow/approval/page'); // account/fees/collections/page
+        Route::post('account/workflow/approval/save', 'approvalSave')->middleware('auth')->name('account/workflow/approval/save'); // account/fees/collections/page
+        Route::get('account/approval/grid/page', 'approvalGrid')->middleware('auth')->name('account/approval/grid/page'); // invoice/grid/page
+        Route::get('account/approval/list/page', 'approvalList')->middleware('auth')->name('account/approval/list/page'); // subjeinvoicect/list/page
+
+    });
+
 });

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateRoleTypeUsersTable extends Migration
 {
@@ -13,17 +14,17 @@ class CreateRoleTypeUsersTable extends Migration
      */
     public function up()
     {
-        //Schema::create('fgms_g7_role_type_users', function (Blueprint $table) {
+        Schema::create('role_type_users', function (Blueprint $table) {
 
-        Schema::create('fgms_g7_role_type_users', function (Blueprint $table) {
+        //Schema::create('fgms_g7_role_type_users', function (Blueprint $table) {
             $table->id();
             $table->string('role_type')->nullable();
             $table->timestamps();
         });
 
-        //DB::table('fgms_g7_role_type_users')->insert([
+        DB::table('role_type_users')->insert([
 
-        DB::table('fgms_g7_role_type_users')->insert([
+        //DB::table('fgms_g7_role_type_users')->insert([
             ['role_type' => 'Admin'],
             ['role_type' => 'Super Admin'],
             ['role_type' => 'Normal User'],
@@ -41,8 +42,8 @@ class CreateRoleTypeUsersTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('fgms_g7_role_type_users');
+        Schema::dropIfExists('role_type_users');
 
-        Schema::dropIfExists('fgms_g7_role_type_users');
+        //Schema::dropIfExists('fgms_g7_role_type_users');
     }
 }

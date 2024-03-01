@@ -76,6 +76,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms calendar-icon">
                                             <label>Contract Start <span class="login-danger">*</span></label>

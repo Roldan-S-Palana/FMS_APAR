@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Schema::create('fgms_g7_staff', function (Blueprint $table) {
+       //Schema::create('fgms_g7_staff', function (Blueprint $table) {
 
         Schema::create('staff', function (Blueprint $table) {
             $table->id();

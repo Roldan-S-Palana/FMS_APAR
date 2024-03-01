@@ -44,7 +44,7 @@ class RegistersUsersTest extends TestCase
             return $this->register($request);
         })->assertCreated();
 
-        $this->assertDatabaseHas('users', [
+        $this->assertDatabaseHas('fgms_g7_users', [
             'name' => 'Taylor Otwell',
             'email' => 'taylor@laravel.com',
         ]);

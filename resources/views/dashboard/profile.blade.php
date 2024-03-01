@@ -27,8 +27,8 @@
                         <div class="col ms-md-n2 profile-user-info">
                             <h4 class="user-name mb-0">{{ Session::get('name') }}</h4>
                             <h6 class="text-muted">{{ Session::get('position') }}</h6>
-                            <div class="user-Location"><i class="fas fa-map-marker-alt"></i> Combodai Phnom Penh</div>
-                            <div class="about-text">Khmer 009</div>
+                            <div class="user-Location"><i class="fas fa-map-marker-alt"></i> Sa Bahay</div>
+                            <div class="about-text">PalañaXD</div>
                         </div>
                         <div class="col-auto profile-btn">
                             <a href="" class="btn btn-primary">Edit</a>

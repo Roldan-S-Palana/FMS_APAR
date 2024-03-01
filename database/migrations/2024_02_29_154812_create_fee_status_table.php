@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        //Schema::create('fgms_g7_fee_status', function (Blueprint $table) {
+
+        Schema::create('fee_status', function (Blueprint $table) {
             $table->id();
-            $table->string('subject_id')->nullable();
-            $table->string('subject_name')->nullable();
-            $table->string('class')->nullable();
+            $table->string('fee_status')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        //Schema::dropIfExists('fgms_g7_fee_status');
+
+        Schema::dropIfExists('fee_status');
     }
 };

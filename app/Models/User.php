@@ -17,15 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    //protected $table = 'fgms_g7_users';
     protected $fillable = [
         'user_id',
         'name',
         'email',
+        'date_of_birth',
         'join_date',
         'phone_number',
         'status',
-        'role_name',
-        'email',
         'role_name',
         'avatar',
         'position',

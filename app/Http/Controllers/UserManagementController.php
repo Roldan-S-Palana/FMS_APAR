@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use Session;
+use Illuminate\Support\Facades\Session; 
 use Log;
 use Carbon\Carbon;
 use App\Models\User;
-use Symfony\Component\HttpFoundation\Session\Session
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;

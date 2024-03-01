@@ -205,7 +205,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                <img src="{{ URL::to('assets/img/logo.png') }}" alt="">
+                <img src="{{ URL::to('assets/img/cluster-logo-small_enlarged.png') }}" alt="">
                 <span class="d-none d-lg-block"></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn custom-cursor-on-hover"></i>

@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Schema::create('fgms_g7_vendor_user', function (Blueprint $table) {
+
         Schema::create('vendor_user', function (Blueprint $table) {
             $table->id();
             $table->string('vendorname');
@@ -43,5 +45,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('vendor_user');
+
+        //Schema::dropIfExists('fgms_g7_vendor_user');
     }
 };

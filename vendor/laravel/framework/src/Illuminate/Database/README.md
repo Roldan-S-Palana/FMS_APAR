@@ -41,16 +41,36 @@ Once the Capsule instance has been registered. You may use it like so:
 **Using The Query Builder**
 
 ```PHP
+//$users = Capsule::table('fgms_g7_users')->where('votes', '>', 100)->get();
+
 $users = Capsule::table('users')->where('votes', '>', 100)->get();
 ```
 Other core methods may be accessed directly from the Capsule in the same manner as from the DB facade:
 ```PHP
+
+//$results = Capsule::select('select * from fgms_g7_users where id = ?', [1]);
+
 $results = Capsule::select('select * from users where id = ?', [1]);
 ```
 
 **Using The Schema Builder**
 
 ```PHP
+/**Capsule::schema()->create('fgms_g7_users', function ($table) {
+    $table->increments('id');
+    $table->string('email')->unique();
+    $table->timestamps();
+});
+Capsule::schema()->create('fgms_g7_users', function ($table) {
+    $table->increments('id');
+    $table->string('email')->unique();
+    $table->timestamps();
+});**/
+Capsule::schema()->create('users', function ($table) {
+    $table->increments('id');
+    $table->string('email')->unique();
+    $table->timestamps();
+});
 Capsule::schema()->create('users', function ($table) {
     $table->increments('id');
     $table->string('email')->unique();

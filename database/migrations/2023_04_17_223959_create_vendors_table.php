@@ -13,18 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('teachers', function (Blueprint $table) {
+        Schema::create('vendors', function (Blueprint $table) {
+
+        //Schema::create('fgms_g7_vendors', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->nullable();
             $table->string('full_name')->nullable();
+            $table->string('company_name')->nullable();
             $table->string('gender')->nullable();
-            $table->string('qualification')->nullable();
-            $table->string('experience')->nullable();
+            $table->string('contact_no')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
-            $table->string('country')->nullable();
+            $table->string('region')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('contract_start')->nullable();
+            $table->string('contract_due')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('payment_term')->nullable();
             $table->timestamps();
         });
     }
@@ -36,6 +41,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teachers');
+        Schema::dropIfExists('vendors');
+
+        //Schema::dropIfExists('fgms_g7_vendors');
     }
 };

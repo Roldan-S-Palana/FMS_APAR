@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class InvoiceDiscount extends Model
 {
     use HasFactory;
+
+    //protected $table = 'fgms_g7_invoice_discounts';
+
+    
     protected $fillable = [
         'invoice_id',
         'offer_new',

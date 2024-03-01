@@ -76,7 +76,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms calendar-icon">
                                             <label>Contract Start <span class="login-danger">*</span></label>
@@ -179,18 +179,18 @@
                                         </div>
                                     </div>
                                     <!--<div class="col-12 col-sm-4">
-                                            <div class="form-group local-forms">
-                                                <label>State <span class="login-danger">*</span></label>
-                                                <input type="text"
-                                                    class="form-control @error('state') is-invalid @enderror" name="state"
-                                                    placeholder="Enter State" value="{{ old('state') }}">
-                                                @error('state')
+                                                            <div class="form-group local-forms">
+                                                                <label>State <span class="login-danger">*</span></label>
+                                                                <input type="text"
+                                                                    class="form-control @error('state') is-invalid @enderror" name="state"
+                                                                    placeholder="Enter State" value="{{ old('state') }}">
+                                                                @error('state')
         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
     @enderror
-                                            </div>
-                                        </div>-->
+                                                            </div>
+                                                        </div>-->
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Zip Code <span class="login-danger">*</span></label>
@@ -217,112 +217,130 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group">
+                                            <label>Password <span class="login-danger">*</span></label>
+                                            <input type="password"
+                                                class="form-control pass-input  @error('password') is-invalid @enderror"
+                                                name="password">
+                                            <span class="profile-views feather-eye toggle-password"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm password <span class="login-danger">*</span></label>
+                                            <input type="password"
+                                                class="form-control pass-confirm @error('password_confirmation') is-invalid @enderror"
+                                                name="password_confirmation">
+                                            <span class="profile-views feather-eye reg-toggle-password"></span>
+                                        </div>
+                                    </div>
+
                                     <!----File Uploads---->
-
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>Signature</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('signature') is-invalid @enderror">
-                                                    Choose File <input type="file" name="signature">
-                                                </label>
-                                                @error('signature')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                    <div class="row">
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>Signature</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('signature') is-invalid @enderror">
+                                                        Choose File <input type="file" name="signature">
+                                                    </label>
+                                                    @error('signature')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>BIR 2302</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('bir_2302') is-invalid @enderror">
-                                                    Choose File <input type="file" name="signature">
-                                                </label>
-                                                @error('bir_2302')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>BIR 2302</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('bir_2302') is-invalid @enderror">
+                                                        Choose File <input type="file" name="signature">
+                                                    </label>
+                                                    @error('bir_2302')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
 
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>Business Permit</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('business_perm') is-invalid @enderror">
-                                                    Choose File <input type="file" name="business_perm">
-                                                </label>
-                                                @error('business_perm')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>Business Permit</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('business_perm') is-invalid @enderror">
+                                                        Choose File <input type="file" name="business_perm">
+                                                    </label>
+                                                    @error('business_perm')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>SEC or DTI Registration</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('sec_dti_reg') is-invalid @enderror">
-                                                    Choose File <input type="file" name="sec_dti_reg">
-                                                </label>
-                                                @error('sec_dti_reg')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>SEC or DTI Registration</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('sec_dti_reg') is-invalid @enderror">
+                                                        Choose File <input type="file" name="sec_dti_reg">
+                                                    </label>
+                                                    @error('sec_dti_reg')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>Accreditation Documents</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('accred_docu') is-invalid @enderror">
-                                                    Choose File <input type="file" name="accred_docu">
-                                                </label>
-                                                @error('accred_docu')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>Accreditation Documents</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('accred_docu') is-invalid @enderror">
+                                                        Choose File <input type="file" name="accred_docu">
+                                                    </label>
+                                                    @error('accred_docu')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group clients-up-files">
-                                            <label>Others</label>
-                                            <div class="uplod">
-                                                <label
-                                                    class="file-upload image-upbtn mb-0 @error('other_docu') is-invalid @enderror">
-                                                    Choose File <input type="file" name="other_docu">
-                                                </label>
-                                                @error('other_docu')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-sm-4">
+                                            <div class="form-group clients-up-files">
+                                                <label>Others</label>
+                                                <div class="uplod">
+                                                    <label
+                                                        class="file-upload image-upbtn mb-0 @error('other_docu') is-invalid @enderror">
+                                                        Choose File <input type="file" name="other_docu">
+                                                    </label>
+                                                    @error('other_docu')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
-                                    
                                 </div>
-
 
 
                                 <div class="col-12">

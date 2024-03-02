@@ -45,7 +45,7 @@
                     <input type="password" class="form-control pass-confirm @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
                     <span class="profile-views feather-eye reg-toggle-password"></span>
                 </div>
-                <div class=" dont-have">Already Registered? <a href="{{ route('login') }}">Login</a></div>
+                <div class=" dont-have">Go <a href="{{ route('home') }}">Back</a></div>
                 <div class="form-group mb-0">
                     <button class="btn btn-primary btn-block" type="submit">Register</button>
                 </div>

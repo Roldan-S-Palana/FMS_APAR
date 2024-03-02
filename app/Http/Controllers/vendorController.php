@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\vendors;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Validator;
+
 
 class vendorController extends Controller
 {
@@ -67,17 +69,17 @@ class vendorController extends Controller
             'contract_due' => 'required',
             'payment_method' => 'required|string',
             'payment_term' => 'required|string',
-            'signature' => 'required|file',
-            'bir_2302' => 'required|file',
-            'business_perm' => 'required|file',
-            'sec_dti_reg' => 'required|file',
-            'accred_docu' => 'required|file',
-            'other_docu' => 'required|file',
+            'signature' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'bir_2302' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'sec_dti_reg' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'business_perm' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'accred_docu' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'other_docu' => 'required|file|mimes:jpeg,png,jpg,gif',
 
 
         ]);
 
-        DB::beginTransaction();
+        
         try {
 
             $saveRecord = new vendors;
@@ -93,8 +95,7 @@ class vendorController extends Controller
             $saveRecord->contract_due = $request->contract_due;
             $saveRecord->payment_method = $request->payment_method;
             $saveRecord->payment_term = $request->payment_term;
-            $saveRecord->fill($request->except([ 'signature', 'bir_2302', 'sec_dti_reg', 'accred_docu', 'other_docu']));
-
+            $saveRecord->fill($request->except([ 'signature', 'bir_2302', 'sec_dti_reg','business_perm', 'accred_docu', 'other_docu']));
             
 
             if ($request->hasFile('signature')) {
@@ -121,12 +122,20 @@ class vendorController extends Controller
                 $saveRecord->sec_dti_reg = $filename;
             }
 
+            if ($request->hasFile('business_perm')) {
+                $business_perm = $request->file('business_perm');
+                $business_permPath = 'business_perm';
+                $filename = time() . '.' . $business_perm->getClientOriginalExtension();
+                $business_perm->move($business_permPath, $filename);
+                $saveRecord->business_perm = $filename;
+            }
+
             if ($request->hasFile('accred_docu')) {
                 $accred_docu = $request->file('accred_docu');
                 $accred_docuPath = 'accred_docu';
                 $filename = time() . '.' . $accred_docu->getClientOriginalExtension();
                 $accred_docu->move($accred_docuPath, $filename);
-                $saveRecord->uaccred_docuPath = $filename;
+                $saveRecord->accred_docu = $filename;
             }
 
             if ($request->hasFile('other_docu')) {
@@ -145,8 +154,11 @@ class vendorController extends Controller
         } catch (\Exception $e) {
 
             DB::rollback();
-            Toastr::error('fail, Add new record  :)', 'Error');
-            return redirect()->back();
+            $errorMessage = $e->getMessage();
+            $errorMessage = $e->getMessage();
+            return response()->json(['error' => $errorMessage], 500);
+            //Toastr::error('fail, Add new record  :)', 'Error');
+            //return redirect()->back();
         }
     }
 

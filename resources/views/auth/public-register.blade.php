@@ -48,7 +48,7 @@
                         name="password_confirmation">
                     <span class="profile-views feather-eye reg-toggle-password"></span>
                 </div>
-                <div class=" dont-have">Go <a href="{{ route('home') }}">Back</a></div>
+                <div class=" dont-have">Already Have Account? <a href="{{ route('home') }}">Login</a></div>
                 <div class="form-group mb-0">
                     <button class="btn btn-primary btn-block" type="submit">Register</button>
                 </div>

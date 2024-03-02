@@ -20,7 +20,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('vendor/save') }}" method="POST">
+                            <form action="{{ route('vendor/save') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -218,7 +218,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-sm-4">
+                                    <!--<div class="col-12 col-sm-4">
                                         <div class="form-group">
                                             <label>Password <span class="login-danger">*</span></label>
                                             <input type="password"
@@ -233,7 +233,7 @@
                                                 name="password_confirmation">
                                             <span class="profile-views feather-eye reg-toggle-password"></span>
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                     <!----File Uploads---->
                                     <div class="row">
@@ -259,7 +259,7 @@
                                                 <div class="uplod">
                                                     <label
                                                         class="file-upload image-upbtn mb-0 @error('bir_2302') is-invalid @enderror">
-                                                        Choose File <input type="file" name="signature">
+                                                        Choose File <input type="file" name="bir_2302">
                                                     </label>
                                                     @error('bir_2302')
                                                         <span class="invalid-feedback" role="alert">

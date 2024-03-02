@@ -92,7 +92,7 @@
                                                     <input class="form-check-input" type="checkbox" value="something">
                                                 </div>
                                             </td>
-                                            <td>STD{{ ++$key }}</td>
+                                            <td>CLT{{ ++$key }}</td>
                                             <td hidden class="id">{{ $list->id }}</td>
                                             <td hidden class="avatar">{{ $list->upload }}</td>
                                             <td>

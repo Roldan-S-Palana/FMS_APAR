@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\PaymentTerm;
+use App\Models\PaymentMethod;
 use Hash;
 use Exception;
 use Carbon\Carbon;
@@ -19,21 +21,12 @@ class vendorController extends Controller
         $users = User::where('role_name', 'vendor')->get();
         //$payment_term = DB::table('fgms_g7_paymentterm')->get();
 
-        $payment_term = DB::table('paymentterm')->get();
+        $payment_method = PaymentMethod::all();
         //$payment_method = DB::table('fgms_g7_paymentmethod')->get()
-        $payment_method = DB::table('paymentmethod')->get();
+        $payment_term = PaymentTerm::all();
         return view('vendor.add-vendor', compact('users', 'payment_term', 'payment_method'));
     }
-    public function payment_method()
-    {
-
-        return view('vendor.add-vendor', compact('payment_method'));
-    }
-    public function payment_term()
-    {
-
-        return view('vendor.add-vendor', compact('payment_term'));
-    }
+   
 
     /** vendor list */
     public function vendorList()

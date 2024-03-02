@@ -73,7 +73,7 @@
     </div>
 </div>
 
-{{-- model elete --}}
+{{-- model delete --}}
 <div class="modal custom-modal fade" id="delete" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

@@ -8,7 +8,7 @@ class fees extends Model
 {
     use HasFactory;
     //protected $table = 'fgms_g7_fees';
-
+ protected $table = 'fees';
     protected $fillable = [
         'invoice_id',
         'first_name',

@@ -11,6 +11,11 @@ use App\Http\Controllers\vendorController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\approvalinvoiceController;
+use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\Setting;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PublicRegisterController;
 use Illuminate\Http\Request;
 
 /*
@@ -56,18 +61,26 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
         Route::get('/logout', 'logout')->name('logout');
         Route::post('change/password', 'changePassword')->name('change/password');
     });
+        // ----------------------------- multi-register -------------------------//
 
-    // ----------------------------- register -------------------------//
     Route::controller(RegisterController::class)->group(function () {
         Route::get('/register', 'register')->name('register');
         Route::post('/register', 'storeUser')->name('register');
     });
 });
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    // ----------------------------- public-register -------------------------//
+    Route::controller(PublicRegisterController::class)->group(function () {
+        Route::get('/public-register', 'publicregister')->name('public-register');
+        Route::post('/public-register', 'storeUser')->middleware('auth')->name('public-register');
+    });
+
+  
     // -------------------------- main dashboard ----------------------//
     Route::controller(HomeController::class)->group(function () {
-        Route::get('/home', 'index')->middleware('auth')->name('home');
+        Route::get('/home', 'index')->middleware('auth')->middleware('auth')->name('home');
         Route::get('ar/dashboard', 'arDashboardIndex')->middleware('auth')->name('ar/dashboard');
         Route::get('ap/dashboard', 'apDashboardIndex')->middleware('auth')->name('ap/dashboard');
 
@@ -128,14 +141,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     });
 
     // ----------------------- subject -----------------------------//
-    Route::controller(SubjectController::class)->group(function () {
-        Route::get('subject/list/page', 'subjectList')->middleware('auth')->name('subject/list/page'); // subject/list/page
-        Route::get('subject/add/page', 'subjectAdd')->middleware('auth')->name('subject/add/page'); // subject/add/page
-        Route::post('subject/save', 'saveRecord')->name('subject/save'); // subject/save
-        Route::post('subject/update', 'updateRecord')->name('subject/update'); // subject/update
-        Route::post('subject/delete', 'deleteRecord')->name('subject/delete'); // subject/delete
-        Route::get('subject/edit/{subject_id}', 'subjectEdit'); // subject/edit/page
-    });
+    //Route::controller(SubjectController::class)->group(function () {
+    //     Route::get('subject/list/page', 'subjectList')->middleware('auth')->name('subject/list/page'); // subject/list/page
+    //   Route::get('subject/add/page', 'subjectAdd')->middleware('auth')->name('subject/add/page'); // subject/add/page
+    // Route::post('subject/save', 'saveRecord')->name('subject/save'); // subject/save
+    // Route::post('subject/update', 'updateRecord')->name('subject/update'); // subject/update
+    // Route::post('subject/delete', 'deleteRecord')->name('subject/delete'); // subject/delete
+    // Route::get('subject/edit/{subject_id}', 'subjectEdit'); // subject/edit/page
+    // });
 
     // ----------------------- invoice -----------------------------//
     Route::controller(InvoiceController::class)->group(function () {
@@ -162,7 +175,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('account/fees/add/save', 'feeSave')->name('account/fees/add/save'); // account/fees/collections/page
 
     });
-        // ----------------------- approval invoice ----------------------------//
+    // ----------------------- approval invoice ----------------------------//
     Route::controller(approvalinvoiceController::class)->group(function () {
         Route::get('account/workflow/approval/page', 'approvalView')->middleware('auth')->name('account/workflow/approval/page'); // account/fees/collections/page
         Route::post('account/workflow/approval/save', 'approvalSave')->middleware('auth')->name('account/workflow/approval/save'); // account/fees/collections/page
@@ -170,5 +183,4 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('account/approval/list/page', 'approvalList')->middleware('auth')->name('account/approval/list/page'); // subjeinvoicect/list/page
 
     });
-
 });

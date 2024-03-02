@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\fees;
-use App\Models\InvoiceDetails;
+use App\Models\PayableInvoice;
 use App\Models\FeeStatus;
+use App\Models\vendors;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,9 +26,11 @@ class AccountsController extends Controller
 
     public function showInvoices()
 {
-    $invoices = InvoiceDetails::all();
+    $invoices = PayableInvoice::all();
+    $vendors = vendors::all();
+
     $status = FeeStatus::all();
-    return view('accounts.fee-add', compact('invoices', 'status'));
+    return view('accounts.fee-add', compact('invoices', 'status','vendors'));
 }
 
     //save fee
@@ -35,7 +38,7 @@ class AccountsController extends Controller
     {
         $validator = Validator::make($request->all(), [
 
-            'invoice_id' => 'required',
+            'id' => 'required',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'gender'  => 'required',

@@ -259,24 +259,58 @@
                  </a>
              </li>
              <li class="submenu {{ 'home', 'ar/dashboard', 'ap/dashboard', 'vendor/dashboard', 'client/dashboard' }}">
+
                  <a>
                      <i class="bi bi-grid"></i>
                      <span> Dashboard</span>
                      <span class="menu-arrow"></span>
                  </a>
                  <ul>
-                     <li><a href="{{ route('home') }}" class="{{ 'home' }}">Admin Dashboard</a></li>
-                     <li><a href="{{ route('ar/dashboard') }}" class="{{ 'ar/dashboard' }}">Accounts Receivable <br>
-                             Dashboard</a></li>
-                     <li><a href="{{ route('ap/dashboard') }}" class="{{ 'ap/dashboard' }}">Accounts Payable <br>
-                             Dashboard</a></li>
-                     <li><a href="{{ route('vendor/dashboard') }}" class="{{ 'vendor/dashboard' }}">Vendor
-                             Dashboard</a></li>
-                     <li><a href="{{ route('client/dashboard') }}" class="{{ 'client/dashboard' }}">Client
-                             Dashboard</a></li>
+
+                     @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                         <li class="menu-title">
+                             <span>Admin</span>
+                         </li>
+                         <li><a href="{{ route('home') }}" class="{{ 'home' }}">Admin Dashboard</a></li>
+                     @endif
+
+                     @if (Session::get('role_name') === 'Staff: AR Clerk' || Session::get('role_name') === 'Super Admin')
+                         <li class="menu-title">
+                             <span>AR Clerk Employee User</span>
+                         </li>
+                         <li><a href="{{ route('ar/dashboard') }}" class="{{ 'ar/dashboard' }}">Accounts Receivable
+                                 <br>
+                                 Dashboard</a></li>
+                     @endif
+                     @if (Session::get('role_name') === 'Staff: AP Clerk' || Session::get('role_name') === 'Super Admin')
+                         <li class="menu-title">
+                             <span>AP Clerk Employee User</span>
+                         </li>
+                         <li><a href="{{ route('ap/dashboard') }}" class="{{ 'ap/dashboard' }}">Accounts Payable <br>
+                                 Dashboard</a></li>
+                     @endif
+
+                     @if (Session::get('role_name') === 'Vendor End-User')
+                         <li class="menu-title">
+                             <span>Vendor End-User</span>
+                         </li>
+                         <li><a href="{{ route('vendor/dashboard') }}" class="{{ 'vendor/dashboard' }}">Vendor
+                                 Dashboard</a></li>
+                     @endif
+                     @if (Session::get('role_name') === 'Client End-User')
+                         <li class="menu-title">
+                             <span>Client End-User</span>
+                         </li>
+                         <li><a href="{{ route('client/dashboard') }}" class="{{ 'client/dashboard' }}">Client
+                                 Dashboard</a></li>
+                     @endif
                  </ul>
              </li>
+
              @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>Admin</span>
+                 </li>
                  <li class="submenu {{ 'list/users' }} {{ request()->is('view/user/edit/*') ? 'active' : '' }}">
                      <a href="#">
                          <i class="bi bi-shield-check"></i>
@@ -287,145 +321,164 @@
                          <li><a href="{{ route('list/users') }}"
                                  class="{{ 'list/users' }} {{ request()->is('view/user/edit/*') ? 'active' : '' }}">List
                                  Users</a></li>
+                                 @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                         <li><a href="{{ route('register') }}"
+                                 class="{{ 'register' }} {{ request()->is('view/user/edit/*') ? 'active' : '' }}">Add User</a></li>
+                                 @endif
+                     </ul>
+                 </li>
+             @endif
+             @if (Session::get('role_name') === 'Staff: Client Manager' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>Client Manager</span>
+                 </li>
+                 <li
+                     class="submenu {{ 'client/list', 'client/grid', 'client/add/page' }} {{ request()->is('client/edit/*') ? 'active' : '' }} {{ request()->is('client/profile/*') ? 'active' : '' }}">
+                     <a href="#"><i class="bi bi-person-check"></i>
+                         <span> Client</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a href="{{ route('client/list') }}" class="{{ 'client/list', 'client/grid' }}">Client
+                                 List</a></li>
+                         <li><a href="{{ route('client/add/page') }}" class="{{ 'client/add/page' }}">Client Add</a>
+                         </li>
+                         <li><a class="{{ request()->is('client/edit/*') ? 'active' : '' }}">Client Edit</a></li>
+                         <li><a href="" class="{{ request()->is('client/profile/*') ? 'active' : '' }}">Client
+                                 View</a></li>
+                     </ul>
+                 </li>
+             @endif
+             @if (Session::get('role_name') === 'Staff: Vendor Manager' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>Vendor Manager</span>
+                 </li>
+                 <li
+                     class="submenu  {{ 'vendor/add/page', 'vendor/list/page', 'vendor/grid/page', 'vendor/edit' }} {{ request()->is('vendor/edit/*') ? 'active' : '' }}">
+                     <a href="#"><i class="bi bi-person-badge"></i>
+                         <span> Vendors</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a href="{{ route('vendor/list/page') }}"
+                                 class="{{ 'vendor/list/page', 'vendor/grid/page' }}">Vendor List</a></li>
+                         <li><a href="vendor-details.html">Vendor View</a></li>
+                         <li><a href="{{ route('vendor/add/page') }}" class="{{ 'vendor/add/page' }}">Vendor Add</a>
+                         </li>
+                         <li><a class="{{ request()->is('vendor/edit/*') ? 'active' : '' }}">Vendor Edit</a></li>
                      </ul>
                  </li>
              @endif
 
-             <li
-                 class="submenu {{ 'client/list', 'client/grid', 'client/add/page' }} {{ request()->is('client/edit/*') ? 'active' : '' }} {{ request()->is('client/profile/*') ? 'active' : '' }}">
-                 <a href="#"><i class="bi bi-person-check"></i>
-                     <span> Client</span>
-                     <span class="menu-arrow"></span>
-                 </a>
-                 <ul>
-                     <li><a href="{{ route('client/list') }}" class="{{ 'client/list', 'client/grid' }}">Client
-                             List</a></li>
-                     <li><a href="{{ route('client/add/page') }}" class="{{ 'client/add/page' }}">Client Add</a>
-                     </li>
-                     <li><a class="{{ request()->is('client/edit/*') ? 'active' : '' }}">Client Edit</a></li>
-                     <li><a href="" class="{{ request()->is('client/profile/*') ? 'active' : '' }}">Client
-                             View</a></li>
-                 </ul>
-             </li>
-
-             <li
-                 class="submenu  {{ 'vendor/add/page', 'vendor/list/page', 'vendor/grid/page', 'vendor/edit' }} {{ request()->is('vendor/edit/*') ? 'active' : '' }}">
-                 <a href="#"><i class="bi bi-person-badge"></i>
-                     <span> Vendors</span>
-                     <span class="menu-arrow"></span>
-                 </a>
-                 <ul>
-                     <li><a href="{{ route('vendor/list/page') }}"
-                             class="{{ 'vendor/list/page', 'vendor/grid/page' }}">Vendor List</a></li>
-                     <li><a href="vendor-details.html">Vendor View</a></li>
-                     <li><a href="{{ route('vendor/add/page') }}" class="{{ 'vendor/add/page' }}">Vendor Add</a>
-                     </li>
-                     <li><a class="{{ request()->is('vendor/edit/*') ? 'active' : '' }}">Vendor Edit</a></li>
-                 </ul>
-             </li>
-
-             <li
-                 class="submenu {{ 'department/add/page', 'department/edit/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">
-                 <a href="#"><i class="bi bi-building"></i>
-                     <span> Departments</span>
-                     <span class="menu-arrow"></span>
-                 </a>
-                 <ul>
-                     <li><a href="{{ route('department/list/page') }}"
-                             class="{{ 'department/list/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">Department
-                             List</a></li>
-                     <li><a href="{{ route('department/add/page') }}" class="{{ 'department/add/page' }}">Department
-                             Add</a></li>
-                     <li><a>Department Edit</a></li>
-                 </ul>
-             </li>
-
-             <!-- <li class="submenu {{ 'subject/list/page', 'subject/add/page' }} {{ request()->is('subject/edit/*') ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-book-reader"></i>
-                        <span> Subjects</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul>
-                        <li><a class="{{ 'subject/list/page' }} {{ request()->is('subject/edit/*') ? 'active' : '' }}" href="{{ route('subject/list/page') }}">Subject List</a></li>
-                        <li><a class="{{ 'subject/add/page' }}" href="{{ route('subject/add/page') }}">Subject Add</a></li>
-                        <li><a>Subject Edit</a></li>
-                    </ul>
-                </li>
-              -->
-
-             <li
-                 class="submenu {{ 'invoice/list/page',
-                     'invoice/paid/page',
-                     'invoice/overdue/page',
-                     'invoice/draft/page',
-                     'invoice/recurring/page',
-                     'invoice/cancelled/page',
-                     'invoice/grid/page',
-                     'invoice/add/page',
-                     'invoice/edit/page',
-                     'invoice/view/page',
-                     'invoice/settings/page',
-                     'invoice/settings/tax/page',
-                     'invoice/settings/bank/page' }}">
-                 <a href="#"><i class="bi bi-card-checklist"></i>
-                     <span> Accounts Receivables</span>
-                     <span class="menu-arrow"></span>
-                 </a>
-                 <ul>
-                     <li><a class="{{ 'invoice/list/page', 'invoice/paid/page', 'invoice/overdue/page', 'invoice/draft/page', 'invoice/recurring/page', 'invoice/cancelled/page' }}"
-                             href="{{ route('invoice/list/page') }}">Receivable Posting</a></li>
-                     <li><a class="{{ 'invoice/grid/page' }}" href="{{ route('invoice/grid/page') }}">AR Invoices
-                             Grid</a></li>
-                     <li><a class="{{ 'invoice/add/page' }}" href="{{ route('invoice/add/page') }}">Add AR
-                             Invoices</a></li>
-                     <li><a class="{{ 'invoice/edit/page' }}" href="{{ route('invoice/edit/page') }}">Edit AR
-                             Invoices</a></li>
-                     <li><a class="{{ 'invoice/view/page' }}" href="{{ route('invoice/view/page') }}">AR Invoices
-                             Details</a></li>
-                     <li><a class="{{ 'invoice/settings/page', 'invoice/settings/tax/page', 'invoice/settings/bank/page' }}"
-                             href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
-                     <li><a class="#" href="#">AR Credit Management</a></li>
-                     <li><a class="#" href="#">AR Bank Reconcile</a></li>
-                     <li><a class="#" href="#">AR Reports</a></li>
-                 </ul>
-             </li>
+             @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>Admin</span>
+                 </li>
+                 <li
+                     class="submenu {{ 'department/add/page', 'department/edit/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">
+                     <a href="#"><i class="bi bi-building"></i>
+                         <span> Departments</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a href="{{ route('department/list/page') }}"
+                                 class="{{ 'department/list/page' }} {{ request()->is('department/edit/*') ? 'active' : '' }}">Department
+                                 List</a></li>
+                         <li><a href="{{ route('department/add/page') }}"
+                                 class="{{ 'department/add/page' }}">Department
+                                 Add</a></li>
+                         <li><a>Department Edit</a></li>
+                     </ul>
+                 </li>
+             @endif
 
 
-             <li class="submenu {{ 'account/fees/collections/page' }}">
-                 <a href="#"><i class="bi bi-currency-exchange"></i>
-                     <span> Accounts Payables</span>
-                     <span class="menu-arrow"></span>
-                 </a>
-                 <ul>
-                     <li><a class="{{ 'account/fees/collections/page' }}"
-                             href="{{ route('account/fees/collections/page') }}">Payable Posting</a></li>
-                     <li><a class="#" href="#">AP Credit Management</a></li>
-                     <li><a class="#" href="#">AP Bank Reconcile</a></li>
-                     <li><a class="#" href="#">AP Reports</a></li>
-                     <li><a class="{{ 'account/fees/collections/page' }}"
-                             href="{{ route('account/fees/add/page', 'account/fees/save') }}">Payable Entries</a></li>
+             @if (Session::get('role_name') === 'Staff: AR Clerk' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>AR Clerk Employee User</span>
+                 </li>
+                 <li
+                     class="submenu {{ 'invoice/list/page',
+                         'invoice/paid/page',
+                         'invoice/overdue/page',
+                         'invoice/draft/page',
+                         'invoice/recurring/page',
+                         'invoice/cancelled/page',
+                         'invoice/grid/page',
+                         'invoice/add/page',
+                         'invoice/edit/page',
+                         'invoice/view/page',
+                         'invoice/settings/page',
+                         'invoice/settings/tax/page',
+                         'invoice/settings/bank/page' }}">
+                     <a href="#"><i class="bi bi-card-checklist"></i>
+                         <span> Accounts Receivables</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a class="{{ 'invoice/list/page', 'invoice/paid/page', 'invoice/overdue/page', 'invoice/draft/page', 'invoice/recurring/page', 'invoice/cancelled/page' }}"
+                                 href="{{ route('invoice/list/page') }}">Receivable Posting</a></li>
+                         <li><a class="{{ 'invoice/grid/page' }}" href="{{ route('invoice/grid/page') }}">AR
+                                 Invoices
+                                 Grid</a></li>
+                         <li><a class="{{ 'invoice/add/page' }}" href="{{ route('invoice/add/page') }}">Add AR
+                                 Invoices</a></li>
+                         <li><a class="{{ 'invoice/edit/page' }}" href="{{ route('invoice/edit/page') }}">Edit AR
+                                 Invoices</a></li>
+                         <li><a class="{{ 'invoice/view/page' }}" href="{{ route('invoice/view/page') }}">AR
+                                 Invoices
+                                 Details</a></li>
+                         <li><a class="{{ 'invoice/settings/page', 'invoice/settings/tax/page', 'invoice/settings/bank/page' }}"
+                                 href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
+                         <li><a class="#" href="#">AR Credit Management</a></li>
+                         <li><a class="#" href="#">AR Bank Reconcile</a></li>
+                         <li><a class="#" href="#">AR Reports</a></li>
+                     </ul>
+                 </li>
+             @endif
+             @if (Session::get('role_name') === 'Staff: AP Clerk' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>AP Clerk Employee User</span>
+                 </li>
+                 <li class="submenu {{ 'account/fees/collections/page' }}">
+                     <a href="#"><i class="bi bi-currency-exchange"></i>
+                         <span> Accounts Payables</span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                         <li><a class="{{ 'account/fees/collections/page' }}"
+                                 href="{{ route('account/fees/collections/page') }}">Payable Posting</a></li>
+                         <li><a class="#" href="#">AP Credit Management</a></li>
+                         <li><a class="#" href="#">AP Bank Reconcile</a></li>
+                         <li><a class="#" href="#">AP Reports</a></li>
+                         <li><a class="{{ 'account/fees/collections/page' }}"
+                                 href="{{ route('account/fees/add/page', 'account/fees/save') }}">Payable Entries</a>
+                         </li>
 
-                 </ul>
-             </li>
+                     </ul>
+                 </li>
+             @endif
 
-             <li class="menu-title">
-                 <span>Management</span>
-             </li>
-             <li>
-                 <a href="holiday.html"><i class="bi bi-calendar3-event"></i> <span>Holiday</span></a>
-             </li>
-             <li>
-                 <a href="fees.html"><i class="bi bi-upc-scan"></i> <span>Fees</span></a>
-             </li>
-             <!--<li>
+             @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+                 <li class="menu-title">
+                     <span>Admin</span>
+                 </li>
+                 <li>
+                     <a href="holiday.html"><i class="bi bi-calendar3-event"></i> <span>Holiday</span></a>
+                 </li>
+                 <li>
+                     <a href="fees.html"><i class="bi bi-upc-scan"></i> <span>Fees</span></a>
+                 </li>
+                 <!--<li>
                     <a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
                 --></li>
-             <li>
-                 <a href="event.html"><i class="bi bi-calendar-range"></i> <span>Events</span></a>
-             </li>
-             <!--<li>
+                 <li>
+                     <a href="event.html"><i class="bi bi-calendar-range"></i> <span>Events</span></a>
+                 </li>
+                 <!--<li>
                     <a href="library.html"><i class="fas fa-book"></i> <span>Library</span></a>
                 --></li>
+             @endif
          </ul>
      </div>
 

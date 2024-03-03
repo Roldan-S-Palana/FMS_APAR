@@ -21,7 +21,8 @@ class UserManagementController extends Controller
     /** index page */
     public function index()
     {
-        return view('usermanagement.list_users');
+        $users = User::all();
+        return view('usermanagement.list_users',  compact('users'));
     }
 
     /** user view */
@@ -51,7 +52,7 @@ class UserManagementController extends Controller
                 $image_name = $request->hidden_avatar;
                 $image = $request->file('avatar');
 
-                if($image_name =='photo_defaults.png') {
+                if($image_name =='photo_defaults.jpg') {
                     if ($image != '') {
                         $image_name = rand() . '.' . $image->getClientOriginalExtension();
                         $image->move(public_path('/images/'), $image_name);
@@ -118,8 +119,10 @@ class UserManagementController extends Controller
         } catch(\Exception $e) {
             Log::info($e);
             DB::rollback();
-            Toastr::error('User deleted fail :)','Error');
-            return redirect()->back();
+            $errorMessage = $e->getMessage();
+            return response()->json(['error' => $errorMessage], 500);
+            ///Toastr::error('User deleted fail :)','Error');
+           // return redirect()->back();
         }
     }
 
@@ -139,8 +142,8 @@ class UserManagementController extends Controller
     }
 
     /** get users data */
-    public function getUsersData(Request $request)
-    {
+    /**public function getUsersData(Request $request)
+    //**{
         $draw            = $request->get('draw');
         $start           = $request->get("start");
         $rowPerPage      = $request->get("length"); // total number of rows per page
@@ -251,5 +254,5 @@ class UserManagementController extends Controller
             "aaData"               => $data_arr
         ];
         return response()->json($response);
-    }
+    }*/
 }

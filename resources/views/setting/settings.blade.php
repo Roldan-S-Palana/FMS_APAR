@@ -88,7 +88,7 @@
                                         </h6>
                                         <h6 class="settings-size mt-1">Accepted formats: only png and ico</h6>
                                         <div class="upload-images upload-size">
-                                            <img src="{{ URL::to('assets/img/favicon.png') }}" alt="Image">
+                                            <img src="{{ URL::to('assets/img/fms_small_icon.png') }}" alt="Image">
                                             <a href="javascript:void(0);" class="btn-icon logo-hide-btn">
                                                 <i class="feather-x-circle"></i>
                                             </a>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="login-right">
         <div class="login-right-wrap">
-            <h1>Sign Up</h1>
+            <h1>Add new user</h1>
             <p class="account-subtitle">Enter details to create your account</p>
             <form action="{{ route('register') }}" method="POST">
                 @csrf
@@ -45,7 +45,7 @@
                     <input type="password" class="form-control pass-confirm @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
                     <span class="profile-views feather-eye reg-toggle-password"></span>
                 </div>
-                <div class=" dont-have">Already Registered? <a href="{{ route('login') }}">Login</a></div>
+                <div class=" dont-have">Go <a href="{{ route('home') }}">Back</a></div>
                 <div class="form-group mb-0">
                     <button class="btn btn-primary btn-block" type="submit">Register</button>
                 </div>

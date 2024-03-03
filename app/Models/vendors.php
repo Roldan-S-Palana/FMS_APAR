@@ -15,20 +15,20 @@ class vendors extends Model
         'company_name',
         'gender',
         'contact_no',
-        'contract_start',
-        'contract_due',
-        'payment_method',
-        'payment_term',
         'address',
         'city',
         'zip_code',
         'region',
+        'contract_start',
+        'contract_due',
+        'payment_method',
+        'payment_term',
+
         'signature',
-        'bir_2302',
-        'business_perm',
+        'bir_2302', 
         'sec_dti_reg',
+        'business_perm',
         'accred_docu',
         'other_docu',
     ];
-    
 }

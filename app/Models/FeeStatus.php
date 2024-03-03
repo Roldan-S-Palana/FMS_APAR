@@ -10,6 +10,7 @@ class FeeStatus extends Model
     use HasFactory;
 
     //protected $table = 'fgms_g7_fee_status';
+   protected $table = 'fee_status';
 
     protected $fillable =[
         'fee_status',

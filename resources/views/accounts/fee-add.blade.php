@@ -55,12 +55,17 @@
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
-                                            <label>First Name <span class="login-danger">*</span></label>
-                                            <input type="text"
-                                                class="form-control @error('first_name') is-invalid @enderror"
-                                                name="first_name" placeholder="Enter First Name"
-                                                value="{{ old('first_name') }}">
-                                            @error('first_name')
+                                            <label>Vendor Id <span class="login-danger">*</span></label>
+                                            <select class="form-control select @error('vendor_id') is-invalid @enderror"
+                                                name="vendor_id">
+                                                <option selected disabled>Select Invoice</option>
+                                                @foreach ($vendors as $vendor)
+                                                    <option value="{{ $vendor->id }}"
+                                                        {{ old('vendor_id') == $vendor->id ? 'selected' : '' }}>
+                                                        {{ $vendor->id }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('vendor_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

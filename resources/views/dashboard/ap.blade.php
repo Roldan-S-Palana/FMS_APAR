@@ -28,7 +28,7 @@
                                 <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
                             </span>
                             <div class="inovices-dash-count">
-                                <div class="inovices-amount">$8,78,797</div>
+                                <div class="inovices-amount">₱8,78,797</div>
                             </div>
                         </div>
                         <p class="inovices-all">All Invoices <span>50</span></p>
@@ -43,7 +43,7 @@
                                 <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
                             </span>
                             <div class="inovices-dash-count">
-                                <div class="inovices-amount">$4,5884</div>
+                                <div class="inovices-amount">₱4,5884</div>
                             </div>
                         </div>
                         <p class="inovices-all">Paid Invoices <span>60</span></p>
@@ -58,7 +58,7 @@
                                 <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
                             </span>
                             <div class="inovices-dash-count">
-                                <div class="inovices-amount">$2,05,545</div>
+                                <div class="inovices-amount">₱2,05,545</div>
                             </div>
                         </div>
                         <p class="inovices-all">Unpaid Invoices <span>70</span></p>
@@ -73,7 +73,7 @@
                                 <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
                             </span>
                             <div class="inovices-dash-count">
-                                <div class="inovices-amount">$8,8,797</div>
+                                <div class="inovices-amount">₱8,8,797</div>
                             </div>
                         </div>
                         <p class="inovices-all">Cancelled Invoices <span>80</span></p>

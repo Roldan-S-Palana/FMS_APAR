@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class vendors extends Model
 {
@@ -31,4 +32,13 @@ class vendors extends Model
         'accred_docu',
         'other_docu',
     ];
+    public function setContractStartAttribute($value)
+    {
+        $this->attributes['contract_start'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
+    public function setContractDueAttribute($value)
+    {
+        $this->attributes['contract_due'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
+    
 }

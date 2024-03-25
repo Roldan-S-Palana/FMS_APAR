@@ -136,49 +136,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <!--<div class="col-12 col-sm-4">
-                                        <div class="form-group local-forms">
-                                            <label>Class <span class="login-danger">*</span></label>
-                                            <select class="form-control select @error('class') is-invalid @enderror" name="class">
-                                                <option selected disabled>Please Select Class </option>
-                                                <option value="12" {{ old('class') == '12' ? "selected" :""}}>12</option>
-                                                <option value="11" {{ old('class') == '11' ? "selected" :""}}>11</option>
-                                                <option value="10" {{ old('class') == '10' ? "selected" :""}}>10</option>
-                                            </select>
-                                            @error('class')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group local-forms">
-                                            <label>Section <span class="login-danger">*</span></label>
-                                            <select class="form-control select @error('section') is-invalid @enderror" name="section">
-                                                <option selected disabled>Please Select Section </option>
-                                                <option value="A" {{ old('section') == 'A' ? "selected" :""}}>A</option>
-                                                <option value="B" {{ old('section') == 'B' ? "selected" :""}}>B</option>
-                                                <option value="C" {{ old('section') == 'C' ? "selected" :""}}>C</option>
-                                            </select>
-                                            @error('section')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4">
-                                        <div class="form-group local-forms">
-                                            <label>Admission ID </label>
-                                            <input class="form-control @error('admission_id') is-invalid @enderror" type="text" name="admission_id" placeholder="Enter Admission ID" value="{{ old('admission_id') }}">
-                                            @error('admission_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>-->
+                                    
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Phone </label>

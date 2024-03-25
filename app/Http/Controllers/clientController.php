@@ -95,7 +95,7 @@ class clientController extends Controller
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'gender'  => 'required',
-            'date_of_birth' => 'required|string',
+            'date_of_birth' => 'required|date',
             'email' => 'required|string',
             'phone_number'  => 'required',
             'zip_code' => 'required',

@@ -54,7 +54,7 @@ class AccountsControllerTest extends TestCase
             'gender' => 'male',
             'fee_type' => 'Tuition Fee',
             'amount' => 1000,
-            'paid_date' => '2022-03-01',
+            'update_date' => '2022-03-01',
             'status' => 'paid',
         ];
 

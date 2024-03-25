@@ -398,38 +398,38 @@
                      <span>AR Clerk Employee User</span>
                  </li>
                  <li
-                     class="submenu {{ 'invoice/list/page',
-                         'invoice/paid/page',
-                         'invoice/overdue/page',
-                         'invoice/draft/page',
-                         'invoice/recurring/page',
-                         'invoice/cancelled/page',
-                         'invoice/grid/page',
-                         'invoice/add/page',
-                         'invoice/edit/page',
-                         'invoice/view/page',
-                         'invoice/settings/page',
-                         'invoice/settings/tax/page',
-                         'invoice/settings/bank/page' }}">
+                     class="submenu {{ 'armoduleinvoice/list/page',
+                         'armoduleinvoice/paid/page',
+                         'armoduleinvoice/overdue/page',
+                         'armoduleinvoice/draft/page',
+                         'armoduleinvoice/recurring/page',
+                         'armoduleinvoice/cancelled/page',
+                         'armoduleinvoice/grid/page',
+                         'armoduleinvoice/add/page',
+                         'armoduleinvoice/edit/page',
+                         'armoduleinvoice/view/page',
+                         'armoduleinvoice/settings/page',
+                         'armoduleinvoice/settings/tax/page',
+                         'armoduleinvoice/settings/bank/page' }}">
                      <a href="#"><i class="bi bi-card-checklist"></i>
                          <span> Accounts Receivables</span>
                          <span class="menu-arrow"></span>
                      </a>
                      <ul>
-                         <li><a class="{{ 'invoice/list/page', 'invoice/paid/page', 'invoice/overdue/page', 'invoice/draft/page', 'invoice/recurring/page', 'invoice/cancelled/page' }}"
-                                 href="{{ route('invoice/list/page') }}">Receivable Posting</a></li>
-                         <li><a class="{{ 'invoice/grid/page' }}" href="{{ route('invoice/grid/page') }}">AR
+                         <li><a class="{{ 'armoduleinvoice/list/page', 'armoduleinvoice/paid/page', 'armoduleinvoice/overdue/page', 'armoduleinvoice/draft/page', 'armoduleinvoice/recurring/page', 'armoduleinvoice/cancelled/page' }}"
+                                 href="{{ route('armoduleinvoice/list/page') }}">Receivable Posting</a></li>
+                         <li><a class="{{ 'armoduleinvoice/grid/page' }}" href="{{ route('armoduleinvoice/grid/page') }}">AR
                                  Invoices
                                  Grid</a></li>
-                         <li><a class="{{ 'invoice/add/page' }}" href="{{ route('invoice/add/page') }}">Add AR
+                         <li><a class="{{ 'armoduleinvoice/add/page' }}" href="{{ route('armoduleinvoice/add/page') }}">Add AR
                                  Invoices</a></li>
-                         <li><a class="{{ 'invoice/edit/page' }}" href="{{ route('invoice/edit/page') }}">Edit AR
+                         <li><a class="{{ 'armoduleinvoice/edit/page' }}" href="{{ route('armoduleinvoice/edit/page') }}">Edit AR
                                  Invoices</a></li>
-                         <li><a class="{{ 'invoice/view/page' }}" href="{{ route('invoice/view/page') }}">AR
+                         <li><a class="{{ 'armoduleinvoice/view/page' }}" href="{{ route('armoduleinvoice/view/page') }}">AR
                                  Invoices
                                  Details</a></li>
-                         <li><a class="{{ 'invoice/settings/page', 'invoice/settings/tax/page', 'invoice/settings/bank/page' }}"
-                                 href="{{ route('invoice/settings/page') }}">AR Invoices Settings</a></li>
+                         <li><a class="{{ 'armoduleinvoice/settings/page', 'armoduleinvoice/settings/tax/page', 'armoduleinvoice/settings/bank/page' }}"
+                                 href="{{ route('armoduleinvoice/settings/page') }}">AR Invoices Settings</a></li>
                          <li><a class="#" href="#">AR Credit Management</a></li>
                          <li><a class="#" href="#">AR Bank Reconcile</a></li>
                          <li><a class="#" href="#">AR Reports</a></li>
@@ -440,19 +440,19 @@
                  <li class="menu-title">
                      <span>AP Clerk Employee User</span>
                  </li>
-                 <li class="submenu {{ 'account/fees/collections/page' }}">
+                 <li class="submenu {{ 'apmoduleaccounts/fees/collections/page' }}">
                      <a href="#"><i class="bi bi-currency-exchange"></i>
                          <span> Accounts Payables</span>
                          <span class="menu-arrow"></span>
                      </a>
                      <ul>
-                         <li><a class="{{ 'account/fees/collections/page' }}"
-                                 href="{{ route('account/fees/collections/page') }}">Payable Posting</a></li>
+                         <li><a class="{{ 'apmoduleaccounts/fees/collections/page' }}"
+                                 href="{{ route('apmoduleaccounts/fees/collections/page') }}">Payable Posting</a></li>
                          <li><a class="#" href="#">AP Credit Management</a></li>
                          <li><a class="#" href="#">AP Bank Reconcile</a></li>
                          <li><a class="#" href="#">AP Reports</a></li>
-                         <li><a class="{{ 'account/fees/collections/page' }}"
-                                 href="{{ route('account/fees/add/page', 'account/fees/save') }}">Payable Entries</a>
+                         <li><a class="{{ 'apmoduleaccounts/fees/collections/page' }}"
+                                 href="{{ route('apmoduleaccounts/fees/add/page', 'apmoduleaccounts/fees/save') }}">Payable Entries</a>
                          </li>
 
                      </ul>

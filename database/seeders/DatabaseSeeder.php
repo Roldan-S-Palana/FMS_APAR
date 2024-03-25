@@ -38,5 +38,7 @@ class DatabaseSeeder extends Seeder
             ['payment_method' => 'Telegraphic Transfer'],
             ['payment_method' => 'Letter of Credit'],
         ]);
+
+        
     }
 }

@@ -121,7 +121,7 @@
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details">
                                                     <span class="noti-title">International Software Inc</span> has sent you a invoice in the amount of
-                                                    <span class="noti-title">$218</span>
+                                                    <span class="noti-title">₱218</span>
                                                 </p>
                                                 <p class="noti-time">
                                                     <span class="notification-time">6 mins ago</span>

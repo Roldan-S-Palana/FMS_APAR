@@ -101,7 +101,7 @@ class UserManagementController extends Controller
         try {
             if (Session::get('role_name') === 'Super Admin' || Session::get('role_name') === 'Admin')
             {
-                if ($request->avatar == 'photo_defaults.png')
+                if ($request->avatar == 'photo_defaults.jpg')
                 {
                     User::destroy($request->user_id);
                 } else {

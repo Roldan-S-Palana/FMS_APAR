@@ -65,8 +65,8 @@ class vendorController extends Controller
             'city'          => 'required|string',
             'zip_code'      => 'required',
             'region'       => 'required|string',
-            'contract_start' => 'required',
-            'contract_due' => 'required',
+            'contract_start' => 'required|date',
+            'contract_due' => 'required|date',
             'payment_method' => 'required|string',
             'payment_term' => 'required|string',
             'signature' => 'required|file|mimes:jpeg,png,jpg,gif',
@@ -166,8 +166,8 @@ class vendorController extends Controller
     public function editRecord($id)
     {
         $editRecord = vendors::where('id',$id)->first();
-        $payment_term = DB::table('paymentterm')->get();
-        $payment_method = DB::table('paymentmethod')->get();
+        $payment_term = DB::table('payment_term')->get();
+        $payment_method = DB::table('payment_method')->get();
    
         return view('vendor.edit-vendor', compact('editRecord', 'payment_term', 'payment_method'));
     }

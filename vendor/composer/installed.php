@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '321d09545bbca1dcf9a919a4c1aae90bc51a2107',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '228a1987f60426b3985497d01b827d428f0363ad',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -373,11 +373,29 @@
                 0 => 'v10.43.0',
             ),
         ),
+        'kitloong/laravel-migrations-generator' => array(
+            'pretty_version' => 'v7.0.1',
+            'version' => '7.0.1.0',
+            'reference' => 'a21df90076f7c6c4325dded1ea7ed6d2ffb90c3d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kitloong/laravel-migrations-generator',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'laracasts/generators' => array(
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
+            'reference' => '94d454e3b5940ec4df9e33d2e6dc44e84c4f3113',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laracasts/generators',
+            'aliases' => array(),
+            'dev_requirement' => true,
         ),
         'laravel/framework' => array(
             'pretty_version' => 'v10.43.0',
@@ -389,9 +407,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '321d09545bbca1dcf9a919a4c1aae90bc51a2107',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '228a1987f60426b3985497d01b827d428f0363ad',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -775,8 +793,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

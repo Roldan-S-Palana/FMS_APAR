@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class InvoiceCustomerName extends Model
 {
     use HasFactory;
    //protected $table = 'fgms_g7_invoice_customer_names';
+   protected $table = 'ar_invoice_customer_names';
 
     protected $fillable = [
         'invoice_id',
@@ -23,7 +25,19 @@ class InvoiceCustomerName extends Model
         'invoice_from',
         'invoice_to',
     ];
-
+    
+    public function setDateInvoicedAttribute($value)
+    {
+        $this->attributes['date'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
+    public function setDueDateAttribute($value)
+    {
+        $this->attributes['due_date'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
+    public function invoiceDetails(){
+        return $this->belongsTo(InvoiceDetails::class, 'po_number', 'id');
+    }
+    
     /** auto genarate id */
     protected static function boot()
     {

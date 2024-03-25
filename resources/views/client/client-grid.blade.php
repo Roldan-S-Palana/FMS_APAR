@@ -35,7 +35,7 @@
 
                             <div class="client-pro-list">
                                 <div class="row">
-                                    @foreach ($clientList as $key=>$list )
+                                    @foreach ($clientList as $key=>₱list )
                                     <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
                                         <div class="card">
                                             <div class="card-body">

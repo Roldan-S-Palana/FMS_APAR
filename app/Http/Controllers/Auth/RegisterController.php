@@ -34,17 +34,22 @@ class RegisterController extends Controller
 
         $dt       = Carbon::now();
         $todayDate = $dt->toDayDateTimeString();
-
+        try {
         User::create([
             'name'      => $request->name,
             'avatar'    => $request->image,
             'email'     => $request->email,
-            'join_date' => $todayDate,
             'role_name' => $request->role_name,
             'password'  => Hash::make($request->password),
         ]);
         Toastr::success('Create new account successfully :)', 'Success');
-        return redirect()->route('login');
+        return redirect()->route('home');
+    } catch (\Exception $e) {
+        DB::rollback(); // <-- Potential issue: No transaction initiated, so rollback won't work
+        $errorMessage = $e->getMessage();
+        return response()->json(['error' => $errorMessage], 500);
+        // return redirect()->back();
+    }
     }
    
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+
 
 class Department extends Model
 {
@@ -19,6 +21,10 @@ class Department extends Model
         'no_of_employee',
     ];
 
+    public function setDepartmentStartDateAttribute($value)
+    {
+        $this->attributes['department_start_date'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
     protected static function boot()
     {
         parent::boot();

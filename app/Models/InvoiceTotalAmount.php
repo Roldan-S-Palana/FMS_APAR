@@ -10,6 +10,8 @@ class InvoiceTotalAmount extends Model
     use HasFactory;
 
     //protected $table = 'fgms_g7_invoice_total_amounts';
+
+    protected $table = 'ar_invoice_total_amounts';
     protected $fillable = [
         'invoice_id',
         'taxable_amount',

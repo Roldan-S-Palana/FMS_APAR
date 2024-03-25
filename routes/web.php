@@ -9,11 +9,11 @@ use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\clientController;
-use App\Http\Controllers\AccountsController;
-use App\Http\Controllers\approvalinvoiceController;
+use App\Http\Controllers\APModuleAccountsController;
+use App\Http\Controllers\APModuleapprovalinvoiceController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\Setting;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ARModuleInvoiceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PublicRegisterController;
 use Illuminate\Http\Request;
@@ -151,36 +151,36 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // });
 
     // ----------------------- invoice -----------------------------//
-    Route::controller(InvoiceController::class)->group(function () {
-        Route::get('invoice/list/page', 'invoiceList')->middleware('auth')->name('invoice/list/page'); // subjeinvoicect/list/page
-        Route::get('invoice/paid/page', 'invoicePaid')->middleware('auth')->name('invoice/paid/page'); // invoice/paid/page
-        Route::get('invoice/overdue/page', 'invoiceOverdue')->middleware('auth')->name('invoice/overdue/page'); // invoice/overdue/page
-        Route::get('invoice/draft/page', 'invoiceDraft')->middleware('auth')->name('invoice/draft/page'); // invoice/draft/page
-        Route::get('invoice/recurring/page', 'invoiceRecurring')->middleware('auth')->name('invoice/recurring/page'); // invoice/recurring/page
-        Route::get('invoice/cancelled/page', 'invoiceCancelled')->middleware('auth')->name('invoice/cancelled/page'); // invoice/cancelled/page
-        Route::get('invoice/grid/page', 'invoiceGrid')->middleware('auth')->name('invoice/grid/page'); // invoice/grid/page
-        Route::get('invoice/add/page', 'invoiceAdd')->middleware('auth')->name('invoice/add/page'); // invoice/add/page
-        Route::post('invoice/add/save', 'saveRecord')->name('invoice/add/save'); // invoice/add/save
-        Route::get('invoice/edit/page', 'invoiceEdit')->middleware('auth')->name('invoice/edit/page'); // invoice/edit/page
-        Route::get('invoice/view/page', 'invoiceView')->middleware('auth')->name('invoice/view/page'); // invoice/view/page
-        Route::get('invoice/settings/page', 'invoiceSettings')->middleware('auth')->name('invoice/settings/page'); // invoice/settings/page
-        Route::get('invoice/settings/tax/page', 'invoiceSettingsTax')->middleware('auth')->name('invoice/settings/tax/page'); // invoice/settings/tax/page
-        Route::get('invoice/settings/bank/page', 'invoiceSettingsBank')->middleware('auth')->name('invoice/settings/bank/page'); // invoice/settings/bank/page
+    Route::controller(ARModuleInvoiceController::class)->group(function () {
+        Route::get('armoduleinvoice/list/page', 'invoiceList')->middleware('auth')->name('armoduleinvoice/list/page'); // subjeinvoicect/list/page
+        Route::get('armoduleinvoice/paid/page', 'invoicePaid')->middleware('auth')->name('armoduleinvoice/paid/page'); // armoduleinvoice/paid/page
+        Route::get('armoduleinvoice/overdue/page', 'invoiceOverdue')->middleware('auth')->name('armoduleinvoice/overdue/page'); // armoduleinvoice/overdue/page
+        Route::get('armoduleinvoice/draft/page', 'invoiceDraft')->middleware('auth')->name('armoduleinvoice/draft/page'); // armoduleinvoice/draft/page
+        Route::get('armoduleinvoice/recurring/page', 'invoiceRecurring')->middleware('auth')->name('armoduleinvoice/recurring/page'); // armoduleinvoice/recurring/page
+        Route::get('armoduleinvoice/cancelled/page', 'invoiceCancelled')->middleware('auth')->name('armoduleinvoice/cancelled/page'); // armoduleinvoice/cancelled/page
+        Route::get('armoduleinvoice/grid/page', 'invoiceGrid')->middleware('auth')->name('armoduleinvoice/grid/page'); // armoduleinvoice/grid/page
+        Route::get('armoduleinvoice/add/page', 'invoiceAdd')->middleware('auth')->name('armoduleinvoice/add/page'); // armoduleinvoice/add/page
+        Route::post('armoduleinvoice/add/save', 'saveRecord')->name('armoduleinvoice/add/save'); // armoduleinvoice/add/save
+        Route::get('armoduleinvoice/edit/page', 'invoiceEdit')->middleware('auth')->name('armoduleinvoice/edit/page'); // armoduleinvoice/edit/page
+        Route::get('armoduleinvoice/view/page', 'invoiceView')->middleware('auth')->name('armoduleinvoice/view/page'); // armoduleinvoice/view/page
+        Route::get('armoduleinvoice/settings/page', 'invoiceSettings')->middleware('auth')->name('armoduleinvoice/settings/page'); // armoduleinvoice/settings/page
+        Route::get('armoduleinvoice/settings/tax/page', 'invoiceSettingsTax')->middleware('auth')->name('armoduleinvoice/settings/tax/page'); // armoduleinvoice/settings/tax/page
+        Route::get('armoduleinvoice/settings/bank/page', 'invoiceSettingsBank')->middleware('auth')->name('armoduleinvoice/settings/bank/page'); // armoduleinvoice/settings/bank/page
     });
 
     // ----------------------- accounts ----------------------------//
-    Route::controller(AccountsController::class)->group(function () {
-        Route::get('account/fees/collections/page', 'feeCollectionView')->middleware('auth')->name('account/fees/collections/page'); // account/fees/collections/page
-        Route::get('account/fees/add/page', 'showInvoices')->middleware('auth')->name('account/fees/add/page'); // account/fees/collections/page
-        Route::post('account/fees/add/save', 'feeSave')->name('account/fees/add/save'); // account/fees/collections/page
+    Route::controller(APModuleAccountsController::class)->group(function () {
+        Route::get('apmoduleaccounts/fees/collections/page', 'feeCollectionView')->middleware('auth')->name('apmoduleaccounts/fees/collections/page'); // apmoduleaccounts/fees/collections/page
+        Route::get('apmoduleaccounts/fees/add/page', 'showInvoices')->middleware('auth')->name('apmoduleaccounts/fees/add/page'); // apmoduleaccounts/fees/collections/page
+        Route::post('apmoduleaccounts/fees/add/save', 'feeSave')->name('apmoduleaccounts/fees/add/save'); // apmoduleaccounts/fees/collections/page
 
     });
     // ----------------------- approval invoice ----------------------------//
-    Route::controller(approvalinvoiceController::class)->group(function () {
-        Route::get('account/workflow/approval/page', 'approvalView')->middleware('auth')->name('account/workflow/approval/page'); // account/fees/collections/page
-        Route::post('account/workflow/approval/save', 'approvalSave')->middleware('auth')->name('account/workflow/approval/save'); // account/fees/collections/page
-        Route::get('account/approval/grid/page', 'approvalGrid')->middleware('auth')->name('account/approval/grid/page'); // invoice/grid/page
-        Route::get('account/approval/list/page', 'approvalList')->middleware('auth')->name('account/approval/list/page'); // subjeinvoicect/list/page
+    Route::controller(APModuleapprovalinvoiceController::class)->group(function () {
+        Route::get('apmoduleaccounts/workflow/approval/page', 'approvalView')->middleware('auth')->name('apmoduleaccounts/workflow/approval/page'); // apmoduleaccounts/fees/collections/page
+        Route::post('apmoduleaccounts/workflow/approval/save', 'approvalSave')->middleware('auth')->name('apmoduleaccounts/workflow/approval/save'); // apmoduleaccounts/fees/collections/page
+        Route::get('apmoduleaccounts/approval/grid/page', 'approvalGrid')->middleware('auth')->name('apmoduleaccounts/approval/grid/page'); // armoduleinvoice/grid/page
+        Route::get('apmoduleaccounts/approval/list/page', 'approvalList')->middleware('auth')->name('apmoduleaccounts/approval/list/page'); // subjeinvoicect/list/page
 
     });
 });

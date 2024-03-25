@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -33,6 +34,15 @@ class User extends Authenticatable
         'department',
         'password',
     ];
+    /*public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }
+    public function setJoinDateAttribute($value)
+    {
+        $this->attributes['join_date'] = Carbon::createFromFormat('d-m-Y', $value)->format('Y-m-d');
+    }*/
+    
 
     /**
      * The attributes that should be hidden for serialization.

@@ -113,12 +113,11 @@
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Payment Method <span class="login-danger">*</span></label>
-                                        <select
-                                            class="form-control select @error('payment_method') is-invalid @enderror"
-                                            name="payment_method" id="payment_method">
+                                        <select class="form-control select @error('payment_method') is-invalid @enderror"
+                                                name="payment_method" id="payment_method">
                                             <option selected disabled>Method</option>
                                             @foreach ($payment_method as $name)
-                                                <option value="{{ $editRecord->payment_method }}">
+                                                <option value="{{ $name->payment_method }}" @if ($editRecord->payment_method == $name->payment_method) selected @endif>
                                                     {{ $name->payment_method }}
                                                 </option>
                                             @endforeach
@@ -130,6 +129,7 @@
                                         @enderror
                                     </div>
                                 </div>
+                                
 
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
@@ -138,9 +138,10 @@
                                             name="payment_term" id="payment_term">
                                             <option selected disabled>Term</option>
                                             @foreach ($payment_term as $name)
-                                                <option value="{{ $editRecord->payment_term }}">
-                                                    {{ $name->payment_term }}
-                                                </option>
+                                            <option value="{{ $name->payment_term }}" @if ($editRecord->payment_term == $name->payment_term) selected @endif>
+                                                {{ $name->payment_term }}
+                                            </option>
+                                            
                                             @endforeach
                                         </select>
                                         @error('payment_term')

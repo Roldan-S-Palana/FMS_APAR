@@ -60,13 +60,13 @@ class APModuleAccountsController extends Controller
          $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
          $currentDate = Carbon::now();
 
-         $invoiceList = fees::join('ap_fees', 'ap_invoice.id', '=', 'icn.po_number')
-         ->select('ap_invoice.*', 'ap_fees.id', 'ap_fees.first_name', 'ap_fees.last_name', 'ap_fees.amount', 'ap_invoice.due_created', 'ap_invoice.date_due')
+         $invoiceList = PayableInvoice::join('ap_fees as fees', 'ap_invoice.id', '=', 'fees.invoice_id')
+         ->select('ap_invoice.*', 'fees.id', 'fees.first_name', 'fees.last_name', 'ap_invoice.purchase_order_id','fees.amount', 'ap_invoice.date_created', 'ap_invoice.date_due')
          ->get();
 
  
          return view('apmoduleaccounts.tab.overdue_ap_invoices', (compact(
-             'feesList',
+             'invoiceList',
              'aptotalAmount',
              'aptotalRowsInvoice',
              'aptotalAmountComplete',

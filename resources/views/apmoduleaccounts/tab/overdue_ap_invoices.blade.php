@@ -344,18 +344,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($ArListOverdue as $value)
+                                        @foreach ($invoiceList as $value)
                                             <tr>
                                                 <td>
 
                                                     <a href="view-invoice.html"
                                                         class="invoice-link">{{ $value->id }}</a>
                                                 </td>
-                                                <td>{{ $value->customer_name }}</td>
-                                                <td>{{ $value->po_number }}</td>
-                                                <td>{{ $value->amount }}</td>
-                                                <td>{{ $value->date }}</td>
-                                                <td> {{ $value->due_date }}</td>
+                                                <td>{{ $value->first_name }}  {{ $value->last_name }}</td>
+                                                <td>{{ $value->purchase_order_id }}</td>
+                                                <td>{{ $value->amount }}</td>                                                
+                                                 <td>{{ $value->due_created }}</td>
+                                                <td> {{ $value->date_due }}</td>
                                                 <td>
                                                     <span class="badge bg-danger-light">Overdue {{ $value->days_overdue }}
                                                         days</span>

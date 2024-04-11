@@ -552,10 +552,10 @@
                             <div class="col-lg-8 col-md-8">
                                 <div class="invoices-tabs">
                                     <ul>
-                                        <li><a class="active" href="{{ route('armoduleinvoice/list/page') }}">All
+                                        <li><a class="active" href="{{ route('apmoduleaccounts/fees/collections/page') }}">All
                                                 Invoice</a></li>
                                         <li><a href="{{ route('armoduleinvoice/paid/page') }}">Paid</a></li>
-                                        <li><a href="{{ route('armoduleinvoice/overdue/page') }}">Overdue</a></li>
+                                        <li><a href="{{ route('apmoduleaccounts/fees/overdue') }}">Overdue</a></li>
                                         <li><a href="{{ route('armoduleinvoice/draft/page') }}">Draft</a></li>
                                         <li><a href="{{ route('armoduleinvoice/recurring/page') }}">Recurring</a></li>
                                         <li><a href="{{ route('armoduleinvoice/cancelled/page') }}">Cancelled</a></li>

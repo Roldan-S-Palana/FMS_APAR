@@ -173,7 +173,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('apmoduleaccounts/fees/collections/page', 'feeCollectionView')->middleware('auth')->name('apmoduleaccounts/fees/collections/page'); // apmoduleaccounts/fees/collections/page
         Route::get('apmoduleaccounts/fees/add/page', 'showInvoices')->middleware('auth')->name('apmoduleaccounts/fees/add/page'); // apmoduleaccounts/fees/collections/page
         Route::post('apmoduleaccounts/fees/add/save', 'feeSave')->name('apmoduleaccounts/fees/add/save'); // apmoduleaccounts/fees/collections/page
-        Route::post('apmoduleaccounts/fees/overdue', 'ApInvoiceOverdue')->name('apmoduleaccounts/fees/overdue'); // apmoduleaccounts/fees/overdue/page
+        Route::get('apmoduleaccounts/fees/overdue', 'ApInvoiceOverdue')->middleware('auth')->name('apmoduleaccounts/fees/overdue'); // apmoduleaccounts/fees/overdue/page
 
     });
     // ----------------------- approval invoice ----------------------------//

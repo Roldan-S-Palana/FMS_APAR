@@ -60,22 +60,34 @@ class APModuleAccountsController extends Controller
          $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
          $currentDate = Carbon::now();
 
-         $invoiceList = PayableInvoice::join('ap_fees as fees', 'ap_invoice.id', '=', 'fees.invoice_id')
-         ->select('ap_invoice.*', 'fees.id', 'fees.first_name', 'fees.last_name', 'ap_invoice.purchase_order_id','fees.amount', 'ap_invoice.date_created', 'ap_invoice.date_due')
-         ->get();
+         $currentDate = Carbon::now();
+
+         $invoiceList = PayableInvoice::join('ap_fees as fees', function($join) {
+             $join->on('ap_invoice.id', '=', 'fees.invoice_id')
+                  ->where('fees.status', '=', 'unpaid');
+         })
+         ->select('ap_invoice.*', 'fees.id', 'fees.first_name', 'fees.last_name', 'ap_invoice.purchase_order_id', 'fees.amount', 'ap_invoice.date_created', 'ap_invoice.date_due')
+         ->get()
+         ->map(function ($value) use ($currentDate) {
+             $dueDate = Carbon::parse($value->date_due);
+             $daysOverdue = $currentDate->diffInDays($dueDate, false); // Calculate difference in days
+             $value->days_overdue = $daysOverdue > 0 ? $daysOverdue : 0; // Set to 0 if not overdue
+             return $value;
+         });
+         
+         return view('apmoduleaccounts.tab.overdue_ap_invoices', compact('invoiceList',
+         'aptotalAmount',
+         'aptotalRowsInvoice',
+         'aptotalAmountComplete',
+         'aptotalRowsInvoiceComplete',
+         'aptotalAmountUnpaid',
+         'aptotalRowsInvoiceUnpaid',
+         'aptotalAmountCancelled',
+         'aptotalRowsInvoiceCancelled'));
+         
 
  
-         return view('apmoduleaccounts.tab.overdue_ap_invoices', (compact(
-             'invoiceList',
-             'aptotalAmount',
-             'aptotalRowsInvoice',
-             'aptotalAmountComplete',
-             'aptotalRowsInvoiceComplete',
-             'aptotalAmountUnpaid',
-             'aptotalRowsInvoiceUnpaid',
-             'aptotalAmountCancelled',
-             'aptotalRowsInvoiceCancelled',
-         )));;
+        
      }
 
 

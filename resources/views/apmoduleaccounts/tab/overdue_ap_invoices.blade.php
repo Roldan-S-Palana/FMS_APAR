@@ -354,7 +354,7 @@
                                                 <td>{{ $value->first_name }}  {{ $value->last_name }}</td>
                                                 <td>{{ $value->purchase_order_id }}</td>
                                                 <td>{{ $value->amount }}</td>                                                
-                                                 <td>{{ $value->due_created }}</td>
+                                                 <td>{{ $value->date_created }}</td>
                                                 <td> {{ $value->date_due }}</td>
                                                 <td>
                                                     <span class="badge bg-danger-light">Overdue {{ $value->days_overdue }}

@@ -32,18 +32,58 @@ class HomeController extends Controller
         //All AP Invoice Sum
         $aptotalAmount = fees::sum('amount');
         $aptotalRowsInvoice = fees::count();
+        //All AP Invoice Sum complete
+        $aptotalAmountComplete = fees::where('status', 'complete')->sum('amount');
+        $aptotalRowsInvoiceComplete = fees::where('status', 'complete')->count();
+        //All AP Invoice Sum unpaid
+        $aptotalAmountUnpaid = fees::where('status', 'unpaid')->sum('amount');
+        $aptotalRowsInvoiceUnpaid = fees::where('status', 'unpaid')->count();
+        //All AP Invoice Sum cancelled
+        $aptotalAmountCancelled = fees::where('status', 'cancelled')->sum('amount');
+        $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
 
-         //All AR Invoice Sum
-         $artotalAmount = InvoiceCustomerName::sum('amount');
-         $artotalRowsInvoice = fees::count();
+
+        /*---------------------------------------------------------------------------------------------------------*/
+        //All AR Invoice Sum
+        $artotalAmount = InvoiceCustomerName::sum('amount');
+        $artotalRowsInvoice = InvoiceCustomerName::count();
+        //All AR Invoice Sum complete
+        $artotalAmountComplete = InvoiceCustomerName::where('status', 'complete')->sum('amount');
+        $artotalRowsInvoiceComplete = InvoiceCustomerName::where('status', 'complete')->count();
+        //All AR Invoice Sum unpaid
+        $artotalAmountUnpaid = InvoiceCustomerName::where('status', 'unpaid')->sum('amount');
+        $artotalRowsInvoiceUnpaid = InvoiceCustomerName::where('status', 'unpaid')->count();
+        //All AR Invoice Sum cancelled
+        $artotalAmountCancelled = InvoiceCustomerName::where('status', 'cancelled')->sum('amount');
+        $artotalRowsInvoiceCancelled = InvoiceCustomerName::where('status', 'cancelled')->count();
+
+
 
         $this->middleware('CheckRole:Admin');
         //$clientList = clients::all();
         $clientList = InvoiceDetails::join('ar_invoice_customer_names as icn', 'ar_invoice_details.id', '=', 'icn.po_number')
-            ->select( 'icn.customer_id','icn.customer_name', 'icn.po_number', 'ar_invoice_details.items','ar_invoice_details.quantity', 'ar_invoice_details.amount')
+            ->select('icn.customer_id', 'icn.customer_name', 'icn.po_number', 'ar_invoice_details.items', 'ar_invoice_details.quantity', 'ar_invoice_details.amount')
             ->get();
 
-        return view('dashboard.home', compact('clientList','aptotalAmount', 'aptotalRowsInvoice','artotalAmount','artotalRowsInvoice'));
+        return view('dashboard.home', compact(
+            'clientList',
+            'aptotalAmount',
+            'aptotalRowsInvoice',
+            'artotalAmount',
+            'artotalRowsInvoice',
+            'aptotalAmountComplete',
+            'aptotalRowsInvoiceComplete',
+            'artotalAmountComplete',
+            'artotalRowsInvoiceComplete',
+            'aptotalAmountUnpaid',
+            'aptotalRowsInvoiceUnpaid',
+            'artotalAmountUnpaid',
+            'artotalRowsInvoiceUnpaid',
+            'aptotalAmountCancelled',
+            'aptotalRowsInvoiceCancelled',
+            'artotalAmountCancelled',
+            'artotalRowsInvoiceCancelled'
+        ));
     }
 
     /** profile user */
@@ -76,19 +116,66 @@ class HomeController extends Controller
 
     public function arDashboardIndex()
     {
+        //All AR Invoice Sum
+        $artotalAmount = InvoiceCustomerName::sum('amount');
+        $artotalRowsInvoice = InvoiceCustomerName::count();
+        //All AR Invoice Sum complete
+        $artotalAmountComplete = InvoiceCustomerName::where('status', 'complete')->sum('amount');
+        $artotalRowsInvoiceComplete = InvoiceCustomerName::where('status', 'complete')->count();
+        //All AR Invoice Sum unpaid
+        $artotalAmountUnpaid = InvoiceCustomerName::where('status', 'unpaid')->sum('amount');
+        $artotalRowsInvoiceUnpaid = InvoiceCustomerName::where('status', 'unpaid')->count();
+        //All AR Invoice Sum cancelled
+        $artotalAmountCancelled = InvoiceCustomerName::where('status', 'cancelled')->sum('amount');
+        $artotalRowsInvoiceCancelled = InvoiceCustomerName::where('status', 'cancelled')->count();
 
         $this->middleware('CheckRole:Staff');
         $clientList = clients::all();
 
-        return view('dashboard.ar', compact('clientList'));
+        return view('dashboard.ar', compact(
+            'clientList',
+            'artotalAmount',
+            'artotalRowsInvoice',
+            'artotalAmountComplete',
+            'artotalRowsInvoiceComplete',
+            'artotalAmountUnpaid',
+            'artotalRowsInvoiceUnpaid',
+            'artotalAmountCancelled',
+            'artotalRowsInvoiceCancelled'
+        ));
     }
     /** ap dashboard */
 
     public function apDashboardIndex()
     {
+
+        //All AP Invoice Sum
+        $aptotalAmount = fees::sum('amount');
+        $aptotalRowsInvoice = fees::count();
+        //All AP Invoice Sum complete
+        $aptotalAmountComplete = fees::where('status', 'complete')->sum('amount');
+        $aptotalRowsInvoiceComplete = fees::where('status', 'complete')->count();
+        //All AP Invoice Sum unpaid
+        $aptotalAmountUnpaid = fees::where('status', 'unpaid')->sum('amount');
+        $aptotalRowsInvoiceUnpaid = fees::where('status', 'unpaid')->count();
+        //All AP Invoice Sum cancelled
+        $aptotalAmountCancelled = fees::where('status', 'cancelled')->sum('amount');
+        $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
+
+
         $this->middleware('CheckRole:Staff');
         $clientList = clients::all();
 
-        return view('dashboard.ap', compact('clientList'));
+        return view('dashboard.ap', compact(
+            'clientList',
+            'aptotalAmount',
+            'aptotalRowsInvoice',
+            'aptotalAmountComplete',
+            'aptotalRowsInvoiceComplete',
+            'aptotalAmountUnpaid',
+            'aptotalRowsInvoiceUnpaid',
+            'aptotalAmountCancelled',
+            'aptotalRowsInvoiceCancelled',
+        ));
     }
 }

@@ -19,7 +19,7 @@ class ARModuleInvoiceController extends Controller
     public function invoiceList()
     {
         $invoiceList = InvoiceDetails::join('ar_invoice_customer_names as icn', 'ar_invoice_details.id', '=', 'icn.po_number')
-        ->select('ar_invoice_details.*', 'icn.customer_id', 'icn.customer_name', 'icn.po_number', 'icn.due_date', 'icn.status', 'ar_invoice_details.amount')
+        ->select('ar_invoice_details.*','icn.id', 'icn.customer_id', 'icn.customer_name', 'icn.po_number', 'icn.due_date', 'icn.status', 'ar_invoice_details.amount')
         ->get();
 
     return view('armoduleinvoices.list_invoices', compact('invoiceList'));
@@ -199,4 +199,31 @@ class ARModuleInvoiceController extends Controller
     {
         return view('armoduleinvoices.settings.settings_bank');
     }
+ 
+    public function fetchInvoiceData()
+{
+    // Fetch data from each model
+    $invoiceDetails = InvoiceDetails::all();
+    $invoiceDiscount = InvoiceDiscount::all();
+    $invoiceTotalAmount = InvoiceTotalAmount::all();
+    $invoiceCustomerName = InvoiceCustomerName::all();
+    $invoicePaymentDetails = InvoicePaymentDetails::all();
+    $invoiceAdditionalCharges = InvoiceAdditionalCharges::all();
+
+    // Assemble data into an array
+    $invoiceData = [
+        'details' => $invoiceDetails,
+        'discount' => $invoiceDiscount,
+        'total_amount' => $invoiceTotalAmount,
+        'customer_name' => $invoiceCustomerName,
+        'payment_details' => $invoicePaymentDetails,
+        'additional_charges' => $invoiceAdditionalCharges,
+    ];
+
+    // Convert data to JSON
+    $jsonData = json_encode($invoiceData);
+
+    // Return JSON response
+    return response()->json($jsonData);
+}
 }

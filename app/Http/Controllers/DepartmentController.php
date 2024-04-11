@@ -25,7 +25,9 @@ class DepartmentController extends Controller
     /** department list */
     public function departmentList()
     {
-        return view('department.list-department');
+        $dept_list = Department::all();
+
+        return view('department.list-department',compact('dept_list'));
     }
 
     /** get data list */

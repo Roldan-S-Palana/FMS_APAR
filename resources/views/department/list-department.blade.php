@@ -70,10 +70,32 @@
                                     <th>Manager</th>
                                     <th>Started Year</th>
                                     <th>No of Employee</th>
-                                    <th>Submition</th>
+
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                @foreach ($dept_list as $key => $list)
+                                    <tr>
+                                       
+                                        <td class="id">{{ $list->id }}</td>
+                                        <td class="name">{{ $list->department_name }}</td>
+                                        <td> {{ $list->head_of_department }}</td>
+                                        <td>{{ $list->department_start_date }}</td>
+                                        <td>{{ $list->no_of_employee }}</td>
+                                        <td class="text-end">
+                                            <div class="actions">
+                                                <a href="{{ url('vendor/edit/'.$list->id) }}" class="btn btn-sm bg-danger-light">
+                                                    <i class="feather-edit"></i>
+                                                </a>
+                                                <a class="btn btn-sm bg-danger-light vendor_delete" data-bs-toggle="modal" data-bs-target="#vendorDelete">
+                                                    <i class="feather-trash-2 me-1"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

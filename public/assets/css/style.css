@@ -1697,6 +1697,7 @@ button.bg-danger:hover {
 
 .card {
     border: 0;
+    border: none;
     border-radius: 10px;
     box-shadow: 0 0 31px 3px rgb(44 50 63/2%);
     margin-bottom: 1.875rem
@@ -6266,50 +6267,46 @@ table.table-inbox tbody tr.checked {
 }
 
 .inovices-card {
-    border-radius: 5px
+    border-radius: 5px;
+    position: relative;
+
 }
 
-.inovices-card .card-body {
+.card-body {
     padding: 15px;
     position: relative;
 }
 
+
 .inovices-widget-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    
     align-items: center;
     justify-content: space-between;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: space-between
 }
 
 .inovices-widget-icon img {
-    width: 50px
+    width: 50px;
 }
 
 .inovices-widget-header .inovices-amount {
     font-weight: 600;
     font-size: 24px;
-    color: #3d5ee1
+    color: #3d5ee1;
 }
 
 .inovices-all {
     font-weight: 600;
     color: #1b2559;
     margin-top: 16px;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .inovices-all span {
     font-size: 10px;
-    margin-left: 15px
+    margin-left: 15px;
 }
-.flip-card-front, .flip-card-back {
-    position: absolute;
-}
+
 
 .invoices-grid-card {
     background: #fff;

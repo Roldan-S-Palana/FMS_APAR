@@ -12,9 +12,11 @@ class Department extends Model
     use HasFactory;
 
     //protected $table = 'fgms_g7_departments';
+    protected $table = 'departments';
+
 
     protected $fillable = [
-        'department_id',
+        
         'department_name',
         'head_of_department',
         'department_start_date',

@@ -11,11 +11,11 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="invoices.html">Invoice</a></li>
-                            <li class="breadcrumb-item active">Invoices Overdue</li>
+                            <li class="breadcrumb-item active">Invoices Draft</li>
                         </ul>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('armoduleinvoice/overdue/page') }}" class="invoices-links active">
+                        <a href="{{ route('armoduleinvoice/draft/page') }}" class="invoices-links active">
                             <i class="fa fa-list" aria-hidden="true"></i>
                         </a>
                         <a href="{{ route('armoduleinvoice/grid/page') }}" class="invoices-links">
@@ -138,11 +138,11 @@
                                                         <span class="checkmark"></span> Paid
                                                     </label>
                                                     <label class="custom_check w-100">
-                                                        <input type="checkbox" name="name" checked>
+                                                        <input type="checkbox" name="name">
                                                         <span class="checkmark"></span> Overdue
                                                     </label>
                                                     <label class="custom_check w-100">
-                                                        <input type="checkbox" name="name">
+                                                        <input type="checkbox" name="name" checked>
                                                         <span class="checkmark"></span> Draft
                                                     </label>
                                                     <label class="custom_check w-100">
@@ -233,9 +233,8 @@
                                     <ul>
                                         <li><a href="{{ route('armoduleinvoice/list/page') }}">All Invoice</a></li>
                                         <li><a href="{{ route('armoduleinvoice/paid/page') }}">Paid</a></li>
-                                        <li><a class="active"
-                                                href="{{ route('armoduleinvoice/overdue/page') }}">Overdue</a></li>
-                                        <li><a href="{{ route('armoduleinvoice/draft/page') }}">Draft</a></li>
+                                        <li><a href="{{ route('armoduleinvoice/overdue/page') }}">Overdue</a></li>
+                                        <li><a class="active" href="{{ route('armoduleinvoice/draft/page') }}">Draft</a></li>
                                         <li><a href="{{ route('armoduleinvoice/recurring/page') }}">Recurring</a></li>
                                         <li><a href="{{ route('armoduleinvoice/cancelled/page') }}">Cancelled</a></li>
                                     </ul>
@@ -265,10 +264,10 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmount }}</div>
+                                    <div class="inovices-amount">₱8,78,797</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All AR Invoices <span>{{ $artotalRowsInvoice }}</span></p>
+                            <p class="inovices-all">All Invoices <span>50</span></p>
                         </div>
                     </div>
                 </div>
@@ -280,12 +279,10 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountComplete }}</div>
+                                    <div class="inovices-amount">₱4,5884</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All AR Paid Invoices
-                                <span>{{ $artotalRowsInvoiceComplete }}</span>
-                            </p>
+                            <p class="inovices-all">Paid Invoices <span>60</span></p>
                         </div>
                     </div>
                 </div>
@@ -297,12 +294,10 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountUnpaid }}</div>
+                                    <div class="inovices-amount">₱2,05,545</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All AR Unpaid Invoices
-                                <span>{{ $artotalRowsInvoiceUnpaid }}</span>
-                            </p>
+                            <p class="inovices-all">Unpaid Invoices <span>70</span></p>
                         </div>
                     </div>
                 </div>
@@ -314,12 +309,10 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountCancelled }}</div>
+                                    <div class="inovices-amount">₱8,8,797</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All AR Cancelled Invoices
-                                <span>{{ $artotalRowsInvoiceCancelled }}</span>
-                            </p>
+                            <p class="inovices-all">Cancelled Invoices <span>80</span></p>
                         </div>
                     </div>
                 </div>
@@ -333,73 +326,58 @@
                                 <table class="table table-stripped table-hover datatable">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Invoice ID</th>
                                             <th>Invoice to</th>
-                                            <th>PO no.</th>
                                             <th>Amount</th>
                                             <th>Created on</th>
-                                            <th>Due date</th>
-                                            <th>Status</th>
                                             <th class="text-end">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($ArListOverdue as $value)
-                                            <tr>
-                                                <td>
-
-                                                    <a href="view-invoice.html"
-                                                        class="invoice-link">{{ $value->id }}</a>
-                                                </td>
-                                                <td>{{ $value->customer_name }}</td>
-                                                <td>{{ $value->po_number }}</td>
-                                                <td>{{ $value->amount }}</td>
-                                                <td>{{ $value->date }}</td>
-                                                <td> {{ $value->due_date }}</td>
-                                                <td>
-                                                    <span class="badge bg-danger-light">Overdue {{ $value->days_overdue }}
-                                                        days</span>
-                                                </td>
-                                                <td class="text-end">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item"
-                                                                href="{{ url('armoduleinvoice/edit/page' . $value->invoice_id) }}">
-                                                                <i class="far fa-edit me-2"></i>Edit
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="far fa-eye me-2"></i>View
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="fa fa-window-maximize"></i>Approval
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="fa fa-paper-plane"></i> Send Notice
-                                                            </a>
-                                                            <a class="dropdown-item" href="view-invoice.html">
-                                                                <i class="fa fa-window-restore"></i> Reconcile
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-trash-alt me-2"></i>Delete
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-check-circle me-2"></i>Mark as sent
-                                                            </a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                                <i class="far fa-paper-plane me-2"></i>Send Invoice
-                                                            </a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="far fa-copy me-2"></i>Clone Invoice
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <td>
+                                                <label class="custom_check">
+                                                    <input type="checkbox" name="invoice">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html">
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt="User Image"> StarCode Moore
+                                                    </a>
+                                                </h2>
+                                            </td>
+                                            <td class="text-primary">₱1,54,220</td>
+                                            <td>16 Mar 2022</td>
+                                            <td class="text-end">
+                                                <a href="edit-invoice.html"
+                                                    class="btn btn-sm btn-white text-success me-2">
+                                                    <i class="far fa-edit me-1"></i> Edit</a>
+                                                <a class="btn btn-sm btn-white text-danger" href="#" data-bs-toggle="modal" data-bs-target="#delete_paid">
+                                                    <i class="far fa-trash-alt me-1"></i>Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom_check">
+                                                    <input type="checkbox" name="invoice">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html">
+                                                        <img class="avatar avatar-sm me-2 avatar-img rounded-circle" src="{{ URL::to('/images/photo_defaults.png') }}" alt="User Image"> StarCode Moore</a>
+                                                </h2>
+                                            </td>
+                                            <td class="text-primary">₱1,54,220</td>
+                                            <td>16 Mar 2022</td>
+                                            <td class="text-end">
+                                                <a href="edit-invoice.html"
+                                                    class="btn btn-sm btn-white text-success me-2">
+                                                    <i class="far fa-edit me-1"></i> Edit</a>
+                                                <a class="btn btn-sm btn-white text-danger" href="#" data-bs-toggle="modal" data-bs-target="#delete_paid">
+                                                    <i class="far fa-trash-alt me-1"></i>Delete
+                                                </a>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -407,6 +385,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 
@@ -415,7 +394,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="form-header">
-                        <h3>Delete Invoice Overdue</h3>
+                        <h3>Delete Invoice Draft</h3>
                         <p>Are you sure want to delete?</p>
                     </div>
                     <div class="modal-btn delete-action">
@@ -433,4 +412,7 @@
             </div>
         </div>
     </div>
+
+@section('script')
+@endsection
 @endsection

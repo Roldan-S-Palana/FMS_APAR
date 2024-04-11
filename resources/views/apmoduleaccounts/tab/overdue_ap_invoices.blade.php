@@ -11,7 +11,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="invoices.html">Invoice</a></li>
-                            <li class="breadcrumb-item active">Invoices Overdue</li>
+                            <li class="breadcrumb-item active">AP Invoices Overdue</li>
                         </ul>
                     </div>
                     <div class="col-auto">
@@ -231,10 +231,10 @@
                             <div class="col-lg-8 col-md-8">
                                 <div class="invoices-tabs">
                                     <ul>
-                                        <li><a href="{{ route('armoduleinvoice/list/page') }}">All Invoice</a></li>
+                                        <li><a href="{{ route('apmoduleaccounts/fees/collections/page') }}">All Invoice</a></li>
                                         <li><a href="{{ route('armoduleinvoice/paid/page') }}">Paid</a></li>
                                         <li><a class="active"
-                                                href="{{ route('armoduleinvoice/overdue/page') }}">Overdue</a></li>
+                                                href="{{ route('apmoduleaccounts/fees/overdue') }}">Overdue</a></li>
                                         <li><a href="{{ route('armoduleinvoice/draft/page') }}">Draft</a></li>
                                         <li><a href="{{ route('armoduleinvoice/recurring/page') }}">Recurring</a></li>
                                         <li><a href="{{ route('armoduleinvoice/cancelled/page') }}">Cancelled</a></li>
@@ -265,10 +265,10 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmount }}</div>
+                                    <div class="inovices-amount">₱ {{ $aptotalAmount }}</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All AR Invoices <span>{{ $artotalRowsInvoice }}</span></p>
+                            <p class="inovices-all">All AR Invoices <span>{{ $aptotalRowsInvoice }}</span></p>
                         </div>
                     </div>
                 </div>
@@ -280,11 +280,11 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountComplete }}</div>
+                                    <div class="inovices-amount">₱ {{ $aptotalAmountComplete }}</div>
                                 </div>
                             </div>
                             <p class="inovices-all">All AR Paid Invoices
-                                <span>{{ $artotalRowsInvoiceComplete }}</span>
+                                <span>{{ $aptotalRowsInvoiceComplete }}</span>
                             </p>
                         </div>
                     </div>
@@ -297,11 +297,11 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountUnpaid }}</div>
+                                    <div class="inovices-amount">₱ {{ $aptotalAmountUnpaid }}</div>
                                 </div>
                             </div>
                             <p class="inovices-all">All AR Unpaid Invoices
-                                <span>{{ $artotalRowsInvoiceUnpaid }}</span>
+                                <span>{{ $aptotalRowsInvoiceUnpaid }}</span>
                             </p>
                         </div>
                     </div>
@@ -314,11 +314,11 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱ {{ $artotalAmountCancelled }}</div>
+                                    <div class="inovices-amount">₱ {{ $aptotalAmountCancelled }}</div>
                                 </div>
                             </div>
                             <p class="inovices-all">All AR Cancelled Invoices
-                                <span>{{ $artotalRowsInvoiceCancelled }}</span>
+                                <span>{{ $aptotalRowsInvoiceCancelled }}</span>
                             </p>
                         </div>
                     </div>

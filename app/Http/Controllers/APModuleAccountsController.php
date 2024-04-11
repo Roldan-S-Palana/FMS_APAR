@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\fees;
@@ -41,6 +42,41 @@ class APModuleAccountsController extends Controller
             'aptotalRowsInvoiceCancelled',
         )));;
     }
+     /** incoice overdue page*/
+     public function ApInvoiceOverdue()
+     {
+ 
+         //All AP Invoice Sum
+         $aptotalAmount = fees::sum('amount');
+         $aptotalRowsInvoice = fees::count();
+         //All AP Invoice Sum complete
+         $aptotalAmountComplete = fees::where('status', 'complete')->sum('amount');
+         $aptotalRowsInvoiceComplete = fees::where('status', 'complete')->count();
+         //All AP Invoice Sum unpaid
+         $aptotalAmountUnpaid = fees::where('status', 'unpaid')->sum('amount');
+         $aptotalRowsInvoiceUnpaid = fees::where('status', 'unpaid')->count();
+         //All AP Invoice Sum cancelled
+         $aptotalAmountCancelled = fees::where('status', 'cancelled')->sum('amount');
+         $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
+         $currentDate = Carbon::now();
+
+         $invoiceList = fees::join('ap_fees', 'ap_invoice.id', '=', 'icn.po_number')
+         ->select('ap_invoice.*', 'ap_fees.id', 'ap_fees.first_name', 'ap_fees.last_name', 'ap_fees.amount', 'ap_invoice.due_created', 'ap_invoice.date_due')
+         ->get();
+
+ 
+         return view('apmoduleaccounts.tab.overdue_ap_invoices', (compact(
+             'feesList',
+             'aptotalAmount',
+             'aptotalRowsInvoice',
+             'aptotalAmountComplete',
+             'aptotalRowsInvoiceComplete',
+             'aptotalAmountUnpaid',
+             'aptotalRowsInvoiceUnpaid',
+             'aptotalAmountCancelled',
+             'aptotalRowsInvoiceCancelled',
+         )));;
+     }
 
 
     /** view fee add and fetch invoice id*/

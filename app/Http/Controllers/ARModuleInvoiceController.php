@@ -59,15 +59,42 @@ class ARModuleInvoiceController extends Controller
     /** incoice overdue page*/
     public function invoiceOverdue()
     {
-        $ArListCverdue = InvoiceCustomerName::where('status', 'unpaid')
+
+        //All AR Invoice Sum
+        $artotalAmount = InvoiceCustomerName::sum('amount');
+        $artotalRowsInvoice = InvoiceCustomerName::count();
+        //All AR Invoice Sum complete
+        $artotalAmountComplete = InvoiceCustomerName::where('status', 'complete')->sum('amount');
+        $artotalRowsInvoiceComplete = InvoiceCustomerName::where('status', 'complete')->count();
+        //All AR Invoice Sum unpaid
+        $artotalAmountUnpaid = InvoiceCustomerName::where('status', 'unpaid')->sum('amount');
+        $artotalRowsInvoiceUnpaid = InvoiceCustomerName::where('status', 'unpaid')->count();
+        //All AR Invoice Sum cancelled
+        $artotalAmountCancelled = InvoiceCustomerName::where('status', 'cancelled')->sum('amount');
+        $artotalRowsInvoiceCancelled = InvoiceCustomerName::where('status', 'cancelled')->count();
+
+        $currentDate = Carbon::now();
+        $ArListOverdue = InvoiceCustomerName::where('status', 'unpaid')
             ->get()
-            ->map(function ($invoice) use ($currentDate) {
-                $dueDate = Carbon::parse($invoice->due_date);
+            ->map(function ($value) use ($currentDate) {
+                $dueDate = Carbon::parse($value->due_date);
                 $daysOverdue = $currentDate->diffInDays($dueDate, false); // Calculate difference in days
-                $invoice->days_overdue = $daysOverdue > 0 ? $daysOverdue : 0; // Set to 0 if not overdue
-                return $invoice;
+                $value->days_overdue = $daysOverdue > 0 ? $daysOverdue : 0; // Set to 0 if not overdue
+                return $value;
             });
-        return view('armoduleinvoices.tab.overdue_invoices', compact('$ArListCverdue'));
+
+
+        return view('armoduleinvoices.tab.overdue_invoices', compact(
+            'ArListOverdue',
+            'artotalAmount',
+            'artotalRowsInvoice',
+            'artotalAmountComplete',
+            'artotalRowsInvoiceComplete',
+            'artotalAmountUnpaid',
+            'artotalRowsInvoiceUnpaid',
+            'artotalAmountCancelled',
+            'artotalRowsInvoiceCancelled'
+        ));
     }
 
     /** invoice draft */

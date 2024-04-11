@@ -16,22 +16,44 @@ class APModuleAccountsController extends Controller
     /** view fee list page */
     public function feeCollectionView()
     {
+        //All AP Invoice Sum
+        $aptotalAmount = fees::sum('amount');
+        $aptotalRowsInvoice = fees::count();
+        //All AP Invoice Sum complete
+        $aptotalAmountComplete = fees::where('status', 'complete')->sum('amount');
+        $aptotalRowsInvoiceComplete = fees::where('status', 'complete')->count();
+        //All AP Invoice Sum unpaid
+        $aptotalAmountUnpaid = fees::where('status', 'unpaid')->sum('amount');
+        $aptotalRowsInvoiceUnpaid = fees::where('status', 'unpaid')->count();
+        //All AP Invoice Sum cancelled
+        $aptotalAmountCancelled = fees::where('status', 'cancelled')->sum('amount');
+        $aptotalRowsInvoiceCancelled = fees::where('status', 'cancelled')->count();
         $feesList = fees::all();
-        return view('apmoduleaccounts.feescollections',(compact('feesList')));;
+        return view('apmoduleaccounts.feescollections', (compact(
+            'feesList',
+            'aptotalAmount',
+            'aptotalRowsInvoice',
+            'aptotalAmountComplete',
+            'aptotalRowsInvoiceComplete',
+            'aptotalAmountUnpaid',
+            'aptotalRowsInvoiceUnpaid',
+            'aptotalAmountCancelled',
+            'aptotalRowsInvoiceCancelled',
+        )));;
     }
-   
-  
+
+
     /** view fee add and fetch invoice id*/
-   
+
 
     public function showInvoices()
-{
-    $invoices = PayableInvoice::all();
-    $vendors = vendors::all();
+    {
+        $invoices = PayableInvoice::all();
+        $vendors = vendors::all();
 
-    $status = FeeStatus::all();
-    return view('apmoduleaccounts.fee-add', compact('invoices', 'status','vendors'));
-}
+        $status = FeeStatus::all();
+        return view('apmoduleaccounts.fee-add', compact('invoices', 'status', 'vendors'));
+    }
 
     //save fee
     public function feeSave(Request $request)
@@ -78,6 +100,4 @@ class APModuleAccountsController extends Controller
             // return redirect()->back();
         }
     }
-
-    
 }

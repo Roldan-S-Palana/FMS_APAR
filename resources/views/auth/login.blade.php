@@ -5,9 +5,11 @@
 {!! Toastr::message() !!}
 <div class="login-right">
     <div class="login-right-wrap">
-        <h1>Welcome to Dashbord</h1>
-        <p class="account-subtitle">Need an account? <a href="{{ route('public-register') }}">Sign Up</a></p>
-        <h2>Sign in</h2>
+        <h1>Welcome to Login</h1>
+        <!--<p class="account-subtitle">Need an account? <a href="{{ route('public-register') }}">Sign Up</a></p>-->
+        <!--<h2>Sign in</h2>-->
+        <br>
+        <br>
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="form-group">

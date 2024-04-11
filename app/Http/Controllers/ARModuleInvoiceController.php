@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Carbon;
 use App\Models\User;
 use App\Models\InvoiceDetails;
 use App\Models\InvoiceDiscount;
@@ -18,12 +19,36 @@ class ARModuleInvoiceController extends Controller
     /** index page */
     public function invoiceList()
     {
-        $invoiceList = InvoiceDetails::join('ar_invoice_customer_names as icn', 'ar_invoice_details.id', '=', 'icn.po_number')
-        ->select('ar_invoice_details.*','icn.id', 'icn.customer_id', 'icn.customer_name', 'icn.po_number', 'icn.due_date', 'icn.status', 'ar_invoice_details.amount')
-        ->get();
+        //All AR Invoice Sum
+        $artotalAmount = InvoiceCustomerName::sum('amount');
+        $artotalRowsInvoice = InvoiceCustomerName::count();
+        //All AR Invoice Sum complete
+        $artotalAmountComplete = InvoiceCustomerName::where('status', 'complete')->sum('amount');
+        $artotalRowsInvoiceComplete = InvoiceCustomerName::where('status', 'complete')->count();
+        //All AR Invoice Sum unpaid
+        $artotalAmountUnpaid = InvoiceCustomerName::where('status', 'unpaid')->sum('amount');
+        $artotalRowsInvoiceUnpaid = InvoiceCustomerName::where('status', 'unpaid')->count();
+        //All AR Invoice Sum cancelled
+        $artotalAmountCancelled = InvoiceCustomerName::where('status', 'cancelled')->sum('amount');
+        $artotalRowsInvoiceCancelled = InvoiceCustomerName::where('status', 'cancelled')->count();
 
-    return view('armoduleinvoices.list_invoices', compact('invoiceList'));
+        $invoiceList = InvoiceDetails::join('ar_invoice_customer_names as icn', 'ar_invoice_details.id', '=', 'icn.po_number')
+            ->select('ar_invoice_details.*', 'icn.id', 'icn.customer_id', 'icn.customer_name', 'icn.po_number', 'icn.due_date', 'icn.status', 'ar_invoice_details.amount')
+            ->get();
+
+        return view('armoduleinvoices.list_invoices', compact(
+            'invoiceList',
+            'artotalAmount',
+            'artotalRowsInvoice',
+            'artotalAmountComplete',
+            'artotalRowsInvoiceComplete',
+            'artotalAmountUnpaid',
+            'artotalRowsInvoiceUnpaid',
+            'artotalAmountCancelled',
+            'artotalRowsInvoiceCancelled'
+        ));
     }
+
 
     /** invoice paid page */
     public function invoicePaid()
@@ -34,7 +59,15 @@ class ARModuleInvoiceController extends Controller
     /** incoice overdue page*/
     public function invoiceOverdue()
     {
-        return view('armoduleinvoices.tab.overdue_invoices');
+        $ArListCverdue = InvoiceCustomerName::where('status', 'unpaid')
+            ->get()
+            ->map(function ($invoice) use ($currentDate) {
+                $dueDate = Carbon::parse($invoice->due_date);
+                $daysOverdue = $currentDate->diffInDays($dueDate, false); // Calculate difference in days
+                $invoice->days_overdue = $daysOverdue > 0 ? $daysOverdue : 0; // Set to 0 if not overdue
+                return $invoice;
+            });
+        return view('armoduleinvoices.tab.overdue_invoices', compact('$ArListCverdue'));
     }
 
     /** invoice draft */
@@ -199,31 +232,31 @@ class ARModuleInvoiceController extends Controller
     {
         return view('armoduleinvoices.settings.settings_bank');
     }
- 
+
     public function fetchInvoiceData()
-{
-    // Fetch data from each model
-    $invoiceDetails = InvoiceDetails::all();
-    $invoiceDiscount = InvoiceDiscount::all();
-    $invoiceTotalAmount = InvoiceTotalAmount::all();
-    $invoiceCustomerName = InvoiceCustomerName::all();
-    $invoicePaymentDetails = InvoicePaymentDetails::all();
-    $invoiceAdditionalCharges = InvoiceAdditionalCharges::all();
+    {
+        // Fetch data from each model
+        $invoiceDetails = InvoiceDetails::all();
+        $invoiceDiscount = InvoiceDiscount::all();
+        $invoiceTotalAmount = InvoiceTotalAmount::all();
+        $invoiceCustomerName = InvoiceCustomerName::all();
+        $invoicePaymentDetails = InvoicePaymentDetails::all();
+        $invoiceAdditionalCharges = InvoiceAdditionalCharges::all();
 
-    // Assemble data into an array
-    $invoiceData = [
-        'details' => $invoiceDetails,
-        'discount' => $invoiceDiscount,
-        'total_amount' => $invoiceTotalAmount,
-        'customer_name' => $invoiceCustomerName,
-        'payment_details' => $invoicePaymentDetails,
-        'additional_charges' => $invoiceAdditionalCharges,
-    ];
+        // Assemble data into an array
+        $invoiceData = [
+            'details' => $invoiceDetails,
+            'discount' => $invoiceDiscount,
+            'total_amount' => $invoiceTotalAmount,
+            'customer_name' => $invoiceCustomerName,
+            'payment_details' => $invoicePaymentDetails,
+            'additional_charges' => $invoiceAdditionalCharges,
+        ];
 
-    // Convert data to JSON
-    $jsonData = json_encode($invoiceData);
+        // Convert data to JSON
+        $jsonData = json_encode($invoiceData);
 
-    // Return JSON response
-    return response()->json($jsonData);
-}
+        // Return JSON response
+        return response()->json($jsonData);
+    }
 }

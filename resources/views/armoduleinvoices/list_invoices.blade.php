@@ -241,55 +241,82 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="invoice-info">
                                                                                     <div class="invoice-head">
-                                                                                        <h2 class="text-primary">Invoice</h2>
-                                                                                        <p>Invoice Number : In983248782</p>
+                                                                                        <h2 class="text-primary">Accounts Receivables</h2>
+                                                                                        <p>Report</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                 
-                                                                    <div class="invoice-item invoice-item-bg">
-                                                                        <div class="invoice-circle-img">
-                                                                            <img src="{{ URL::to('assets/img/invoice-circle1.png') }}" alt="" class="invoice-circle1">
-                                                                            <img src="assets/img/invoice-circle2.png" alt=""class="invoice-circle2">
-                                                                        </div>
+                                                                        
                                                                         <div class="row">
-                                                                            <div class="col-lg-4 col-md-12">
-                                                                                <div class="invoice-info">
-                                                                                    <strong class="customer-text-one">Billed to</strong>
-                                                                                    <h6 class="invoice-name">Customer Name</h6>
-                                                                                    <p class="invoice-details invoice-details-two">
-                                                                                        9087484288 <br>
-                                                                                        Address line 1, <br>
-                                                                                        Address line 2 <br>
-                                                                                        Zip code ,City - Country
-                                                                                    </p>
+                                                                            <div class="col-xl-3 col-sm-6 col-12">
+                                                                                <div class="card inovices-card">
+                                                                                    <div class="card-body">
+                                                                                        <div class="inovices-widget-header">
+                                                                                            <span class="inovices-widget-icon">
+                                                                                                <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
+                                                                                            </span>
+                                                                                            <div class="inovices-dash-count">
+                                                                                                <div class="inovices-amount">₱ {{ $artotalAmount }}</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <p class="inovices-all">All AR Invoices <span>{{ $artotalRowsInvoice }}</span></p>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-4 col-md-12">
-                                                                                <div class="invoice-info">
-                                                                                    <strong class="customer-text-one">Invoice From</strong>
-                                                                                    <h6 class="invoice-name">Company Name</h6>
-                                                                                    <p class="invoice-details invoice-details-two">
-                                                                                        9087484288 <br>
-                                                                                        Address line 1, <br>
-                                                                                        Address line 2 <br>
-                                                                                        Zip code ,City - Country
-                                                                                    </p>
+                                                                            <div class="col-xl-3 col-sm-6 col-12">
+                                                                                <div class="card inovices-card">
+                                                                                    <div class="card-body">
+                                                                                            <div class="inovices-widget-header">
+                                                                                                <span class="inovices-widget-icon">
+                                                                                                    <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
+                                                                                                </span>
+                                                                                                <div class="inovices-dash-count">
+                                                                                                    <div class="inovices-amount">₱ {{ $artotalAmountComplete }}</div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <p class="inovices-all">All AR Paid Invoices
+                                                                                                <span>{{ $artotalRowsInvoiceComplete }}</span>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-md-12">
-                                                                                <div class="invoice-info invoice-info-one border-0">
-                                                                                    <p>Issue Date : 27 Jul 2022</p>
-                                                                                    <p>Due Date : 27 Aug 2022</p>
-                                                                                    <p>Due Amount : $ 1,54,22 </p>
-                                                                                    <p>Recurring Invoice : 15 Months</p>
-                                                                                    <p class="mb-0">PO Number : 54515454</p>
+                                                                                <div class="col-xl-3 col-sm-6 col-12">
+                                                                                    <div class="card inovices-card">
+                                                                                        <div class="card-body">
+                                                                                            <div class="inovices-widget-header">
+                                                                                                <span class="inovices-widget-icon">
+                                                                                                    <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
+                                                                                                </span>
+                                                                                                <div class="inovices-dash-count">
+                                                                                                    <div class="inovices-amount">₱ {{ $artotalAmountUnpaid }}</div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <p class="inovices-all">All AR Unpaid Invoices
+                                                                                                <span>{{ $artotalRowsInvoiceUnpaid }}</span>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                                <div class="col-xl-3 col-sm-6 col-12">
+                                                                                    <div class="card inovices-card">
+                                                                                        <div class="card-body">
+                                                                                            <div class="inovices-widget-header">
+                                                                                                <span class="inovices-widget-icon">
+                                                                                                    <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
+                                                                                                </span>
+                                                                                                <div class="inovices-dash-count">
+                                                                                                    <div class="inovices-amount">₱ {{ $artotalAmountCancelled }}</div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <p class="inovices-all">All AR Cancelled Invoices
+                                                                                                <span>{{ $artotalRowsInvoiceCancelled }}</span>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                 
                                 
                                                                     <div class="invoice-item invoice-table-wrap">
@@ -299,39 +326,35 @@
                                                                                     <table class="invoice-table table table-center mb-0">
                                                                                         <thead>
                                                                                             <tr>
-                                                                                                <th>Description</th>
-                                                                                                <th>Category</th>
-                                                                                                <th>Rate/Item</th>
-                                                                                                <th>Quantity</th>
-                                                                                                <th>Discount (%)</th>
-                                                                                                <th class="text-end">Amount</th>
+                                                                                                <th>Invoice ID</th>
+                                                                                                <th>Customer Id</th>
+                                                                                                <th>Customer Name</th>
+                                                                                                <th>PO no.</th>
+                                                                                                <th>Amount</th>
+                                                                                                <th>Due date</th>
+                                                                                                <th>Status</th>
                                                                                             </tr>
                                                                                         </thead>
                                                                                         <tbody>
+                                                                                            @foreach($invoiceList as  $value)
                                                                                             <tr>
-                                                                                                <td>Dell Laptop</td>
-                                                                                                <td>Laptop</td>
-                                                                                                <td>₱1,110</td>
-                                                                                                <th>2</th>
-                                                                                                <th>2%</th>
-                                                                                                <td class="text-end">₱400</td>
+                                                                                                <td>
+                                                                                                    
+                                                                                                    {{ $value->id }}
+                                                                                                </td>
+                                                                                                <td>{{ $value->customer_id }}</td>
+                                                                                                <td>{{ $value->customer_name }}</td>
+                                                                                                <td>{{ $value->po_number }}</td>
+                                                                                                <td>
+                                                                                                    {{ $value->amount }}
+                                                                                                 </td>
+                                                                                                <td>
+                                                                                                   {{ $value->due_date }}
+                                                                                                </td>
+                                                                                                <td class="">{{ $value->status }}</td>
+                                                                                                
                                                                                             </tr>
-                                                                                            <tr>
-                                                                                                <td>HP Laptop</td>
-                                                                                                <td>Laptop</td>
-                                                                                                <td>₱1,500</td>
-                                                                                                <th>3</th>
-                                                                                                <th>6%</th>
-                                                                                                <td class="text-end">₱3,000</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Apple Ipad</td>
-                                                                                                <td>Ipad</td>
-                                                                                                <td>₱11,500</td>
-                                                                                                <th>1</th>
-                                                                                                <th>10%</th>
-                                                                                                <td class="text-end">₱11,000</td>
-                                                                                            </tr>
+                                                                                            @endforeach
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
@@ -339,7 +362,7 @@
                                                                         </div>
                                                                     </div>
                                 
-                                                                    <div class="row align-items-center justify-content-center">
+                                                                    <!--<div class="row align-items-center justify-content-center">
                                                                         <div class="col-lg-6 col-md-6">
                                                                             <div class="invoice-payment-box">
                                                                                 <h4>Payment Details</h4>
@@ -363,8 +386,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="invoice-sign-box">
+                                                                    </div>-->
+                                                                    <!--<div class="invoice-sign-box">
                                                                         <div class="row">
                                                                             <div class="col-lg-8 col-md-8">
                                                                                 <div class="invoice-terms">
@@ -383,6 +406,13 @@
                                                                                     <span class="d-block">{{ Session::get('name') }}</span>
                                                                                 </div>
                                                                             </div>
+                                                                        </div>
+                                                                    </div>-->
+                                                                    <div class="col align-self-end">
+                                                                        <div class="invoice-sign text-end align-self-end">
+                                                                            <img class="img-fluid d-inline-block align-self-end"
+                                                                                src="{{ URL::to('assets/img/signature.png') }}" alt="sign">
+                                                                            <span class="d-block">{{ Session::get('name') }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -440,58 +470,64 @@
                                     <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
                                 </span>
                                 <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱8,78,797</div>
+                                    <div class="inovices-amount">₱ {{ $artotalAmount }}</div>
                                 </div>
                             </div>
-                            <p class="inovices-all">All Invoices <span>50</span></p>
+                            <p class="inovices-all">All AR Invoices <span>{{ $artotalRowsInvoice }}</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card inovices-card">
                         <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱4,5884</div>
+                                <div class="inovices-widget-header">
+                                    <span class="inovices-widget-icon">
+                                        <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
+                                    </span>
+                                    <div class="inovices-dash-count">
+                                        <div class="inovices-amount">₱ {{ $artotalAmountComplete }}</div>
+                                    </div>
                                 </div>
+                                <p class="inovices-all">All AR Paid Invoices
+                                    <span>{{ $artotalRowsInvoiceComplete }}</span>
+                                </p>
                             </div>
-                            <p class="inovices-all">Paid Invoices <span>60</span></p>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card inovices-card">
-                        <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱2,05,545</div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card inovices-card">
+                            <div class="card-body">
+                                <div class="inovices-widget-header">
+                                    <span class="inovices-widget-icon">
+                                        <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
+                                    </span>
+                                    <div class="inovices-dash-count">
+                                        <div class="inovices-amount">₱ {{ $artotalAmountUnpaid }}</div>
+                                    </div>
                                 </div>
+                                <p class="inovices-all">All AR Unpaid Invoices
+                                    <span>{{ $artotalRowsInvoiceUnpaid }}</span>
+                                </p>
                             </div>
-                            <p class="inovices-all">Unpaid Invoices <span>70</span></p>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card inovices-card">
-                        <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱8,8,797</div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card inovices-card">
+                            <div class="card-body">
+                                <div class="inovices-widget-header">
+                                    <span class="inovices-widget-icon">
+                                        <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
+                                    </span>
+                                    <div class="inovices-dash-count">
+                                        <div class="inovices-amount">₱ {{ $artotalAmountCancelled }}</div>
+                                    </div>
                                 </div>
+                                <p class="inovices-all">All AR Cancelled Invoices
+                                    <span>{{ $artotalRowsInvoiceCancelled }}</span>
+                                </p>
                             </div>
-                            <p class="inovices-all">Cancelled Invoices <span>80</span></p>
                         </div>
                     </div>
-                </div>
             </div>
 
             <div class="row">

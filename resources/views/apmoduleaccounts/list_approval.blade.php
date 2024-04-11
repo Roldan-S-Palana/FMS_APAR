@@ -264,64 +264,90 @@
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card inovices-card">
                         <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱8,78,797</div>
+                           
+                                <!--Back Card---->
+                                <div class="flip-card-back">
+                                    <div class="inovices-widget-header">
+                                        <span class="inovices-widget-icon">
+                                            <img src="{{ URL::to('assets/img/icons/invoices-icon1.svg') }}" alt="">
+                                        </span>
+                                        <div class="inovices-dash-count">
+                                            <div class="inovices-amount">₱ {{ $artotalAmount }}</div>
+                                        </div>
+                                    </div>
+                                    <p class="inovices-all">All AR Invoices <span>{{ $artotalRowsInvoice }}</span></p>
                                 </div>
                             </div>
-                            <p class="inovices-all">All Invoices <span>50</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card inovices-card">
+                        <div class="card-body">
+                           
+                                <!--Back Card---->
+                                <div class="flip-card-back">
+                                    <div class="inovices-widget-header">
+                                        <span class="inovices-widget-icon">
+                                            <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
+                                        </span>
+                                        <div class="inovices-dash-count">
+                                            <div class="inovices-amount">₱ {{ $artotalAmountComplete }}</div>
+                                        </div>
+                                    </div>
+                                    <p class="inovices-all">All AR Paid Invoices
+                                        <span>{{ $artotalRowsInvoiceComplete }}</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card inovices-card">
                         <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon2.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱4,5884</div>
+                          
+                                <!--Back Card---->
+                                <div class="flip-card-back">
+                                    <div class="inovices-widget-header">
+                                        <span class="inovices-widget-icon">
+                                            <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
+                                        </span>
+                                        <div class="inovices-dash-count">
+                                            <div class="inovices-amount">₱ {{ $artotalAmountUnpaid }}</div>
+                                        </div>
+                                    </div>
+                                    <p class="inovices-all">All AR Unpaid Invoices
+                                        <span>{{ $artotalRowsInvoiceUnpaid }}</span>
+                                    </p>
                                 </div>
                             </div>
-                            <p class="inovices-all">Paid Invoices <span>60</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card inovices-card">
                         <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon3.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱2,05,545</div>
+                           
+                                <!--Back Card---->
+                                <div class="flip-card-back">
+                                    <div class="inovices-widget-header">
+                                        <span class="inovices-widget-icon">
+                                            <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
+                                        </span>
+                                        <div class="inovices-dash-count">
+                                            <div class="inovices-amount">₱ {{ $artotalAmountCancelled }}</div>
+                                        </div>
+                                    </div>
+                                    <p class="inovices-all">All AR Cancelled Invoices
+                                        <span>{{ $artotalRowsInvoiceCancelled }}</span>
+                                    </p>
                                 </div>
                             </div>
-                            <p class="inovices-all">Unpaid Invoices <span>70</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card inovices-card">
-                        <div class="card-body">
-                            <div class="inovices-widget-header">
-                                <span class="inovices-widget-icon">
-                                    <img src="{{ URL::to('assets/img/icons/invoices-icon4.svg') }}" alt="">
-                                </span>
-                                <div class="inovices-dash-count">
-                                    <div class="inovices-amount">₱8,8,797</div>
-                                </div>
-                            </div>
-                            <p class="inovices-all">Cancelled Invoices <span>80</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-sm-12">

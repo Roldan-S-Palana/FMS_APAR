@@ -13,6 +13,7 @@ use App\Models\InvoiceCustomerName;
 use App\Models\InvoicePaymentDetails;
 use App\Models\InvoiceAdditionalCharges;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\clients;
 
 class ARModuleInvoiceController extends Controller
 {
@@ -36,8 +37,11 @@ class ARModuleInvoiceController extends Controller
             ->select('ar_invoice_details.*', 'icn.id', 'icn.customer_id', 'icn.customer_name', 'icn.po_number', 'icn.due_date', 'icn.status', 'ar_invoice_details.amount')
             ->get();
 
+           
+
         return view('armoduleinvoices.list_invoices', compact(
             'invoiceList',
+            'cutomer_name',
             'artotalAmount',
             'artotalRowsInvoice',
             'artotalAmountComplete',
@@ -124,8 +128,11 @@ class ARModuleInvoiceController extends Controller
     /** invoice add page */
     public function invoiceAdd()
     {
+        $cutomer_name = clients::all();
+        $po_number = InvoiceDetails::all();
+
         $users = User::whereIn('role_name', ['Client'])->get();
-        return view('armoduleinvoices.invoice_add', compact('users'));
+        return view('armoduleinvoices.invoice_add', compact('cutomer_name','po_number'));
     }
 
     /** save record incoice */

@@ -36,18 +36,43 @@
                                     <div class="row">
                                         <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label>Customer Name</label>
-                                                <select class="select select2s-hidden-accessible @error('full_name') is-invalid @enderror" style="width: 100%;" tabindex="-1" aria-hidden="true" id="customer_name" name="customer_name">
                                                     <option selected disabled>-- Select Customer --</option>
-                                                    @foreach($users as $key => $names)
-                                                        <option value="{{ $names->name }}"data-teacher_id={{ $names->user_id }} {{ old('full_name') == $names->name ? "selected" :""}}>{{ $names->name }}</option>
-                                                    @endforeach
+                                                    <label>Customer Name <span class="login-danger">*</span></label>
+                                                    <select class="form-control select @error('names') is-invalid @enderror"
+                                                        name="names">
+                                                        <option selected disabled>Select Client</option>
+                                                        @foreach ($cutomer_name as $names)
+                                                            <option value=" {{ $names->first_name }} {{ $names->first_name }}"
+                                                                {{ old('first_name') == $names->first_name ? 'selected' : '' }}
+                                                                {{ old('last_name') == $names->first_name ? 'selected' : '' }}>
+                                                                {{ $names->first_name }}  {{ $names->first_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('names')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Po Number</label>
-                                                <input class="form-control" type="text" id="po_number" name="po_number" placeholder="Enter Reference Number">
-                                            </div>
+                                                <option selected disabled>-- Po Number --</option>
+                                                <label>Po Number <span class="login-danger">*</span></label>
+                                                <select class="form-control select @error('po_id') is-invalid @enderror"
+                                                    name="po_id">
+                                                    <option selected disabled>Select Invoice</option>
+                                                    @foreach ($po_number as $po_id)
+                                                        <option value="{{ $po_id->id }}"
+                                                            {{ old('po_id') == $po_id->id ? 'selected' : '' }}>
+                                                            {{ $po_id->id }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('po_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </select>                                            </div>
                                         </div>
                                         
                                         <div class="col-xl-5 col-md-6 col-sm-12 col-12">
